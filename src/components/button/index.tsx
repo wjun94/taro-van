@@ -1,6 +1,6 @@
 import { ButtonProps, Button } from '@tarojs/components';
 import { ReactElement } from 'react';
-import './index.less';
+// import './index.less';
 
 export type P = {
   children: string | ReactElement | ReactElement[];

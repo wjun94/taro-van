@@ -6,7 +6,7 @@ import './index.less';
 const Index = () => {
   return (
     <View className="wrapper">
-      <Button>测试</Button>
+      <Button type="primary">测试</Button>
     </View>
   );
 };
