@@ -1,0 +1,109 @@
+.my-button {
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.button {
+  &-nostyle {
+    padding: 0;
+    margin: 0;
+    line-height: inherit;
+    &[size='mini'] {
+      padding: 0;
+      margin: 0;
+      line-height: inherit;
+    }
+    &::after {
+      display: none;
+    }
+  }
+  &-round {
+    border-radius: 60px;
+  }
+  &-lg[size='mini'] {
+    font-size: 30px;
+  }
+  &-block[size='mini'] {
+    display: table;
+  }
+  &--default {
+    background-color: #fff;
+    &::after {
+      border-color: #d1d5db;
+    }
+    &__round {
+      border: 1px solid #d1d5db;
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &--primary {
+    background-color: #4338ca;
+    color: #fff;
+    &::after {
+      border-color: #4338ca;
+    }
+    &__plain[plain] {
+      background-color: #fff;
+      color: #4338ca;
+      border: 1px solid;
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &--danger {
+    background-color: #dc2626;
+    color: #fff;
+    &::after {
+      border-color: #dc2626;
+    }
+    &__plain[plain] {
+      background-color: #fff;
+      color: #dc2626;
+      border: 1px solid;
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &--info {
+    background-color: #3b82f6;
+    color: #fff;
+    &::after {
+      border-color: #3b82f6;
+    }
+    &__plain[plain] {
+      background-color: #fff;
+      color: #3b82f6;
+      border: 1px solid;
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &--warning {
+    background-color: #fbbf24;
+    color: #fff;
+    &::after {
+      border-color: #fbbf24;
+    }
+    &__plain[plain] {
+      background-color: #fff;
+      color: #fbbf24;
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &--white[plain] {
+    color: #fff;
+    border-color: #fff;
+    &::after {
+      display: none;
+    }
+  }
+}
