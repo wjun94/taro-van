@@ -8,9 +8,16 @@
     "typescript": true,
     "css": "less"
   },
+  "files": [
+    "dist",
+    "types",
+    "src/**/interface.ts",
+    "src/**/*.d.ts"
+  ],
+  "license": "MIT",
   "scripts": {
     "start": "cross-env APP_ROOT=dumi dumi dev",
-    "build:doc": "dumi build",
+    "build:doc": "cross-env APP_ROOT=dumi dumi build",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
