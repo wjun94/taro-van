@@ -1,22 +1,22 @@
 {
   "name": "taro-van",
-  "version": "1.0.0",
-  "private": true,
+  "version": "1.0.2",
+  "private": false,
   "description": "taro ui库",
   "templateInfo": {
     "name": "taro-hooks",
     "typescript": true,
     "css": "less"
   },
+  "keywords": [
+    "taro-van1"
+  ],
   "files": [
-    "dist",
-    "types",
-    "src/**/interface.ts",
-    "src/**/*.d.ts"
+    "dist"
   ],
   "license": "MIT",
   "scripts": {
-    "build": "rollup --config ./config/rollup.config.js",
+    "build": "rm -rf dist && rollup --config ./config/rollup.config.js",
     "start": "cross-env APP_ROOT=dumi dumi dev",
     "build:doc": "cross-env APP_ROOT=dumi dumi build",
     "build:weapp": "taro build --type weapp",
