@@ -12,3 +12,7 @@ node_modules/
 .umi
 .umi-production
 .env.local
+
+lib/
+es/
+styles/

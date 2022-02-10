@@ -27,31 +27,46 @@ export default [
   // 打包声明文件
   {
     input: 'src/index.ts',
-    output: [{ file: 'dist/index.d.ts', format: 'es' }],
+    output: [
+      {
+        file: 'dist/index.d.ts',
+        format: 'es',
+      },
+      {
+        dir: 'lib',
+        format: 'es',
+        preserveModules: true,
+      },
+      {
+        dir: 'es',
+        format: 'es',
+        preserveModules: true,
+      },
+    ],
     plugins: [dts()],
   },
   {
     input: 'src/index.ts',
     output: [
       {
-        file: 'dist/dist/index.js',
+        file: 'dist/index.js',
         format: 'cjs',
         sourcemap: true,
       },
       {
-        file: 'dist/dist/index.esm.js',
+        file: 'dist/index.esm.js',
         // 编译目标，es module
         format: 'es',
         sourcemap: true,
       },
       {
-        dir: 'dist/lib',
+        dir: 'lib',
         format: 'cjs',
         sourcemap: true,
         preserveModules: true,
       },
       {
-        dir: 'dist/es',
+        dir: 'es',
         // 编译目标，es module
         format: 'es',
         sourcemap: true,
@@ -59,7 +74,7 @@ export default [
       },
     ],
     plugins: [
-      clear({ targets: ['dist'] }), //清除dist目录
+      clear({ targets: ['dist', 'styles', 'lib', 'es'] }), //清除dist目录
       // 支持第三方模块
       resolve(),
       // 支持 commonjs 格式
@@ -84,7 +99,7 @@ export default [
         targets: [
           {
             src: resolveFile('src/styles'),
-            dest: resolveFile('dist'),
+            dest: resolveFile('.'),
           },
         ],
       }),
