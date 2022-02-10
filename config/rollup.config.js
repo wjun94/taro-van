@@ -6,6 +6,7 @@ import postcss from 'rollup-plugin-postcss-modules';
 import typescript from 'rollup-plugin-typescript2';
 import RollupCopy from 'rollup-plugin-copy';
 import dts from 'rollup-plugin-dts';
+import clear from 'rollup-plugin-clear';
 import { terser } from 'rollup-plugin-terser';
 
 const resolveFile = (path) => NodePath.resolve(__dirname, '..', path);
@@ -33,6 +34,7 @@ export default [
       },
     ],
     plugins: [
+      clear({ targets: ['dist'] }), //清除dist目录
       // 支持第三方模块
       resolve(),
       // 支持 commonjs 格式
