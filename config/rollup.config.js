@@ -8,6 +8,18 @@ import RollupCopy from 'rollup-plugin-copy';
 import dts from 'rollup-plugin-dts';
 import clear from 'rollup-plugin-clear';
 import { terser } from 'rollup-plugin-terser';
+import pkg from '../package.json';
+
+const externalPackages = [
+  ...Object.keys(pkg.dependencies || {}),
+  ...Object.keys(pkg.peerDependencies || {}),
+  'tslib',
+];
+// Creating regexes of the packages to make sure subpaths of the
+// packages are also treated as external
+const regexesOfPackages = externalPackages.map(
+  (packageName) => new RegExp(`^${packageName}(\/.*)?`),
+);
 
 const resolveFile = (path) => NodePath.resolve(__dirname, '..', path);
 
@@ -78,13 +90,6 @@ export default [
       }),
     ],
     // 第三方模块不会强行打包到输出中
-    external: [
-      'react',
-      'react-dom',
-      '@tarojs/components',
-      '@tarojs/runtime',
-      '@tarojs/taro',
-      '@tarojs/react',
-    ],
+    external: regexesOfPackages,
   },
 ];
