@@ -22,15 +22,28 @@ export default [
     input: 'src/index.ts',
     output: [
       {
-        file: 'dist/index.js',
+        file: 'dist/dist/index.js',
         format: 'cjs',
         sourcemap: true,
       },
       {
-        file: 'dist/index.esm.js',
+        file: 'dist/dist/index.esm.js',
         // 编译目标，es module
         format: 'es',
         sourcemap: true,
+      },
+      {
+        dir: 'dist/lib',
+        format: 'cjs',
+        sourcemap: true,
+        preserveModules: true,
+      },
+      {
+        dir: 'dist/es',
+        // 编译目标，es module
+        format: 'es',
+        sourcemap: true,
+        preserveModules: true,
       },
     ],
     plugins: [
