@@ -1,10 +1,10 @@
 {
   "name": "taro-van",
-  "version": "1.0.8",
+  "version": "1.0.11",
   "email": "994037715@qq.com",
   "url": "https://github.com/wjun94/taro-van",
   "private": false,
-  "main": "lib/index.js",
+  "main": "lib/src/index.js",
   "description": "taro ui库",
   "bugs": {
     "url": "https://github.com/wjun94/taro-van/issues"
