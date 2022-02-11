@@ -14,7 +14,7 @@
     "url": "https://github.com/wjun94/taro-van"
   },
   "templateInfo": {
-    "name": "taro-hooks",
+    "name": "taro-van",
     "typescript": true,
     "css": "less"
   },

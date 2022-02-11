@@ -1,10 +1,10 @@
-.my-button {
+@import '../variables/index.less';
+
+.@{tv-prefix}-button {
   &:active {
     opacity: 0.8;
   }
-}
 
-.button {
   &-nostyle {
     padding: 0;
     margin: 0;
@@ -21,8 +21,11 @@
   &-round {
     border-radius: 60px;
   }
-  &-lg[size='mini'] {
+  &-small[size='mini'] {
     font-size: 30px;
+  }
+  &-large {
+    width: 100%;
   }
   &-block[size='mini'] {
     display: table;
@@ -40,14 +43,14 @@
     }
   }
   &--primary {
-    background-color: #4338ca;
+    background-color: @color-primary;
     color: #fff;
     &::after {
-      border-color: #4338ca;
+      border-color: @color-primary;
     }
     &__plain[plain] {
       background-color: #fff;
-      color: #4338ca;
+      color: @color-primary;
       border: 1px solid;
       &::after {
         display: none;
@@ -55,14 +58,14 @@
     }
   }
   &--danger {
-    background-color: #dc2626;
+    background-color: @color-danger;
     color: #fff;
     &::after {
-      border-color: #dc2626;
+      border-color: @color-danger;
     }
     &__plain[plain] {
       background-color: #fff;
-      color: #dc2626;
+      color: @color-danger;
       border: 1px solid;
       &::after {
         display: none;
@@ -71,14 +74,14 @@
   }
 
   &--info {
-    background-color: #3b82f6;
+    background-color: @color-success;
     color: #fff;
     &::after {
-      border-color: #3b82f6;
+      border-color: @color-success;
     }
     &__plain[plain] {
       background-color: #fff;
-      color: #3b82f6;
+      color: @color-success;
       border: 1px solid;
       &::after {
         display: none;
@@ -86,24 +89,17 @@
     }
   }
   &--warning {
-    background-color: #fbbf24;
+    background-color: @color-warning;
     color: #fff;
     &::after {
-      border-color: #fbbf24;
+      border-color: @color-warning;
     }
     &__plain[plain] {
       background-color: #fff;
-      color: #fbbf24;
+      color: @color-warning;
       &::after {
         display: none;
       }
-    }
-  }
-  &--white[plain] {
-    color: #fff;
-    border-color: #fff;
-    &::after {
-      display: none;
     }
   }
 }
