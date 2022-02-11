@@ -1,4 +1,4 @@
 export default {
-  navigationBarTitleText: 'Taro-van',
+  navigationBarTitleText: 'Flex 布局',
   enableShareAppMessage: true,
 };

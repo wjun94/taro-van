@@ -1,4 +1,4 @@
 export default {
-  navigationBarTitleText: 'Taro-van',
+  navigationBarTitleText: 'Button 按钮',
   enableShareAppMessage: true,
 };
