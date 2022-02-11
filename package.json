@@ -65,7 +65,7 @@
       "prettier --write"
     ],
     "*.ts?(x)": [
-      "prettier --parser=typescript --write"
+      "prettier --write"
     ]
   },
   "bundleDependencies": false,
