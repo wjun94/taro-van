@@ -30,7 +30,8 @@
   &-block[size='mini'] {
     display: table;
   }
-  &--default {
+  &--default,
+  &--default:not([disabled]):active {
     background-color: #fff;
     &::after {
       border-color: #d1d5db;
@@ -42,7 +43,8 @@
       }
     }
   }
-  &--primary {
+  &--primary,
+  &--primary:not([disabled]):active {
     background-color: @color-primary;
     color: #fff;
     &::after {
@@ -57,7 +59,8 @@
       }
     }
   }
-  &--danger {
+  &--danger,
+  &--danger:not([disabled]):active {
     background-color: @color-danger;
     color: #fff;
     &::after {
@@ -73,7 +76,8 @@
     }
   }
 
-  &--info {
+  &--info,
+  &--info:not([disabled]):active {
     background-color: @color-success;
     color: #fff;
     &::after {
@@ -88,7 +92,8 @@
       }
     }
   }
-  &--warning {
+  &--warning,
+  &--warning:not([disabled]):active {
     background-color: @color-warning;
     color: #fff;
     &::after {
