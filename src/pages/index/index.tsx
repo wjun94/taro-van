@@ -1,16 +1,26 @@
-import { View } from '@tarojs/components';
-import Button from '../../components/button';
+import { View, Text } from '@tarojs/components';
+import { navigateTo } from '@tarojs/taro';
 
 import './index.less';
 
 const Index = () => {
+  const items = [
+    {
+      label: 'Button 按钮',
+      url: '/pages/button/index',
+    },
+    {
+      label: 'Flex 布局',
+      url: '/pages/flex/index',
+    },
+  ];
   return (
     <View className='wrapper'>
-      <Button type='primary'>主要按钮</Button>
-      <Button type='info'>信息按钮</Button>
-      <Button type='danger'>危险按钮</Button>
-      <Button type='default'>默认按钮</Button>
-      <Button type='warning'>警告按钮</Button>
+      {items.map((item) => (
+        <Text onClick={() => navigateTo({ url: item.url })} key={item.url}>
+          {item.label}
+        </Text>
+      ))}
     </View>
   );
 };

@@ -1,7 +1,6 @@
 import { ButtonProps, Button } from '@tarojs/components';
 import { ReactElement } from 'react';
 import classNames from 'classnames';
-// import './index.less';
 
 export type P = {
   children: string | ReactElement | ReactElement[];
@@ -16,7 +15,7 @@ export type P = {
   noStyle?: boolean;
 } & Omit<ButtonProps, 'type' | 'size' | 'className'>;
 
-const AtButton = ({
+const TvButton = ({
   children,
   size = 'small',
   block,
@@ -58,4 +57,4 @@ const AtButton = ({
   );
 };
 
-export default AtButton;
+export default TvButton;
