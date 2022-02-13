@@ -74,7 +74,7 @@ export default [
       },
     ],
     plugins: [
-      clear({ targets: ['dist', 'styles', 'lib', 'es'] }), //清除dist目录
+      clear({ targets: ['dist', 'lib', 'es'] }), //清除dist目录
       // 支持第三方模块
       resolve(),
       // 支持 commonjs 格式
@@ -99,7 +99,7 @@ export default [
         targets: [
           {
             src: resolveFile('src/styles'),
-            dest: resolveFile('.'),
+            dest: resolveFile('./lib'),
           },
         ],
       }),
