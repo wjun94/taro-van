@@ -1,4 +1,4 @@
 export default {
-  navigationBarTitleText: 'Button 按钮',
+  navigationBarTitleText: 'Typography 排版',
   enableShareAppMessage: true,
 };

@@ -29,8 +29,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "rollup --config ./config/rollup.config.js",
-    "start": "cross-env APP_ROOT=dumi dumi dev",
+    "build:compile": "rollup --config ./config/rollup.config.js",
     "build:doc": "cross-env APP_ROOT=dumi dumi build",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
@@ -41,6 +40,7 @@
     "build:qq": "taro build --type qq",
     "build:jd": "taro build --type jd",
     "build:quickapp": "taro build --type quickapp",
+    "dev:doc": "cross-env APP_ROOT=dumi dumi dev",
     "dev:weapp": "npm run build:weapp -- --watch",
     "dev:swan": "npm run build:swan -- --watch",
     "dev:alipay": "npm run build:alipay -- --watch",

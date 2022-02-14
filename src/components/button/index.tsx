@@ -24,6 +24,7 @@ const TvButton = ({
   type = 'default',
   className,
   noStyle,
+  onClick,
   ...props
 }: P) => {
   const prefixCls = 'tv-button';
@@ -49,7 +50,7 @@ const TvButton = ({
       {...props}
       onClick={(e) => {
         if (props.loading) return;
-        props.onClick && props.onClick(e);
+        onClick && onClick(e);
       }}
     >
       {children}
