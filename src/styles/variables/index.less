@@ -1,0 +1,63 @@
+@tv-prefix: tv;
+@hd: 2; // 基本单位
+
+/* Color */
+@color-primary: #4338ca;
+@color-success: #00c852;
+@color-danger: #dc2626;
+@color-warning: #fbbf24;
+@color-white: #eee;
+
+/* Color Palette */
+@color-black-0: #000;
+@color-black-1: #333;
+@color-black-2: #7f7f7f;
+@color-black-3: #b2b2b2;
+
+@color-grey-0: #333;
+@color-grey-1: #666;
+@color-grey-2: #999;
+@color-grey-3: #ccc;
+@color-grey-4: #e5e5e5;
+@color-grey-5: #f0f0f0;
+@color-grey-6: #f7f7f7;
+
+@color-white: #fff;
+
+/* Text Color */
+@color-text-base: #333; // 文字的基本色
+@color-text-base-inverse: #fff; // 反色
+@color-text-secondary: #36d57d; // 辅助色
+@color-text-placeholder: #c9c9c9;
+@color-text-disabled: #ccc;
+@color-text-title: #2c405a; // 文章标题
+@color-text-paragraph: #3f536e; // 文章段落
+
+/* Link */
+@color-link: #6190e8;
+@color-link-hover: #79a1eb;
+@color-link-active: #4f7de2;
+@color-link-disabled: #bfbfbf;
+
+/* 背景色 */
+@color-bg: #fff;
+@color-bg-base: #fafbfc;
+@color-bg-light: #ecf5fd;
+@color-bg-lighter: tint(@color-bg-light, 50%);
+@color-bg-grey: #f7f7f7;
+
+/* 边框颜色 */
+@color-border-base: #c5d9e8;
+@color-border-split: tint(@color-border-base, 20%); // 分割线
+@color-border-light: tint(@color-border-base, 30%);
+@color-border-lighter: tint(@color-border-base, 50%);
+@color-border-lightest: tint(@color-border-base, 80%);
+@color-border-grey: #ccc;
+
+/* Font */
+@font-size-xs: 10px * @hd; // 非常用字号，用于标签
+@font-size-sm: 12px * @hd; // 用于辅助信息
+@font-size-base: 14px * @hd; // 常用字号
+@font-size-lg: 16px * @hd; // 常规标题
+@font-size-xl: 18px * @hd; // 大标题
+@font-size-xxl: 20px * @hd; // 用于大号的数字

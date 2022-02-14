@@ -1,0 +1,77 @@
+@import '../variables/index.less';
+
+.text {
+  &--primary {
+    color: @color-primary;
+  }
+  &--default {
+    color: @color-grey-0;
+  }
+  &--text {
+    color: @color-grey-1;
+  }
+  &--link {
+    color: @color-link;
+  }
+  &--danger {
+    color: @color-danger;
+  }
+  &--white {
+    color: #fff;
+  }
+  &--copy {
+    color: @color-link;
+  }
+  &--title {
+    font-weight: bolder;
+    position: relative;
+    @apply text-lg;
+    @apply pl-md;
+    &::before {
+      content: '';
+      height: 28px;
+      width: 4px;
+      position: absolute;
+      left: 0;
+      top: 4px;
+      @apply bg-primary;
+    }
+  }
+  &-xs {
+    font-size: 24px;
+  }
+  &-sm {
+    font-size: 26px;
+  }
+  &-default {
+    font-size: 28px;
+  }
+  &-lg {
+    font-size: 30px;
+  }
+  &-xl {
+    font-size: 34px;
+  }
+  &-2xl {
+    font-size: 38px;
+  }
+  &-center {
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+  &-right {
+    text-align: right;
+    width: 100%;
+    display: block;
+  }
+  &-medium {
+    font-weight: 500;
+  }
+  &-bold {
+    font-weight: 700;
+  }
+  &-extrabold {
+    font-weight: bolder;
+  }
+}
