@@ -30,7 +30,7 @@
   "license": "MIT",
   "scripts": {
     "build:compile": "rollup --config ./config/rollup.config.js",
-    "build:doc": "cross-env APP_ROOT=dumi dumi build",
+    "build:doc": "cross-env APP_ROOT=dumi dumi build && npm run build:h5",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
