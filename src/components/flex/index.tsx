@@ -5,7 +5,6 @@ import classNames from 'classnames';
 
 export type P = {
   children?: ReactNode;
-  className?: string;
   // 对齐内容
   justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly ';
   // 对齐项目

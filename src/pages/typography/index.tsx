@@ -5,7 +5,7 @@ const Index = () => {
   return (
     <Flex direction='col'>
       <Typography.Text>taro-van(default)</Typography.Text>
-      <Typography.Text truncate type='primary'>
+      <Typography.Text ellipsis type='primary'>
         taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)
       </Typography.Text>
       <Typography.Text copyable={{ text: '复制了' }}>

@@ -1,9 +1,9 @@
 import { ButtonProps, Button } from '@tarojs/components';
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 import classNames from 'classnames';
 
 export type P = {
-  children: string | ReactElement | ReactElement[];
+  children: ReactNode;
   // primary:主题 danger:红色 info:信息按钮 default:默认 warning:警告
   type?: 'primary' | 'danger' | 'info' | 'default' | 'warning';
   // large:满格 normal:普通按钮 small:小型按钮 mini:迷你
