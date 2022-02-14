@@ -1,14 +1,3 @@
----
-title: 快速上手
-group:
-  path: /开发指南
-  title: 开发指南
-  order: 1
-nav:
-  title: 开发指南
-  order: 2
----
-
 # 快速上手
 
 ## 通过 npm 安装
@@ -33,14 +22,14 @@ pnpm add taro-van
 
 ### 方式一：手动按需引入
 
-```jsx | pure
+```jsx
 import Button from 'taro-van/lib/src/components/button';
 import 'taro-van/lib/styles/components/button.less';
 ```
 
 ### 方式二：导入所有组件样式
 
-```jsx | pure
+```jsx
 import { Button } from 'taro-van';
 import 'taro-van/lib/styles/index.less';
 ```
