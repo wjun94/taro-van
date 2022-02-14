@@ -20,9 +20,8 @@ export type P = {
   copyable?: { text: string; info?: string }; // 拷贝
   align?: 'left' | 'center' | 'right';
   weight?: 'normal' | 'medium' | 'bold' | 'extrabold';
-  className?: string;
   truncate?: boolean; // 省略号
-} & Omit<TextProps, 'className' | 'children'>;
+} & Omit<TextProps, 'children'>;
 
 const TextComp = ({
   children,

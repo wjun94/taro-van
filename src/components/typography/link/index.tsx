@@ -6,9 +6,8 @@ import { navigateTo } from '@tarojs/taro';
 
 export type P = {
   children?: ReactNode;
-  className?: string;
   href?: string;
-} & Omit<TextProps, 'className' | 'children'>;
+} & Omit<TextProps, 'children'>;
 
 const TextComp = ({ children, className, href, onClick, ...props }: P) => {
   const prefixCls = 'tv-link';

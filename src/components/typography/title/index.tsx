@@ -5,9 +5,8 @@ import classNames from 'classnames';
 
 export type P = {
   children?: ReactNode;
-  className?: string;
   level?: 1 | 2 | 3 | 4;
-} & Omit<TextProps, 'className' | 'children'>;
+} & Omit<TextProps, 'children'>;
 
 const TextComp = ({ children, className, level = 1, ...props }: P) => {
   const prefixCls = 'tv-title';

@@ -11,9 +11,8 @@ export type P = {
   plain?: boolean; // 按钮是否镂空，背景色透明
   round?: boolean; // 圆角
   block?: boolean; // 是否为块级元素
-  className?: string;
   noStyle?: boolean;
-} & Omit<ButtonProps, 'type' | 'size' | 'className'>;
+} & Omit<ButtonProps, 'type' | 'size'>;
 
 const TvButton = ({
   children,
