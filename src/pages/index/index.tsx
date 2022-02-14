@@ -13,6 +13,10 @@ const Index = () => {
       label: 'Flex 布局',
       url: '/pages/flex/index',
     },
+    {
+      label: 'Typography排版',
+      url: 'pages/typography/index',
+    },
   ];
   return (
     <View className='wrapper'>

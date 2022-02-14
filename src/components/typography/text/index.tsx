@@ -1,8 +1,8 @@
 import { Text } from '@tarojs/components';
 import type { TextProps } from '@tarojs/components/types/Text';
-import { setClipboardData } from '@tarojs/taro';
+import { setClipboardData, showToast } from '@tarojs/taro';
 import { ReactElement } from 'react';
-import './index.less';
+import classNames from 'classnames';
 
 export type P = {
   children?: string | string[] | number | ReactElement | any;
@@ -10,16 +10,16 @@ export type P = {
   type?:
     | 'primary'
     | 'default'
-    | 'text'
+    | 'secondary'
     | 'link'
     | 'danger'
+    | 'warning'
+    | 'success'
     | 'white'
-    | 'copy'
     | 'title';
-  size?: 'xs' | 'sm' | 'default' | 'lg' | 'xl' | '2xl';
+  copyable?: { text: string }; // 拷贝
   align?: 'left' | 'center' | 'right';
   weight?: 'normal' | 'medium' | 'bold' | 'extrabold';
-  copyData?: string;
   className?: string;
   truncate?: boolean; // 省略号
 } & TextProps;
@@ -27,25 +27,39 @@ export type P = {
 const TextComp = ({
   children,
   type = 'default',
-  size = 'default',
   weight = 'normal',
   align = 'left',
   truncate,
-  copyData = '',
+  copyable,
   className,
+  onClick,
   ...props
 }: P) => {
+  const prefixCls = 'tv-text';
+  const classes = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}-${truncate}`]: truncate,
+      [`${prefixCls}-${weight}`]: weight,
+      [`${prefixCls}-${align}`]: align,
+      [`${prefixCls}--${type}`]: type,
+      [`${prefixCls}--copy`]: copyable,
+    },
+    className,
+  );
   return (
     <Text
-      className={`${
-        truncate && 'truncate'
-      } text--${type} text-${size} text-${weight} text-${align} ${className}`}
+      className={classes}
       onClick={(event) => {
-        if (type === 'copy' && copyData) {
-          setClipboardData({ data: copyData });
+        if (copyable && copyable.text) {
+          setClipboardData({ data: copyable.text });
+          showToast({
+            title: '复制成功',
+            icon: 'success',
+          });
         }
-        if (props.onClick) {
-          props.onClick(event);
+        if (onClick) {
+          onClick(event);
         }
       }}
       {...props}
