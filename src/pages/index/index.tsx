@@ -19,7 +19,7 @@ const Index = () => {
     },
   ];
   return (
-    <View className='wrapper'>
+    <View className='example-index'>
       {items.map((item) => (
         <Text onClick={() => navigateTo({ url: item.url })} key={item.url}>
           {item.label}

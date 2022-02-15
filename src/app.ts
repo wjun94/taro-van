@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import './styles/index.less';
-import './app.scss';
+import './app.less';
 
 class App extends Component {
   componentDidMount() {}

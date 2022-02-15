@@ -24,14 +24,38 @@ pnpm add taro-van
 
 ### 方式一：手动按需引入
 
-```jsx
+```jsx | pure
 import Button from 'taro-van/lib/src/components/button';
 import 'taro-van/lib/styles/components/button.less';
 ```
 
 ### 方式二：导入所有组件样式
 
-```jsx
-import { Button } from 'taro-van';
+在入口文件引入`taro-van`的所有样式。
+
+```jsx | pure
 import 'taro-van/lib/styles/index.less';
+```
+
+页面中使用组件。
+
+```jsx | pure
+import { Button } from 'taro-van';
+```
+
+## 示例
+
+```jsx |pure
+import { View } from '@tarojs/components';
+import { Button } from 'taro-van';
+
+const Index = () => {
+  return (
+    <View className='wrapper'>
+      <Button type='primary'>按钮</Button>
+    </View>
+  );
+};
+
+export default Index;
 ```

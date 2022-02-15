@@ -40,7 +40,31 @@ import 'taro-van/lib/styles/components/button.less';
 
 ### 方式二：导入所有组件样式
 
+在入口文件引入`taro-van`的所有样式。
+
+```jsx | pure
+import 'taro-van/lib/styles/index.less';
+```
+
+页面中使用组件。
+
 ```jsx | pure
 import { Button } from 'taro-van';
-import 'taro-van/lib/styles/index.less';
+```
+
+## 示例
+
+```jsx |pure
+import { View } from '@tarojs/components';
+import { Button } from 'taro-van';
+
+const Index = () => {
+  return (
+    <View className='wrapper'>
+      <Button type='primary'>按钮</Button>
+    </View>
+  );
+};
+
+export default Index;
 ```
