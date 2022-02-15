@@ -21,38 +21,39 @@ const TvButton = ({
   round,
   plain,
   type = 'default',
+  loading,
   className,
   noStyle,
   onClick,
   ...props
 }: P) => {
   const prefixCls = 'tv-button';
-  const viewClasses = classNames({
-    [`${prefixCls}-view`]: true,
-    [`${prefixCls}-block`]: block,
-  });
-  const classes = classNames(
-    prefixCls,
+  const viewClasses = classNames(
     {
-      [`${prefixCls}-${size}`]: size,
-      [`${prefixCls}--${type}`]: type,
-      [`${prefixCls}--${type}__round`]: type && round,
-      [`${prefixCls}--${type}__plain`]: type && plain,
-      [`${prefixCls}-round`]: round,
-      [`${prefixCls}-nostyle`]: noStyle,
+      [`${prefixCls}-view`]: true,
+      [`${prefixCls}-block`]: block,
     },
     className,
   );
+  const classes = classNames(prefixCls, {
+    [`${prefixCls}-${size}`]: size,
+    [`${prefixCls}--${type}`]: type,
+    [`${prefixCls}--${type}__round`]: type && round,
+    [`${prefixCls}--${type}__plain`]: type && plain,
+    [`${prefixCls}-round`]: round,
+    [`${prefixCls}-nostyle`]: noStyle,
+  });
   return (
     <View className={viewClasses}>
       <Button
-        loading={props.disabled}
+        loading={loading}
         className={classes}
         plain={plain}
-        size={['large', 'normal'].includes(size) ? 'default' : 'mini'}
+        size={['large', 'normal'].includes(size) || block ? 'default' : 'mini'}
+        disabled={loading || props.disabled}
         {...props}
         onClick={(e) => {
-          if (props.loading) return;
+          if (loading || props.disabled) return;
           onClick && onClick(e);
         }}
       >

@@ -7,7 +7,11 @@
     &::after {
       border-color: @color;
     }
+    &[disabled] {
+      color: #fff;
+    }
     &__plain[plain],
+    &__plain[plain][disabled],
     &__plain[plain]:not([disabled]):active {
       background-color: #fff;
       color: @color;
@@ -26,14 +30,21 @@
 .@{tv-prefix}-button {
   &-view {
     display: inline-block;
+    line-height: 0;
   }
   &:active {
     opacity: 0.8;
   }
 
+  &[disabled] {
+    opacity: 0.7;
+    &:active {
+      opacity: 0.7;
+    }
+  }
+
   &-block {
     display: block;
-    width: auto;
     width: 100%;
   }
 
@@ -52,18 +63,30 @@
   }
   &-round {
     border-radius: 60px;
+    &::after {
+      border-radius: 62px;
+    }
+  }
+  &-mini[size='mini'] {
+    font-size: @font-size-xs;
   }
   &-small[size='mini'] {
+    font-size: @font-size-sm;
+  }
+  &-normal {
     font-size: @font-size-base;
   }
   &-large {
-    width: 100%;
+    font-size: @font-size-lg;
   }
   &-block[size='mini'] {
     display: table;
   }
 
-  /* &--default,
+  &--default[disabled] {
+    color: @color-text-base;
+  }
+  &--default,
   &--default:not([disabled]):active {
     background-color: #fff;
     &::after {
@@ -75,9 +98,7 @@
         display: none;
       }
     }
-  } */
-
-  .button-theme(default, @color-default);
+  }
 
   .button-theme(primary, @color-primary);
 

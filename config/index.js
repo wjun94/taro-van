@@ -8,7 +8,8 @@ const config = {
     828: 1.81 / 2,
   },
   sourceRoot: 'src',
-  outputRoot: 'dumi/dist/dist',
+  outputRoot:
+    process.env.NODE_ENV === 'development' ? 'dist' : 'dumi/dist/dist',
   plugins: [],
   defineConstants: {},
   copy: {
