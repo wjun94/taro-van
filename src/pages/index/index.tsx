@@ -15,7 +15,7 @@ const Index = () => {
     },
     {
       label: 'Typography排版',
-      url: 'pages/typography/index',
+      url: '/pages/typography/index',
     },
   ];
   return (

@@ -7,15 +7,15 @@ import './index.less';
 
 const Index = () => {
   return (
-    <>
+    <View className='py-20'>
       <Typography.Title className='pl-20' level={3}>
         Align
       </Typography.Title>
       {['start', 'end', 'center', 'around', 'evenly'].map((item) => (
         <Fragment key={item}>
-          <Typography.Title className='block pl-20 py-12'>
+          <Typography.Text type='secondary' className='block pl-20 my-title'>
             {item}
-          </Typography.Title>
+          </Typography.Text>
           <View className={`example-flex example-align-${item}`}>
             <Flex
               align={item as any}
@@ -29,7 +29,7 @@ const Index = () => {
           </View>
         </Fragment>
       ))}
-    </>
+    </View>
   );
 };
 

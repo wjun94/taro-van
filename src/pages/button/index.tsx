@@ -28,8 +28,7 @@ const Index = () => {
   ];
   return (
     <View className='p-20'>
-      <Button>11</Button>
-      <Typography.Text type='secondary' className='mb-12'>
+      <Typography.Text type='secondary' className='my-title'>
         普通用法
       </Typography.Text>
       <View>
@@ -40,7 +39,7 @@ const Index = () => {
         ))}
       </View>
 
-      <Typography.Text type='secondary' className='mb-12'>
+      <Typography.Text type='secondary' className='my-title'>
         朴素按钮
       </Typography.Text>
       <View>
@@ -56,7 +55,7 @@ const Index = () => {
         ))}
       </View>
 
-      <Typography.Text type='secondary' className='mb-12'>
+      <Typography.Text type='secondary' className='my-title'>
         圆形按钮
       </Typography.Text>
       <View>
@@ -72,7 +71,7 @@ const Index = () => {
         ))}
       </View>
 
-      <Typography.Text type='secondary' className='mb-12'>
+      <Typography.Text type='secondary' className='my-title'>
         禁用按钮
       </Typography.Text>
       <View>
@@ -89,7 +88,7 @@ const Index = () => {
         ))}
       </View>
 
-      <Typography.Text type='secondary' className='mb-12'>
+      <Typography.Text type='secondary' className='my-title'>
         加载状态
       </Typography.Text>
       <View>
@@ -105,7 +104,7 @@ const Index = () => {
         ))}
       </View>
 
-      <Typography.Text type='secondary' className='mb-12'>
+      <Typography.Text type='secondary' className='my-title'>
         按钮尺寸
       </Typography.Text>
       <View>
@@ -133,7 +132,7 @@ const Index = () => {
         ))}
       </View>
 
-      <Typography.Text type='secondary' className='mb-12'>
+      <Typography.Text type='secondary' className='my-title'>
         块级元素
       </Typography.Text>
       <View>

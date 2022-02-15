@@ -16,7 +16,7 @@ export type P = {
 
 const TvButton = ({
   children,
-  size = 'small',
+  size = 'normal',
   block,
   round,
   plain,

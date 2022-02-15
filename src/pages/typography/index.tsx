@@ -1,22 +1,47 @@
+import { View } from '@tarojs/components';
 import Typography from '../../components/typography';
-import Flex from '../../components/flex';
 
 const Index = () => {
   return (
-    <Flex direction='col'>
-      <Typography.Text>taro-van(default)</Typography.Text>
-      <Typography.Text ellipsis type='primary'>
-        taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)taro-van(primary)
+    <View className='p-20'>
+      <Typography.Text type='secondary' className='my-title'>
+        文本
       </Typography.Text>
-      <Typography.Text copyable={{ text: '复制了' }}>
-        taro-van(copyable)
+      <View className='lh-1'>
+        <Typography.Text>这是一个文本</Typography.Text>
+        <Typography.Text>这是一个文本</Typography.Text>
+        <Typography.Text type='danger'>这是一个文本</Typography.Text>
+        <Typography.Text type='primary'>这是一个文本</Typography.Text>
+        <Typography.Text>这是一个文本</Typography.Text>
+        <Typography.Text>这是一个文本</Typography.Text>
+      </View>
+
+      <Typography.Text type='secondary' className='my-title'>
+        文本省略
       </Typography.Text>
-      <Typography.Title>测试1</Typography.Title>
-      <Typography.Title level={2}>测试2</Typography.Title>
-      <Typography.Title level={3}>测试3</Typography.Title>
-      <Typography.Title level={4}>测试4</Typography.Title>
-      <Typography.Link>测试4</Typography.Link>
-    </Flex>
+      <View className='lh-1'>
+        <Typography.Text ellipsis>
+          这是一个文本这是一个文本这是一个文本这是一个文本这是一个文本
+        </Typography.Text>
+      </View>
+
+      <Typography.Text type='secondary' className='my-title'>
+        标题
+      </Typography.Text>
+      <View>
+        <Typography.Title>标题1</Typography.Title>
+        <Typography.Title level={2}>标题2</Typography.Title>
+        <Typography.Title level={3}>标题3</Typography.Title>
+        <Typography.Title level={4}>标题4</Typography.Title>
+      </View>
+
+      <Typography.Text type='secondary' className='my-title'>
+        链接
+      </Typography.Text>
+      <View className='lh-1'>
+        <Typography.Link>链接</Typography.Link>
+      </View>
+    </View>
   );
 };
 
