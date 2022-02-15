@@ -1,8 +1,7 @@
 ---
 title: 介绍
 group:
-  path: /开发指南
-  title: 开发指南
+  path: /
   order: 1
 nav:
   title: 介绍
