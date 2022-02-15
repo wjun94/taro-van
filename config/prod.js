@@ -13,5 +13,10 @@ module.exports = {
      *     .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin, [])
      * }
      */
+    publicPath: '/taro-van/dist/',
+    mode: 'hash',
+    /* router: {
+      basename: '/taro-van/dist/',
+    }, */
   },
 };
