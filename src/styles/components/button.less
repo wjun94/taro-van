@@ -10,6 +10,9 @@
     &[disabled] {
       color: #fff;
     }
+    &__round {
+      border-radius: 60px;
+    }
     &__plain[plain],
     &__plain[plain][disabled],
     &__plain[plain]:not([disabled]):active {
@@ -28,6 +31,7 @@
 }
 
 .@{tv-prefix}-button {
+  cursor: pointer;
   &-view {
     display: inline-block;
     line-height: 0;
@@ -62,9 +66,9 @@
     }
   }
   &-round {
-    border-radius: 60px;
+    // border-radius: 60px;
     &::after {
-      border-radius: 62px;
+      border-radius: 60px;
     }
   }
   &-mini[size='mini'] {
