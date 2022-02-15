@@ -10,7 +10,7 @@ export default {
       content: '📖 Taro-Van文档',
     },
   ],
-  publicPath: process.env.NODE_ENV === 'development' ? '/' : './',
+  publicPath: process.env.NODE_ENV === 'development' ? '/' : '/taro-van',
   resolve: {
     // includes: ['docs'],
     excludes: ['src'],
