@@ -97,6 +97,7 @@
     "babel-preset-taro": "3.3.10",
     "cross-env": "^7.0.3",
     "dumi": "^1.1.38",
+    "dumi-theme-mobile": "^1.1.21",
     "eslint": "^6.8.0",
     "eslint-config-taro": "3.3.10",
     "eslint-plugin-import": "^2.12.0",
