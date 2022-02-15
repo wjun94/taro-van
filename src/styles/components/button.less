@@ -1,8 +1,40 @@
 @import '../variables/index.less';
 
+.button-theme(@type, @color) {
+  &--@{type} {
+    background-color: @color;
+    color: #fff;
+    &::after {
+      border-color: @color;
+    }
+    &__plain[plain],
+    &__plain[plain]:not([disabled]):active {
+      background-color: #fff;
+      color: @color;
+      border: 1px solid;
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &--@{type}:not([disabled]):active {
+    background-color: @color;
+    color: #fff;
+  }
+}
+
 .@{tv-prefix}-button {
+  &-view {
+    display: inline-block;
+  }
   &:active {
     opacity: 0.8;
+  }
+
+  &-block {
+    display: block;
+    width: auto;
+    width: 100%;
   }
 
   &-nostyle {
@@ -30,7 +62,8 @@
   &-block[size='mini'] {
     display: table;
   }
-  &--default,
+
+  /* &--default,
   &--default:not([disabled]):active {
     background-color: #fff;
     &::after {
@@ -42,69 +75,15 @@
         display: none;
       }
     }
-  }
-  &--primary,
-  &--primary:not([disabled]):active {
-    background-color: @color-primary;
-    color: #fff;
-    &::after {
-      border-color: @color-primary;
-    }
-    &__plain[plain] {
-      background-color: #fff;
-      color: @color-primary;
-      border: 1px solid;
-      &::after {
-        display: none;
-      }
-    }
-  }
-  &--danger,
-  &--danger:not([disabled]):active {
-    background-color: @color-danger;
-    color: #fff;
-    &::after {
-      border-color: @color-danger;
-    }
-    &__plain[plain] {
-      background-color: #fff;
-      color: @color-danger;
-      border: 1px solid;
-      &::after {
-        display: none;
-      }
-    }
-  }
+  } */
 
-  &--info,
-  &--info:not([disabled]):active {
-    background-color: @color-success;
-    color: #fff;
-    &::after {
-      border-color: @color-success;
-    }
-    &__plain[plain] {
-      background-color: #fff;
-      color: @color-success;
-      border: 1px solid;
-      &::after {
-        display: none;
-      }
-    }
-  }
-  &--warning,
-  &--warning:not([disabled]):active {
-    background-color: @color-warning;
-    color: #fff;
-    &::after {
-      border-color: @color-warning;
-    }
-    &__plain[plain] {
-      background-color: #fff;
-      color: @color-warning;
-      &::after {
-        display: none;
-      }
-    }
-  }
+  .button-theme(default, @color-default);
+
+  .button-theme(primary, @color-primary);
+
+  .button-theme(danger, @color-danger);
+
+  .button-theme(info, @color-success);
+
+  .button-theme(warning, @color-warning);
 }

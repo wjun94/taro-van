@@ -6,7 +6,7 @@ import classNames from 'classnames';
 export type P = {
   children?: ReactNode;
   // 对齐内容
-  justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly ';
+  justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
   // 对齐项目
   align?: 'start' | 'end' | 'center' | 'around' | 'evenly';
   // Flex Direction

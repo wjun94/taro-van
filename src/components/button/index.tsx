@@ -1,4 +1,4 @@
-import { ButtonProps, Button } from '@tarojs/components';
+import { ButtonProps, Button, View } from '@tarojs/components';
 import { ReactNode } from 'react';
 import classNames from 'classnames';
 
@@ -27,33 +27,38 @@ const TvButton = ({
   ...props
 }: P) => {
   const prefixCls = 'tv-button';
+  const viewClasses = classNames({
+    [`${prefixCls}-view`]: true,
+    [`${prefixCls}-block`]: block,
+  });
   const classes = classNames(
     prefixCls,
     {
       [`${prefixCls}-${size}`]: size,
-      [`${prefixCls}-${block}`]: block,
-      [`${prefixCls}-${round}`]: round,
       [`${prefixCls}--${type}`]: type,
-      [`${prefixCls}--${type}__${round}`]: type && round,
-      [`${prefixCls}--${type}__${plain}`]: type && plain,
+      [`${prefixCls}--${type}__round`]: type && round,
+      [`${prefixCls}--${type}__plain`]: type && plain,
+      [`${prefixCls}-round`]: round,
       [`${prefixCls}-nostyle`]: noStyle,
     },
     className,
   );
   return (
-    <Button
-      loading={props.disabled}
-      className={classes}
-      plain={plain}
-      size={['large', 'normal'].includes(size) ? 'default' : 'mini'}
-      {...props}
-      onClick={(e) => {
-        if (props.loading) return;
-        onClick && onClick(e);
-      }}
-    >
-      {children}
-    </Button>
+    <View className={viewClasses}>
+      <Button
+        loading={props.disabled}
+        className={classes}
+        plain={plain}
+        size={['large', 'normal'].includes(size) ? 'default' : 'mini'}
+        {...props}
+        onClick={(e) => {
+          if (props.loading) return;
+          onClick && onClick(e);
+        }}
+      >
+        {children}
+      </Button>
+    </View>
   );
 };
 
