@@ -13,7 +13,7 @@ jobs:
       - run: npm install
       - run: npm run build:doc
       - name: Deploy
-        uses: peaceiris/actions-tv-pages@v3
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dumi/dist
