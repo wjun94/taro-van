@@ -20,7 +20,6 @@ const Index = () => {
           嵌入内容
         </Button>
         <Overlay
-          zIndex={3}
           visible={visibleEmbedded}
           onClick={() => setVisibleEmbedded(false)}
         >

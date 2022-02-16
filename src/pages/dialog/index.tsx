@@ -1,18 +1,26 @@
-import { View } from '@tarojs/components';
+import { View, Text } from '@tarojs/components';
 import { useState } from 'react';
-import Overlay from '../../components/overlay';
+import Dialog from '../../components/dialog';
 import Button from '../../components/button';
 import './index.less';
 
 const Index = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   return (
     <View className='p-20'>
       <View>
         <Button type='primary' onClick={() => setVisible(true)}>
           显示遮罩
         </Button>
-        <Overlay visible={visible} onClick={() => setVisible(false)} />
+        <Dialog
+          visible={visible}
+          title='标题'
+          showCancelButton
+          onCancel={() => setVisible(false)}
+          onConfirm={() => setVisible(false)}
+        >
+          <Text>测试AA</Text>
+        </Dialog>
       </View>
     </View>
   );
