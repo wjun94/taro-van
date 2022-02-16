@@ -1,6 +1,6 @@
 {
   "name": "taro-van",
-  "version": "1.0.15",
+  "version": "1.0.17",
   "email": "994037715@qq.com",
   "url": "https://github.com/wjun94/taro-van",
   "private": false,
@@ -79,8 +79,7 @@
     "@tarojs/taro": "3.3.10",
     "@tarojs/react": "3.3.10",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "taro-hooks": "latest"
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
