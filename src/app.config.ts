@@ -5,6 +5,7 @@ export default {
     'pages/flex/index',
     'pages/typography/index',
     'pages/overlay/index',
+    'pages/dialog/index',
   ],
   window: {
     backgroundTextStyle: 'light',
