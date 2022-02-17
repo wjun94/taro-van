@@ -25,3 +25,7 @@ nav:
 
 - 新增`Overlay`布局组件。
 - 新增`Dialog`按钮组件。
+
+**Performance**
+
+- 优化`Button`样式。
