@@ -17,6 +17,14 @@ const Index = () => {
       label: 'Typography排版',
       url: '/pages/typography/index',
     },
+    {
+      label: 'Overlay遮罩层',
+      url: '/pages/overlay/index',
+    },
+    {
+      label: 'Dialog弹出框',
+      url: '/pages/dialog/index',
+    },
   ];
   return (
     <View className='example-index'>
