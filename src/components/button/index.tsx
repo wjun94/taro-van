@@ -1,4 +1,5 @@
-import { ButtonProps, Button, View } from '@tarojs/components';
+import { Button, View } from '@tarojs/components';
+import { ButtonProps } from '@tarojs/components/types/Button';
 import { ReactNode } from 'react';
 import classNames from 'classnames';
 
