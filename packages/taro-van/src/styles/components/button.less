@@ -1,0 +1,142 @@
+@import '../variables/index.less';
+
+.button-theme(@type, @color) {
+  &--@{type} {
+    background-color: @color;
+    color: #fff;
+    &::after {
+      border-color: @color;
+    }
+    &[disabled] {
+      color: #fff;
+    }
+    &__round {
+      border-radius: 60px;
+    }
+    &__plain[plain],
+    &__plain[plain][disabled],
+    &__plain[plain]:not([disabled]):active {
+      background-color: #fff;
+      &:active {
+        background-color: @color-grey-5;
+      }
+      color: @color;
+      border: 1px solid;
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &--@{type}:not([disabled]):active {
+    background-color: @color;
+    color: #fff;
+  }
+}
+
+.@{tv-prefix}-button {
+  cursor: pointer;
+  &-view {
+    display: inline-block;
+    line-height: 0;
+  }
+  &:active {
+    opacity: 0.8;
+  }
+
+  &[disabled] {
+    opacity: 0.7;
+    &:active {
+      opacity: 0.7;
+    }
+  }
+
+  &-block {
+    display: block;
+    width: 100%;
+  }
+
+  &-nostyle {
+    padding: 0;
+    margin: 0;
+    line-height: inherit;
+    &[size='mini'] {
+      padding: 0;
+      margin: 0;
+      line-height: inherit;
+    }
+    &::after {
+      display: none;
+    }
+  }
+  &-round {
+    // border-radius: 60px;
+    &::after {
+      border-radius: 60px;
+    }
+  }
+  &-mini[size='mini'] {
+    font-size: @font-size-xs;
+  }
+  &-small[size='mini'] {
+    font-size: @font-size-sm;
+  }
+  &-normal {
+    font-size: @font-size-base;
+  }
+  &-large {
+    font-size: @font-size-lg;
+    &::after {
+      transform: scale(0.49);
+    }
+  }
+  &-block[size='mini'] {
+    display: table;
+  }
+
+  &--default[disabled] {
+    color: @color-text-base;
+  }
+  &--default[plain] {
+    border: 1px solid #d1d5db;
+    &::after {
+      border-color: #d1d5db;
+    }
+    &:not([disabled]):active {
+      border-color: #d1d5db;
+      background-color: @color-grey-5;
+      opacity: 1;
+    }
+  }
+  &--default {
+    background-color: #fff;
+    &::after {
+      border-color: #d1d5db;
+    }
+    &__round {
+      border: 1px solid #d1d5db;
+      &::after {
+        display: none;
+      }
+    }
+    &:not([disabled]):active {
+      background-color: @color-grey-5;
+      &::after {
+        border-color: #d1d5db;
+      }
+      &__round {
+        border: 1px solid #d1d5db;
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .button-theme(primary, @color-primary);
+
+  .button-theme(danger, @color-danger);
+
+  .button-theme(info, @color-success);
+
+  .button-theme(warning, @color-warning);
+}

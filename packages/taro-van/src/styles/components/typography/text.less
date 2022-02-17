@@ -1,0 +1,61 @@
+@import '../../variables/index.less';
+@import '../../mixin/index.less';
+
+.@{tv-prefix}-text {
+  display: inline-block;
+  font-size: @font-size-base;
+  &--primary {
+    color: @color-primary;
+  }
+  &--default {
+    color: @color-text-base;
+  }
+  &--secondary {
+    color: @color-text-secondary;
+  }
+  &--danger {
+    color: @color-danger;
+  }
+  &--warning {
+    color: @color-warning;
+  }
+  &--success {
+    color: @color-success;
+  }
+  &--white {
+    color: #fff;
+  }
+  &--copy {
+    color: @color-link;
+    &:active {
+      opacity: 0.8;
+    }
+  }
+  &--ellipsis {
+    .line(1);
+  }
+  &-center {
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+  &-left {
+    text-align: left;
+    width: 100%;
+    display: block;
+  }
+  &-right {
+    text-align: right;
+    width: 100%;
+    display: block;
+  }
+  &-medium {
+    font-weight: 500;
+  }
+  &-bold {
+    font-weight: 700;
+  }
+  &-extrabold {
+    font-weight: bolder;
+  }
+}
