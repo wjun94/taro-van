@@ -44,7 +44,7 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> = ({
           <Flex className={`${prefixCls}-content`} justify='center'>
             {children}
           </Flex>
-          <Flex className={`${prefixCls}-footer`}>
+          <Flex className={`${prefixCls}-footer`} wrap='nowrap'>
             {showCancelButton ? (
               <>
                 <Button
