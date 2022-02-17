@@ -23,7 +23,9 @@ const Index = () => {
           visible={visibleEmbedded}
           onClick={() => setVisibleEmbedded(false)}
         >
-          <View className='example-overlay-container' />
+          <View className='example-overlay-container'>
+            <View className='example-overlay-container_box' />
+          </View>
         </Overlay>
       </View>
     </View>

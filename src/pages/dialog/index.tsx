@@ -1,7 +1,8 @@
-import { View, Text } from '@tarojs/components';
+import { View } from '@tarojs/components';
 import { useState } from 'react';
 import Dialog from '../../components/dialog';
 import Button from '../../components/button';
+import Typography from '../../components/typography';
 import './index.less';
 
 const Index = () => {
@@ -19,7 +20,9 @@ const Index = () => {
           onCancel={() => setVisible(false)}
           onConfirm={() => setVisible(false)}
         >
-          <Text>测试AA</Text>
+          <Typography.Text>
+            测试AA测试AA测试AA测试AA测试AA测试AA测试AA测试AA测试AA
+          </Typography.Text>
         </Dialog>
       </View>
     </View>

@@ -26,14 +26,7 @@ export default ({
   );
   return (
     <View style={{ zIndex: zIndex }} className={classes} {...props}>
-      <View style={{ zIndex: zIndex + 1 }} className='tv-overlay-overlay' />
-      <View
-        style={{ zIndex: zIndex + 2 }}
-        onClick={(e) => e.stopPropagation()}
-        className='tv-overlay-container'
-      >
-        {children}
-      </View>
+      {children}
     </View>
   );
 };

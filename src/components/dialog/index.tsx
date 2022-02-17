@@ -36,41 +36,43 @@ const Dialog = ({
   );
   return (
     <Overlay visible={visible} {...props}>
-      <View className={classes}>
-        <Typography.Title className={`${prefixCls}-head`} align='center'>
-          {title}
-        </Typography.Title>
-        <View className={`${prefixCls}-content`}>{children}</View>
-        <Flex className={`${prefixCls}-footer`}>
-          {showCancelButton ? (
-            <>
+      <View className={`${prefixCls}-body`}>
+        <View className={classes} onClick={(e) => e.stopPropagation()}>
+          <Typography.Title className={`${prefixCls}-head`} align='center'>
+            {title}
+          </Typography.Title>
+          <View className={`${prefixCls}-content`}>{children}</View>
+          <Flex className={`${prefixCls}-footer`}>
+            {showCancelButton ? (
+              <>
+                <Button
+                  onClick={onCancel}
+                  className={`${prefixCls}-footer--btn ${prefixCls}-footer--btn--more`}
+                >
+                  取消
+                </Button>
+                <Button
+                  onClick={onConfirm}
+                  plain
+                  type='primary'
+                  className={`${prefixCls}-footer--btn ${prefixCls}-footer--btn--more`}
+                >
+                  确定
+                </Button>
+              </>
+            ) : (
               <Button
-                onClick={onCancel}
-                className={`${prefixCls}-footer--btn ${prefixCls}-footer--btn--more`}
-              >
-                取消
-              </Button>
-              <Button
+                block
                 onClick={onConfirm}
                 plain
                 type='primary'
-                className={`${prefixCls}-footer--btn ${prefixCls}-footer--btn--more`}
+                className={`${prefixCls}-footer--btn`}
               >
                 确定
               </Button>
-            </>
-          ) : (
-            <Button
-              block
-              onClick={onConfirm}
-              plain
-              type='primary'
-              className={`${prefixCls}-footer--btn`}
-            >
-              确定
-            </Button>
-          )}
-        </Flex>
+            )}
+          </Flex>
+        </View>
       </View>
     </Overlay>
   );
