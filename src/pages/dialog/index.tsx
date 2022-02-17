@@ -6,7 +6,7 @@ import Typography from '../../components/typography';
 import './index.less';
 
 const Index = () => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   return (
     <View className='p-20'>
       <View>
@@ -20,9 +20,7 @@ const Index = () => {
           onCancel={() => setVisible(false)}
           onConfirm={() => setVisible(false)}
         >
-          <Typography.Text>
-            测试AA测试AA测试AA测试AA测试AA测试AA测试AA测试AA测试AA
-          </Typography.Text>
+          <Typography.Text>逆水行舟，不进则退。</Typography.Text>
         </Dialog>
       </View>
     </View>

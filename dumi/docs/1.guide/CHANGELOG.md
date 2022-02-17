@@ -13,8 +13,15 @@ nav:
 
 ## v1.0.18
 
-**New Component**
+**Features**
 
 - 新增`Flex`布局组件。
 - 新增`Button`按钮组件。
 - 新增`Typography`文本组件。
+
+## v1.0.19
+
+**Features**
+
+- 新增`Overlay`布局组件。
+- 新增`Dialog`按钮组件。

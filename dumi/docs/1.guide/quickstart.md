@@ -54,7 +54,7 @@ import { Button } from 'taro-van';
 
 ## 示例
 
-```jsx |pure
+```jsx | pure
 import { View } from '@tarojs/components';
 import { Button } from 'taro-van';
 

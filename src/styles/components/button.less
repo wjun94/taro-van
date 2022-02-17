@@ -17,6 +17,9 @@
     &__plain[plain][disabled],
     &__plain[plain]:not([disabled]):active {
       background-color: #fff;
+      &:active {
+        background-color: @color-grey-5;
+      }
       color: @color;
       border: 1px solid;
       &::after {
@@ -93,8 +96,18 @@
   &--default[disabled] {
     color: @color-text-base;
   }
-  &--default,
-  &--default:not([disabled]):active {
+  &--default[plain] {
+    border: 1px solid #d1d5db;
+    &::after {
+      border-color: #d1d5db;
+    }
+    &:not([disabled]):active {
+      border-color: #d1d5db;
+      background-color: @color-grey-5;
+      opacity: 1;
+    }
+  }
+  &--default {
     background-color: #fff;
     &::after {
       border-color: #d1d5db;
@@ -103,6 +116,18 @@
       border: 1px solid #d1d5db;
       &::after {
         display: none;
+      }
+    }
+    &:not([disabled]):active {
+      background-color: @color-grey-5;
+      &::after {
+        border-color: #d1d5db;
+      }
+      &__round {
+        border: 1px solid #d1d5db;
+        &::after {
+          display: none;
+        }
       }
     }
   }

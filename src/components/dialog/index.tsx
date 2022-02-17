@@ -1,7 +1,7 @@
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
 import classNames from 'classnames';
-import { ReactNode } from 'react';
+import { ReactNode, FC } from 'react';
 import Typography from '../typography';
 import Button from '../button';
 import Flex from '../flex';
@@ -16,7 +16,7 @@ export type P = {
   onCancel?: () => void;
 };
 
-const Dialog = ({
+const Dialog: FC<P & Omit<ViewProps, 'onClick'>> = ({
   children,
   visible,
   title,
@@ -25,7 +25,7 @@ const Dialog = ({
   onCancel,
   className,
   ...props
-}: P & Omit<ViewProps, 'onClick'>) => {
+}) => {
   const prefixCls = 'tv-dialog';
   const classes = classNames(
     prefixCls,
@@ -41,12 +41,15 @@ const Dialog = ({
           <Typography.Title className={`${prefixCls}-head`} align='center'>
             {title}
           </Typography.Title>
-          <View className={`${prefixCls}-content`}>{children}</View>
+          <Flex className={`${prefixCls}-content`} justify='center'>
+            {children}
+          </Flex>
           <Flex className={`${prefixCls}-footer`}>
             {showCancelButton ? (
               <>
                 <Button
                   onClick={onCancel}
+                  plain
                   className={`${prefixCls}-footer--btn ${prefixCls}-footer--btn--more`}
                 >
                   取消
