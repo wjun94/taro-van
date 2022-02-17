@@ -1,6 +1,6 @@
 {
   "name": "taro-van",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "email": "994037715@qq.com",
   "url": "https://github.com/wjun94/taro-van",
   "private": false,
@@ -73,11 +73,11 @@
   "bundleDependencies": false,
   "dependencies": {
     "@babel/runtime": "^7.7.7",
-    "@tarojs/cli": "~3.0.2",
-    "@tarojs/components": "~3.0.2",
-    "@tarojs/runtime": "~3.0.2",
-    "@tarojs/taro": "~3.0.2",
-    "@tarojs/react": "~3.0.2",
+    "@tarojs/cli": "~3.3.0",
+    "@tarojs/components": "~3.3.0",
+    "@tarojs/runtime": "~3.3.0",
+    "@tarojs/taro": "~3.3.0",
+    "@tarojs/react": "~3.3.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },

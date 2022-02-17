@@ -29,3 +29,9 @@ nav:
 **Performance**
 
 - 优化`Button`样式。
+
+## v1.0.20
+
+**Bug Fixes**
+
+- `Dialog`:修复 h5 显示问题。
