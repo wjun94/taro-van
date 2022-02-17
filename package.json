@@ -1,6 +1,6 @@
 {
   "name": "taro-van",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "email": "994037715@qq.com",
   "url": "https://github.com/wjun94/taro-van",
   "private": false,
@@ -9,6 +9,9 @@
   "bugs": {
     "url": "https://github.com/wjun94/taro-van/issues"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/wjun94/taro-van"
@@ -18,40 +21,16 @@
     "typescript": true,
     "css": "less"
   },
-  "keywords": [
-    "taro",
-    "taro-van",
-    "taro-ui"
-  ],
-  "files": [
-    "dist",
-    "lib",
-    "es",
-    "styles"
-  ],
   "license": "MIT",
   "scripts": {
-    "build:compile": "rollup --config ./config/rollup.config.js",
-    "build:doc": "cross-env APP_ROOT=dumi dumi build && npm run build:h5",
-    "build:weapp": "taro build --type weapp",
-    "build:swan": "taro build --type swan",
-    "build:alipay": "taro build --type alipay",
-    "build:tt": "taro build --type tt",
-    "build:h5": "taro build --type h5",
-    "build:rn": "taro build --type rn",
-    "build:qq": "taro build --type qq",
-    "build:jd": "taro build --type jd",
-    "build:quickapp": "taro build --type quickapp",
-    "dev:doc": "cross-env APP_ROOT=dumi dumi dev",
-    "dev:weapp": "npm run build:weapp -- --watch",
-    "dev:swan": "npm run build:swan -- --watch",
-    "dev:alipay": "npm run build:alipay -- --watch",
-    "dev:tt": "npm run build:tt -- --watch",
-    "dev:h5": "npm run build:h5 -- --watch",
-    "dev:rn": "npm run build:rn -- --watch",
-    "dev:qq": "npm run build:qq -- --watch",
-    "dev:jd": "npm run build:jd -- --watch",
-    "dev:quickapp": "npm run build:quickapp -- --watch"
+    "clean": "lerna clean",
+    "bootstrap": "lerna bootstrap",
+    "publish": "lerna publish --npm-tag=next",
+    "build:compile": "lerna run --stream build:compile",
+    "build:doc": "lerna run --stream build:doc",
+    "dev:h5": "lerna run --stream dev:h5",
+    "dev:doc": "lerna run --stream dev:doc",
+    "dev:weapp": "lerna run --stream dev:weapp"
   },
   "browserslist": [
     "last 3 versions",
@@ -71,16 +50,6 @@
     ]
   },
   "bundleDependencies": false,
-  "dependencies": {
-    "@babel/runtime": "^7.7.7",
-    "@tarojs/cli": "3.3.10",
-    "@tarojs/components": "3.3.10",
-    "@tarojs/runtime": "3.3.10",
-    "@tarojs/taro": "3.3.10",
-    "@tarojs/react": "3.3.10",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
   "devDependencies": {
     "@babel/core": "^7.8.0",
     "@rollup/plugin-commonjs": "^21.0.1",
@@ -88,20 +57,18 @@
     "@rollup/plugin-node-resolve": "^13.1.3",
     "@tarojs/mini-runner": "3.3.10",
     "@tarojs/webpack-runner": "3.3.10",
-    "@types/react": "^17.0.2",
     "@types/webpack-env": "^1.13.6",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
     "babel-plugin-import": "^1.13.3",
     "babel-preset-taro": "3.3.10",
     "cross-env": "^7.0.3",
-    "dumi": "^1.1.38",
-    "dumi-theme-mobile": "^1.1.21",
     "eslint": "^6.8.0",
     "eslint-config-taro": "3.3.10",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "lerna": "^4.0.0",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.1",
     "rollup": "^2.67.1",
