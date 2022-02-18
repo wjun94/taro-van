@@ -4,3 +4,18 @@
 .pr-14 {
   padding-right: 14px;
 }
+
+.tv-cell {
+  position: relative;
+  &:not(:last-child)::after {
+    position: absolute;
+    box-sizing: border-box;
+    content: ' ';
+    pointer-events: none;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid @color-border-base;
+    transform: scaleY(0.3);
+  }
+}
