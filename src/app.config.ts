@@ -6,6 +6,7 @@ export default {
     'pages/typography/index',
     'pages/overlay/index',
     'pages/dialog/index',
+    'pages/field/index',
   ],
   window: {
     backgroundTextStyle: 'light',

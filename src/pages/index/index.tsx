@@ -25,6 +25,10 @@ const Index = () => {
       label: 'Dialog弹出框',
       url: '/pages/dialog/index',
     },
+    {
+      label: 'Field按钮',
+      url: '/pages/field/index',
+    },
   ];
   return (
     <View className='example-index'>

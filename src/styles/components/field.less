@@ -1,0 +1,72 @@
+@import '../variables/index.less';
+
+.tv-field {
+  padding: 14px;
+  padding-left: 0;
+  &-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    &__start {
+      align-items: flex-start;
+    }
+    &__label {
+      display: flex;
+      width: 200px;
+      vertical-align: middle;
+      text-align: left;
+      line-height: @line-height-zh;
+      margin-right: 12px;
+      &::before {
+        display: inline-block;
+        margin-right: 8px;
+        color: @color-error;
+        font-size: @font-size-base;
+        font-family: SimSun, sans-serif;
+        content: '*';
+        visibility: hidden;
+      }
+      &--required {
+        &::before {
+          visibility: visible;
+        }
+      }
+      &--disabled {
+        .tv-text {
+          color: @color-grey-2;
+        }
+      }
+    }
+    &__input {
+      vertical-align: middle;
+      color: @color-text-base;
+      width: 100%;
+      input {
+        font-size: @font-size-base;
+        &::placeholder,
+        &::input-placeholder {
+          color: @color-grey-3;
+        }
+      }
+      &--disabled {
+        color: @color-grey-2;
+      }
+      &--body {
+        display: flex;
+        align-items: center;
+        &__inp {
+          flex: 1;
+        }
+      }
+      &--error {
+        color: @color-error;
+        input {
+          &::placeholder,
+          &::input-placeholder {
+            color: @color-error;
+          }
+        }
+      }
+    }
+  }
+}

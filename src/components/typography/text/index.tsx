@@ -16,15 +16,19 @@ export type P = {
     | 'success'
     | 'white';
   align?: 'left' | 'center' | 'right';
+  size?: 'xs' | 'sm' | 'lg' | 'xl';
   weight?: 'normal' | 'medium' | 'bold' | 'extrabold';
   copyable?: { text: string; info?: string }; // 拷贝
   ellipsis?: boolean;
+  block?: boolean;
 } & Omit<TextProps, 'children'>;
 
 const TextComp = ({
   children,
   type = 'default',
   weight = 'normal',
+  size,
+  block,
   align,
   ellipsis,
   copyable,
@@ -40,8 +44,10 @@ const TextComp = ({
       [`${prefixCls}-${weight}`]: weight,
       [`${prefixCls}-${align}`]: align,
       [`${prefixCls}--${type}`]: type,
+      [`${prefixCls}--${size}`]: size,
       [`${prefixCls}--copy`]: copyable,
       [`${prefixCls}--ellipsis`]: ellipsis,
+      [`${prefixCls}--block`]: block,
     },
     className,
   );
