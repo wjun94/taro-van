@@ -11,6 +11,17 @@ nav:
 
 # 更新日志
 
+## v1.0.22
+
+**Features**
+
+- 新增`Field`输入框组件。
+
+**Performance**
+
+- `Flex`:调整样式。
+- `Typography.Text`:添加`size`参数。
+
 ## v1.0.20
 
 **Bug Fixes**

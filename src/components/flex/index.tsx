@@ -8,9 +8,9 @@ export type P = {
   // 对齐内容
   justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
   // 对齐项目
-  align?: 'start' | 'end' | 'center' | 'around' | 'evenly';
+  align?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
   // Flex Direction
-  direction?: 'row' | 'col';
+  direction?: 'row' | 'col' | 'row-reverse' | 'col-reverse';
   wrap?: 'wrap' | 'wrap-reverse' | 'nowrap';
 };
 
