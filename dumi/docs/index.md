@@ -10,4 +10,6 @@ nav:
 
 ## 介绍
 
-Taro ui 库，陆续完善中...
+Taro Van 是一款基于 [Taro](https://nervjs.github.io/taro/docs) 框架开发的多端 UI 组件库
+
+> Taro Van 正处于开发阶段，可能会出现重大改动，请谨慎使用。
