@@ -2,7 +2,7 @@
   "name": "taro-van",
   "version": "1.0.22",
   "email": "994037715@qq.com",
-  "url": "https://github.com/wjun94/taro-van",
+  "url": "https://wjun94.github.io/taro-van",
   "private": false,
   "main": "lib/src/index.js",
   "description": "taro ui库",
