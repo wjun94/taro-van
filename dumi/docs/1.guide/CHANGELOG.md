@@ -11,13 +11,11 @@ nav:
 
 # 更新日志
 
-## v1.0.18
+## v1.0.20
 
-**Features**
+**Bug Fixes**
 
-- 新增`Flex`布局组件。
-- 新增`Button`按钮组件。
-- 新增`Typography`文本组件。
+- `Dialog`:修复 h5 显示问题。
 
 ## v1.0.19
 
@@ -30,8 +28,10 @@ nav:
 
 - 优化`Button`样式。
 
-## v1.0.20
+## v1.0.18
 
-**Bug Fixes**
+**Features**
 
-- `Dialog`:修复 h5 显示问题。
+- 新增`Flex`布局组件。
+- 新增`Button`按钮组件。
+- 新增`Typography`文本组件。
