@@ -41,6 +41,10 @@ const Field: FC<P & Omit<InputProps, 'type'>> = ({
     [`${prefixCls}-container__input--disabled`]: props.disabled,
     [`${prefixCls}-container__input--error`]: error,
   });
+
+  const phClasses = classNames(`${prefixCls}-ph`, {
+    [`${prefixCls}-ph--error`]: error,
+  });
   return (
     <View className={classes}>
       <View className={`${containerClasses}`}>
@@ -50,7 +54,11 @@ const Field: FC<P & Omit<InputProps, 'type'>> = ({
         <View className={inputClasses}>
           <View className={`${prefixCls}-container__input--body`}>
             <View className={`${prefixCls}-container__input--body__inp pr-14`}>
-              <Input type={type as any} {...props} />
+              <Input
+                placeholderClass={phClasses}
+                type={type as any}
+                {...props}
+              />
             </View>
             {rightItem && rightItem}
           </View>

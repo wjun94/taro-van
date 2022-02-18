@@ -17,3 +17,4 @@ lib/
 es/
 package-lock.json
 yarn.lock
+project.config.json

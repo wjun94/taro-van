@@ -1,6 +1,6 @@
 @import '../variables/index.less';
 
-.tv-field {
+.@{tv-prefix}-field {
   padding: 14px;
   padding-left: 0;
   &-container {
@@ -74,5 +74,12 @@
         }
       }
     }
+  }
+}
+
+.@{tv-prefix}-field-ph {
+  color: @color-grey-3;
+  &--error {
+    color: @color-error;
   }
 }

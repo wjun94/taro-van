@@ -12,7 +12,6 @@ const Index = () => {
       <Field
         label='手机号'
         type='number'
-        value='11122'
         maxlength={11}
         required
         placeholder='请输入'
