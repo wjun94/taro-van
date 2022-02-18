@@ -6,14 +6,16 @@ import Typography from '../typography';
 
 export type P = {
   label?: string;
-  required?: boolean;
-  error?: boolean;
   errorMsg?: string;
   rightItem?: ReactNode;
   intro?: string;
+  inputAlign?: 'center' | 'right';
+  required?: boolean;
+  error?: boolean;
+  type?: 'text' | 'number' | 'idcard' | 'digit' | 'password';
 };
 
-const Field: FC<P & InputProps> = ({
+const Field: FC<P & Omit<InputProps, 'type'>> = ({
   label,
   className,
   error,
@@ -21,6 +23,8 @@ const Field: FC<P & InputProps> = ({
   rightItem,
   intro,
   required,
+  type,
+  inputAlign,
   ...props
 }) => {
   const prefixCls = 'tv-field';
@@ -33,6 +37,7 @@ const Field: FC<P & InputProps> = ({
     [`${prefixCls}-container__label--disabled`]: props.disabled,
   });
   const inputClasses = classNames(`${prefixCls}-container__input`, {
+    [`${prefixCls}-container__input--${inputAlign}`]: inputAlign,
     [`${prefixCls}-container__input--disabled`]: props.disabled,
     [`${prefixCls}-container__input--error`]: error,
   });
@@ -45,12 +50,12 @@ const Field: FC<P & InputProps> = ({
         <View className={inputClasses}>
           <View className={`${prefixCls}-container__input--body`}>
             <View className={`${prefixCls}-container__input--body__inp pr-14`}>
-              <Input {...props} />
+              <Input type={type as any} {...props} />
             </View>
             {rightItem && rightItem}
           </View>
           {intro && (
-            <Typography.Text block size='xs' type='secondary'>
+            <Typography.Text block size='sm' type='secondary'>
               {intro}
             </Typography.Text>
           )}
