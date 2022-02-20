@@ -1,8 +1,13 @@
 @import '../variables/index.less';
 
 .@{tv-prefix}-field {
-  padding: 14px;
+  padding: @padding-x;
+  background-color: #fff;
+  overflow: hidden;
   padding-left: 0;
+  &:not(:last-child)::after {
+    left: 32px;
+  }
   &-container {
     display: flex;
     align-items: center;
@@ -17,10 +22,11 @@
       text-align: left;
       line-height: @line-height-zh;
       margin-right: 12px;
+      padding-left: @padding-x;
       &::before {
         display: inline-block;
         margin-right: 8px;
-        color: @color-error;
+        color: @color-text-error;
         font-size: @font-size-base;
         font-family: SimSun, sans-serif;
         content: '*';
@@ -65,11 +71,11 @@
         text-align: right;
       }
       &--error {
-        color: @color-error;
+        color: @color-text-error;
         input {
           &::placeholder,
           &::input-placeholder {
-            color: @color-error;
+            color: @color-text-error;
           }
         }
       }
@@ -80,6 +86,6 @@
 .@{tv-prefix}-field-ph {
   color: @color-grey-3;
   &--error {
-    color: @color-error;
+    color: @color-text-error;
   }
 }

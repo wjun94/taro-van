@@ -28,7 +28,7 @@ const Field: FC<P & Omit<InputProps, 'type'>> = ({
   ...props
 }) => {
   const prefixCls = 'tv-field';
-  const classes = classNames(prefixCls, 'tv-cell', className);
+  const classes = classNames(prefixCls, 'tv-cell--border', className);
   const containerClasses = classNames(`${prefixCls}-container`, {
     [`${prefixCls}-container__start`]: intro || errorMsg,
   });

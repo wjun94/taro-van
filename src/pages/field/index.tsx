@@ -2,10 +2,11 @@ import { View } from '@tarojs/components';
 import Typography from '../../components/typography';
 import Button from '../../components/button';
 import Field from '../../components/field';
+import './index.less';
 
 const Index = () => {
   return (
-    <View className='p-20'>
+    <View>
       <Typography.Text type='secondary' className='my-title'>
         基础用法
       </Typography.Text>
