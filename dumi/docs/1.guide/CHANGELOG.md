@@ -11,6 +11,17 @@ nav:
 
 # 更新日志
 
+## v1.0.23
+
+**Features**
+
+- 新增`Cell`单元格组件。
+- 新增`Icon`图标组件(没有提供文档)。
+
+**Performance**
+
+- `Button`:调整样式。
+
 ## v1.0.22
 
 **Features**
