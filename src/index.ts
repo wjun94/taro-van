@@ -4,3 +4,4 @@ export { default as Typography } from './components/typography';
 export { default as Overlay } from './components/overlay';
 export { default as Dialog } from './components/dialog';
 export { default as Field } from './components/field';
+export { default as Icon } from './components/icon';

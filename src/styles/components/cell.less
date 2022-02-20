@@ -1,0 +1,19 @@
+@import '../variables/index.less';
+
+.@{tv-prefix}-cell {
+  background-color: #fff;
+  padding: @padding-x @padding-y;
+  &--link:active {
+    cursor: pointer;
+    background-color: @color-grey-5;
+  }
+  &-title {
+    display: flex;
+    line-height: normal;
+    flex-direction: column;
+  }
+  &-right {
+    color: @color-text-secondary;
+    line-height: normal;
+  }
+}

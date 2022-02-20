@@ -1,6 +1,26 @@
+.iconfont {
+  font-size: 32px;
+}
+
 .mt-14 {
   margin-top: 14px;
 }
 .pr-14 {
   padding-right: 14px;
+}
+
+.tv-cell--border {
+  position: relative;
+  &:not(:last-child)::after {
+    position: absolute;
+    box-sizing: border-box;
+    content: ' ';
+    pointer-events: none;
+    right: 0;
+    bottom: 1px;
+    // bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid @color-border-base;
+    transform: scaleY(0.3);
+  }
 }
