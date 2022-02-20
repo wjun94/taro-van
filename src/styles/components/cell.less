@@ -3,9 +3,11 @@
 .@{tv-prefix}-cell {
   background-color: #fff;
   padding: @padding-x @padding-y;
-  &--link:active {
+  &--link {
     cursor: pointer;
-    background-color: @color-grey-5;
+    &:active {
+      background-color: @color-grey-5;
+    }
   }
   &-title {
     display: flex;
