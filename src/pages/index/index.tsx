@@ -34,6 +34,10 @@ const Index = () => {
       label: 'Cell单元格',
       url: '/pages/cell/index',
     },
+    {
+      label: 'Grid 删格',
+      url: '/pages/row/index',
+    },
   ];
   return (
     <View className='example-index'>
