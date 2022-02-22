@@ -8,6 +8,7 @@ export default {
     'pages/dialog/index',
     'pages/field/index',
     'pages/cell/index',
+    'pages/form/index',
   ],
   window: {
     backgroundTextStyle: 'light',

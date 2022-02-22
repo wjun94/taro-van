@@ -34,6 +34,10 @@ const Index = () => {
       label: 'Cell单元格',
       url: '/pages/cell/index',
     },
+    {
+      label: 'Form表单',
+      url: '/pages/form/index',
+    },
   ];
   return (
     <View className='example-index'>
