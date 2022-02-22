@@ -1,4 +1,4 @@
-import { View, Text } from '@tarojs/components';
+import { View } from '@tarojs/components';
 import { navigateTo } from '@tarojs/taro';
 import Cell from '../../components/cell';
 
