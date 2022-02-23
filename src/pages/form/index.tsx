@@ -23,7 +23,7 @@ const Index = () => {
         className='p-20'
       >
         <Form.Item rules={[{ required: true, message: '真得烦' }]}>
-          <Field label='测试1' name='age' />
+          <Field placeholder='请输入' label='测试1' name='age' />
         </Form.Item>
         <Form.Item>
           <Field label='测试2' name='name' />

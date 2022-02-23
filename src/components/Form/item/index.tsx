@@ -19,6 +19,8 @@ export type P = {
   children?: ReactNode;
   className?: string;
   rules?: Rule[];
+  error?: boolean;
+  errorMsg?: string;
 };
 
 const Item = forwardRef(
@@ -32,19 +34,16 @@ const Item = forwardRef(
       className,
     );
     const initValue = useContext(formContext);
-    useImperativeHandle(myRef, () => ({
-      validateFields: () => {
-        console.log('test--');
-      },
-    }));
+    useImperativeHandle(myRef, () => ({}));
     return (
-      <View className={classes} {...props}>
+      <View className={classes}>
         {Children.map(children, (child: any) => {
           if (child.props.name) {
             return cloneElement(child, {
               // onChange: () => { setValue('1') },
               value: initValue[child.props.name],
               required: rules && rules.find((item) => item.required),
+              ...props,
             });
           } else {
             return child;

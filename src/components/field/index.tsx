@@ -6,12 +6,12 @@ import Typography from '../typography';
 
 export type P = {
   label?: string;
+  error?: boolean;
   errorMsg?: string;
   rightItem?: ReactNode;
   intro?: string;
   inputAlign?: 'center' | 'right';
   required?: boolean;
-  error?: boolean;
   type?: 'text' | 'number' | 'idcard' | 'digit' | 'password';
 };
 
