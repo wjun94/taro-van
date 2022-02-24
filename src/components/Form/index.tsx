@@ -7,6 +7,7 @@ import {
   Ref,
   useState,
   Children,
+  ReactElement,
 } from 'react';
 import { Form } from '@tarojs/components';
 import { FormProps } from '@tarojs/components/types/Form';
@@ -100,7 +101,7 @@ const TvForm = forwardRef(
     return (
       <formContext.Provider value={formValues}>
         <Form className={classes} onSubmit={onSubmit} {...props}>
-          {Children.map(children, (child: any) => {
+          {Children.map(children, (child: ReactElement) => {
             if (child.props.rules && child.props.children.props.name) {
               const { name } = child.props.children.props;
               validate[name] = child.props.rules;

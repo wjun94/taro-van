@@ -1,0 +1,38 @@
+@import '../variables/index.less';
+
+.@{tv-prefix}-radio {
+  font-size: @font-size-base;
+  display: inline-block;
+  .weui-cells_checkbox {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: bottom;
+    .weui-icon-checked::before {
+      font-size: @font-size-base;
+    }
+  }
+  &--xs {
+    font-size: @font-size-xs;
+    .weui-cells_checkbox .weui-icon-checked::before {
+      font-size: @font-size-xs;
+    }
+  }
+  &--sm {
+    font-size: @font-size-sm;
+    .weui-cells_checkbox .weui-icon-checked::before {
+      font-size: @font-size-sm;
+    }
+  }
+  &--lg {
+    font-size: @font-size-lg;
+    .weui-cells_checkbox .weui-icon-checked::before {
+      font-size: @font-size-lg;
+    }
+  }
+  &--xl {
+    font-size: @font-size-xl;
+    .weui-cells_checkbox .weui-icon-checked::before {
+      font-size: @font-size-xl;
+    }
+  }
+}

@@ -6,3 +6,4 @@ export { default as Dialog } from './components/dialog';
 export { default as Field } from './components/field';
 export { default as Icon } from './components/icon';
 export { default as Form } from './components/form';
+export { default as Radio } from './components/radio';

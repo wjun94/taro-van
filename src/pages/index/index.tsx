@@ -38,6 +38,10 @@ const Index = () => {
       label: 'Form表单',
       url: '/pages/form/index',
     },
+    {
+      label: 'Radio单选框',
+      url: '/pages/radio/index',
+    },
   ];
   return (
     <View className='example-index'>

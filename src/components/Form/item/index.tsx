@@ -4,6 +4,7 @@ import {
   cloneElement,
   useContext,
   forwardRef,
+  ReactElement,
   useImperativeHandle,
 } from 'react';
 import { View } from '@tarojs/components';
@@ -26,7 +27,7 @@ export type P = {
 
 const Item = forwardRef(
   ({ children, className, rules, ...props }: P, myRef) => {
-    const prefixCls = 'tv-form';
+    const prefixCls = 'tv-form-item';
     const classes = classNames(
       prefixCls,
       {
@@ -38,7 +39,7 @@ const Item = forwardRef(
     useImperativeHandle(myRef, () => ({}));
     return (
       <View className={classes}>
-        {Children.map(children, (child: any) => {
+        {Children.map(children, (child: ReactElement) => {
           if (child.props.name) {
             return cloneElement(child, {
               // onChange: () => { setValue('1') },

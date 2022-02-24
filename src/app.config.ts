@@ -9,6 +9,7 @@ export default {
     'pages/field/index',
     'pages/cell/index',
     'pages/form/index',
+    'pages/radio/index',
   ],
   window: {
     backgroundTextStyle: 'light',
