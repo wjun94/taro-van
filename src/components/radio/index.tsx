@@ -1,7 +1,6 @@
 import { Radio, View } from '@tarojs/components';
 import { RadioProps } from '@tarojs/components/types/Radio';
 import { ReactNode } from 'react';
-import { ENV_TYPE } from '@tarojs/taro';
 import classNames from 'classnames';
 import RadioGroup from './group';
 
@@ -15,8 +14,10 @@ const TvRadio = ({ children, className, size, ...props }: P & RadioProps) => {
   const classes = classNames(
     prefixCls,
     {
-      [`${prefixCls}--${size}`]: size,
-      [`${prefixCls}-web--${size}`]: ENV_TYPE.WEB && size,
+      [`${prefixCls}-app`]: process.env.TARO_ENV !== 'h5',
+      [`${prefixCls}-app--${size}`]: process.env.TARO_ENV !== 'h5' && size,
+      [`${prefixCls}-web`]: process.env.TARO_ENV === 'h5',
+      [`${prefixCls}-web--${size}`]: process.env.TARO_ENV === 'h5' && size,
     },
     className,
   );
