@@ -1,0 +1,35 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/button/index",
+          "pathName": "pages/button/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/field/index",
+          "pathName": "pages/field/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/radio/index",
+          "pathName": "pages/radio/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

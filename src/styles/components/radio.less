@@ -1,6 +1,17 @@
 @import '../variables/index.less';
 
 .@{tv-prefix}-radio {
+  display: inline-block;
+  transform: scale(0.8);
+  &--sm {
+    transform: scale(0.7);
+  }
+  &--lg {
+    transform: scale(1);
+  }
+}
+
+.@{tv-prefix}-radio-web {
   font-size: @font-size-base;
   display: inline-block;
   .weui-cells_checkbox {
@@ -9,12 +20,6 @@
     vertical-align: bottom;
     .weui-icon-checked::before {
       font-size: @font-size-base;
-    }
-  }
-  &--xs {
-    font-size: @font-size-xs;
-    .weui-cells_checkbox .weui-icon-checked::before {
-      font-size: @font-size-xs;
     }
   }
   &--sm {
@@ -27,12 +32,6 @@
     font-size: @font-size-lg;
     .weui-cells_checkbox .weui-icon-checked::before {
       font-size: @font-size-lg;
-    }
-  }
-  &--xl {
-    font-size: @font-size-xl;
-    .weui-cells_checkbox .weui-icon-checked::before {
-      font-size: @font-size-xl;
     }
   }
 }

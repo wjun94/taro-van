@@ -1,12 +1,13 @@
 import { Radio, View } from '@tarojs/components';
 import { RadioProps } from '@tarojs/components/types/Radio';
 import { ReactNode } from 'react';
+import { ENV_TYPE } from '@tarojs/taro';
 import classNames from 'classnames';
 import RadioGroup from './group';
 
 export type P = {
   children?: ReactNode;
-  size?: 'xs' | 'sm' | 'lg' | 'xl';
+  size?: 'sm' | 'lg';
 };
 
 const TvRadio = ({ children, className, size, ...props }: P & RadioProps) => {
@@ -15,12 +16,15 @@ const TvRadio = ({ children, className, size, ...props }: P & RadioProps) => {
     prefixCls,
     {
       [`${prefixCls}--${size}`]: size,
+      [`${prefixCls}-web--${size}`]: ENV_TYPE.WEB && size,
     },
     className,
   );
   return (
     <View className={classes}>
-      <Radio {...props}>{children}</Radio>
+      <Radio color='#FF7464' {...props}>
+        {children}
+      </Radio>
     </View>
   );
 };
