@@ -13,6 +13,7 @@ import { formContext } from '../index';
 export type Rule = {
   required?: boolean;
   message?: string;
+  pattern?: RegExp;
 };
 
 export type P = {

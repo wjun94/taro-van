@@ -11,11 +11,11 @@ import {
 import { Form } from '@tarojs/components';
 import { FormProps } from '@tarojs/components/types/Form';
 import classNames from 'classnames';
-import Item from './item';
+import Item, { Rule } from './item';
 
 export type P = {
   children?: ReactNode;
-  initialValues?: object;
+  initialValues?: { [key: string]: string | number };
   onFinish?: (values?: any) => void;
 };
 
@@ -23,15 +23,21 @@ export const formContext = createContext({});
 
 const TvForm = forwardRef(
   (
-    { children, className, initialValues, onFinish, ...props }: P & FormProps,
+    {
+      children,
+      className,
+      initialValues = {},
+      onFinish,
+      ...props
+    }: P & FormProps,
     ref: Ref<any>,
   ) => {
     const prefixCls = 'tv-form';
     // 保存name rules
-    const validate = {};
+    const validate: { [key: string]: Rule[] } = {};
     const classes = classNames(prefixCls, {}, className);
     // form表单值
-    const [formValues, setFormValues] = useState(null);
+    const [formValues, setFormValues] = useState(initialValues);
     // 保存错误数据
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
@@ -44,16 +50,25 @@ const TvForm = forwardRef(
       if (JSON.stringify(validate) !== '{}') {
         // 错误校验
         for (let i in validate) {
-          validate[i].forEach((item) => {
+          validate[i].forEach((item: Rule) => {
             if (item.required && values && !values[i]) {
-              console.error(item.message || `请输入${i}`);
+              // 是否为空校验
+              console.warn(item.message || `请输入${i}`);
               result[i] = item.message || `请输入`;
+            } else if (
+              item.pattern &&
+              values &&
+              !item.pattern.test(String(values[i]))
+            ) {
+              // 正则校验
+              console.warn(item.message || `请重新输入`);
+              result[i] = item.message || `请重新输入`;
             }
           });
         }
         setErrors({ ...result });
       }
-      return JSON.stringify(validate) === '{}';
+      return JSON.stringify(result) === '{}';
     };
 
     useImperativeHandle(ref, () => ({
@@ -83,7 +98,7 @@ const TvForm = forwardRef(
       }
     };
     return (
-      <formContext.Provider value={formValues || (initialValues as {})}>
+      <formContext.Provider value={formValues}>
         <Form className={classes} onSubmit={onSubmit} {...props}>
           {Children.map(children, (child: any) => {
             if (child.props.rules && child.props.children.props.name) {
