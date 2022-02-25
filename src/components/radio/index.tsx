@@ -23,9 +23,7 @@ const TvRadio = ({ children, className, size, ...props }: P & RadioProps) => {
   );
   return (
     <View className={classes}>
-      <Radio color='#FF7464' {...props}>
-        {children}
-      </Radio>
+      <Radio {...props}>{children}</Radio>
     </View>
   );
 };

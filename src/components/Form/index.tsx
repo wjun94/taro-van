@@ -44,14 +44,19 @@ const TvForm = forwardRef(
 
     /**
      * 表单校验
-     * @values 表单数据
+     * @params values 表单数据
+     * @params name 校验指定字段
      */
-    const validateFields = (values = formValues): boolean => {
+    const validateFields = (
+      values = formValues,
+      name: string = '',
+    ): boolean => {
       let result = {};
       if (JSON.stringify(validate) !== '{}') {
         // 错误校验
         for (let i in validate) {
           validate[i].forEach((item: Rule) => {
+            if (name && name !== i) return;
             if (item.required && values && !values[i]) {
               // 是否为空校验
               console.warn(item.message || `请输入${i}`);
@@ -91,7 +96,7 @@ const TvForm = forwardRef(
     // 提交表单
     const onSubmit = (values) => {
       const { value } = values.detail;
-      setFormValues(value);
+      setFormValues({ ...value });
       // 表单校验
       if (validateFields(value)) {
         // 表单校验通过
@@ -102,21 +107,23 @@ const TvForm = forwardRef(
       <formContext.Provider value={formValues}>
         <Form className={classes} onSubmit={onSubmit} {...props}>
           {Children.map(children, (child: ReactElement) => {
-            if (child.props.rules && child.props.children.props.name) {
-              const { name } = child.props.children.props;
+            // <Form.Item name="name"> ... </Form.Item>
+            const { name } = child.props;
+            if (child.props.rules && name) {
               validate[name] = child.props.rules;
               return cloneElement(child, {
                 onInput: (e) => {
                   if (e.type === 'input') {
                     setFormValues((v: any) => {
                       if (v) {
-                        v[child.props.children.props.name] = e.detail.value;
-                        validateFields(v);
+                        v[name] = e.detail.value;
+                        validateFields(v, name);
                       }
                       return { ...v };
                     });
                   }
                 },
+                name,
                 error: !!errors[name],
                 errorMsg: errors[name],
               });
