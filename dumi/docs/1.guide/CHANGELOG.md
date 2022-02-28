@@ -11,6 +11,16 @@ nav:
 
 # 更新日志
 
+## v1.0.24
+
+**Features**
+
+- 新增`Radio`单选框组件。
+
+**Performance**
+
+- `Form`:添加校验。
+
 ## v1.0.23
 
 **Features**
