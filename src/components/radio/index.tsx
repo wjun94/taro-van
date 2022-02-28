@@ -6,6 +6,7 @@ import RadioGroup from './group';
 
 export type P = {
   children?: ReactNode;
+  label?: string;
   size?: 'sm' | 'lg';
 };
 

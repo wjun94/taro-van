@@ -53,7 +53,10 @@ const Item = forwardRef(
               Object.assign(config, { value: initValue[name], ...props });
               break;
             case 'TvRadioGroup':
-              Object.assign(config, { defaultValue: initValue[name] });
+              Object.assign(config, {
+                defaultValue: initValue[name],
+                ...props,
+              });
               break;
           }
           return cloneElement(child, config);

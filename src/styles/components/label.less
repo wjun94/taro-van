@@ -1,0 +1,72 @@
+@import '../variables/index.less';
+
+.@{tv-prefix}-label {
+  padding: @padding-x;
+  background-color: #fff;
+  overflow: hidden;
+  padding-left: 0;
+  &:not(:last-child)::after {
+    left: 32px;
+    bottom: 1px;
+  }
+  &-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    &__start {
+      align-items: flex-start;
+    }
+    &__label {
+      display: flex;
+      width: 200px;
+      vertical-align: middle;
+      text-align: left;
+      line-height: @line-height-zh;
+      margin-right: 12px;
+      padding-left: @padding-x;
+      &::before {
+        display: inline-block;
+        margin-right: 8px;
+        color: @color-text-error;
+        font-size: @font-size-base;
+        font-family: SimSun, sans-serif;
+        content: '*';
+        visibility: hidden;
+      }
+      &--required {
+        &::before {
+          visibility: visible;
+        }
+      }
+      &--disabled {
+        .tv-text {
+          color: @color-grey-2;
+        }
+      }
+    }
+    &__content {
+      vertical-align: middle;
+      color: @color-text-base;
+      width: 100%;
+      &--disabled {
+        color: @color-grey-2;
+      }
+      &--body {
+        display: flex;
+        align-items: center;
+        &__inp {
+          flex: 1;
+        }
+      }
+      &--error {
+        color: @color-text-error;
+        input {
+          &::placeholder,
+          &::input-placeholder {
+            color: @color-text-error;
+          }
+        }
+      }
+    }
+  }
+}
