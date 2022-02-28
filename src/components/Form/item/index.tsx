@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { View } from '@tarojs/components';
 import classNames from 'classnames';
-import { formContext } from './index';
+import { formContext } from '../index';
 
 export type Rule = {
   required?: boolean;
