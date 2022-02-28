@@ -80,12 +80,14 @@ const TvForm = forwardRef(
     useImperativeHandle(ref, () => ({
       // 设置值
       setFieldsValue: (values) => {
+        setErrors({});
         if (Object.prototype.toString.call(values) === '[object Object]') {
           setFormValues(values);
         }
       },
       // 清空表单值
       resetFields: () => {
+        setErrors({});
         setFormValues({} as any);
       },
       // 获取表单值
