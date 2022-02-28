@@ -21,15 +21,20 @@ const Index = () => {
   };
   return (
     <>
-      {/* <Form onFinish={onFn} className='p-20'>
-        <Form.Item label='用户名' name='name' rules={[{ required: true, message: '用户名不能为空' }]}>
+      <Form onFinish={onFn} className='p-20'>
+        <Form.Item
+          label='用户名'
+          name='name'
+          rules={[{ required: true, message: '用户名不能为空' }]}
+        >
           <Field placeholder='请输入用户名' />
         </Form.Item>
-        <Form.Item label='密码' name='password' rules={[{ required: true, message: '密码不能为空' }]}>
-          <Field
-            placeholder='请输入密码'
-            type='password'
-          />
+        <Form.Item
+          label='密码'
+          name='password'
+          rules={[{ required: true, message: '密码不能为空' }]}
+        >
+          <Field placeholder='请输入密码' type='password' />
         </Form.Item>
         <Form.Item>
           <Button block type='primary' className='mt-20' formType='submit'>
@@ -39,7 +44,11 @@ const Index = () => {
       </Form>
 
       <Form onFinish={onFn} className='p-20'>
-        <Form.Item label='正则校验' name='reg' rules={[{ pattern: /\d{6}/, message: '请输入6位数字' }]}>
+        <Form.Item
+          label='正则校验'
+          name='reg'
+          rules={[{ pattern: /\d{6}/, message: '请输入6位数字' }]}
+        >
           <Field placeholder='请输入正则校验' />
         </Form.Item>
         <Form.Item>
@@ -47,19 +56,20 @@ const Index = () => {
             提交
           </Button>
         </Form.Item>
-      </Form> */}
+      </Form>
 
-      {/* <Form
+      <Form
         ref={formRef}
         onFinish={onFn}
         initialValues={{ phone: 10086, email: '222@xx.com' }}
         className='p-20'
       >
-        <Form.Item label='手机号' name='phone' rules={[{ required: true, message: '手机号不能为空' }]}>
-          <Field
-            placeholder='请输入'
-            type='number'
-          />
+        <Form.Item
+          label='手机号'
+          name='phone'
+          rules={[{ required: true, message: '手机号不能为空' }]}
+        >
+          <Field placeholder='请输入' type='number' />
         </Form.Item>
         <Form.Item name='email' label='邮箱'>
           <Field placeholder='请输入' />
@@ -71,7 +81,7 @@ const Index = () => {
             提交
           </Button>
         </Form.Item>
-      </Form> */}
+      </Form>
 
       <Form onFinish={onFn} initialValues={{ sex: '0' }} className='p-20'>
         <Form.Item label='姓名' name='name'>
