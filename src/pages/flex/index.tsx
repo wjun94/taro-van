@@ -7,7 +7,7 @@ import './index.less';
 
 const Index = () => {
   return (
-    <View className='pl-20 pt-20'>
+    <View className='pt-20'>
       <Typography.Title className='pl-20 pt-20' level={3}>
         Align
       </Typography.Title>

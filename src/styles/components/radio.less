@@ -1,0 +1,37 @@
+@import '../variables/index.less';
+
+.@{tv-prefix}-radio-app {
+  display: inline-block;
+  transform: scale(0.8);
+  &--sm {
+    transform: scale(0.7);
+  }
+  &--lg {
+    transform: scale(1);
+  }
+}
+
+.@{tv-prefix}-radio-web {
+  font-size: @font-size-base;
+  display: inline-block;
+  .weui-cells_checkbox {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: center;
+    .weui-icon-checked::before {
+      font-size: @font-size-base;
+    }
+  }
+  &--sm {
+    font-size: @font-size-sm;
+    .weui-cells_checkbox .weui-icon-checked::before {
+      font-size: @font-size-sm;
+    }
+  }
+  &--lg {
+    font-size: @font-size-lg;
+    .weui-cells_checkbox .weui-icon-checked::before {
+      font-size: @font-size-lg;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { Input, View } from '@tarojs/components';
+import { View } from '@tarojs/components';
 import { InputProps } from '@tarojs/components/types/Input';
 import classNames from 'classnames';
 import { FC, ReactNode } from 'react';
@@ -8,26 +8,22 @@ export type P = {
   label?: string;
   error?: boolean;
   errorMsg?: string;
-  rightItem?: ReactNode;
   intro?: string;
-  inputAlign?: 'center' | 'right';
   required?: boolean;
-  type?: 'text' | 'number' | 'idcard' | 'digit' | 'password';
+  children?: ReactNode;
 };
 
 const Field: FC<P & Omit<InputProps, 'type'>> = ({
-  label,
-  className,
+  children,
   error,
   errorMsg,
-  rightItem,
   intro,
+  label,
   required,
-  type,
-  inputAlign,
+  className,
   ...props
 }) => {
-  const prefixCls = 'tv-field';
+  const prefixCls = 'tv-label';
   const classes = classNames(prefixCls, 'tv-cell--border', className);
   const containerClasses = classNames(`${prefixCls}-container`, {
     [`${prefixCls}-container__start`]: intro || errorMsg,
@@ -36,32 +32,19 @@ const Field: FC<P & Omit<InputProps, 'type'>> = ({
     [`${prefixCls}-container__label--required`]: required,
     [`${prefixCls}-container__label--disabled`]: props.disabled,
   });
-  const inputClasses = classNames(`${prefixCls}-container__input`, {
-    [`${prefixCls}-container__input--${inputAlign}`]: inputAlign,
-    [`${prefixCls}-container__input--disabled`]: props.disabled,
-    [`${prefixCls}-container__input--error`]: error,
+  const contentClasses = classNames(`${prefixCls}-container__content`, {
+    [`${prefixCls}-container__content--disabled`]: props.disabled,
+    [`${prefixCls}-container__content--error`]: error,
   });
 
-  const phClasses = classNames(`${prefixCls}-ph`, {
-    [`${prefixCls}-ph--error`]: error,
-  });
   return (
     <View className={classes}>
       <View className={`${containerClasses}`}>
         <View className={labelClasses}>
           <Typography.Text type='secondary'>{label}</Typography.Text>
         </View>
-        <View className={inputClasses}>
-          <View className={`${prefixCls}-container__input--body`}>
-            <View className={`${prefixCls}-container__input--body__inp pr-14`}>
-              <Input
-                placeholderClass={phClasses}
-                type={type as any}
-                {...props}
-              />
-            </View>
-            {rightItem && rightItem}
-          </View>
+        <View className={contentClasses}>
+          {children}
           {intro && (
             <Typography.Text block size='sm' type='secondary'>
               {intro}

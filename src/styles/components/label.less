@@ -1,6 +1,6 @@
 @import '../variables/index.less';
 
-.@{tv-prefix}-field {
+.@{tv-prefix}-label {
   padding: @padding-x;
   background-color: #fff;
   overflow: hidden;
@@ -44,17 +44,10 @@
         }
       }
     }
-    &__input {
+    &__content {
       vertical-align: middle;
       color: @color-text-base;
       width: 100%;
-      input {
-        font-size: @font-size-base;
-        &::placeholder,
-        &::input-placeholder {
-          color: @color-grey-3;
-        }
-      }
       &--disabled {
         color: @color-grey-2;
       }
@@ -64,12 +57,6 @@
         &__inp {
           flex: 1;
         }
-      }
-      &--center {
-        text-align: center;
-      }
-      &--right {
-        text-align: right;
       }
       &--error {
         color: @color-text-error;
@@ -81,12 +68,5 @@
         }
       }
     }
-  }
-}
-
-.@{tv-prefix}-field-ph {
-  color: @color-grey-3;
-  &--error {
-    color: @color-text-error;
   }
 }

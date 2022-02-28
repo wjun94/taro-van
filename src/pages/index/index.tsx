@@ -1,4 +1,4 @@
-import { View, Text } from '@tarojs/components';
+import { View } from '@tarojs/components';
 import { navigateTo } from '@tarojs/taro';
 import Cell from '../../components/cell';
 
@@ -33,6 +33,14 @@ const Index = () => {
     {
       label: 'Cell单元格',
       url: '/pages/cell/index',
+    },
+    {
+      label: 'Form表单',
+      url: '/pages/form/index',
+    },
+    {
+      label: 'Radio单选框',
+      url: '/pages/radio/index',
     },
   ];
   return (
