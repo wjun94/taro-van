@@ -5,12 +5,21 @@ import { useState } from 'react';
 import Icon from '../Icon';
 
 export type P = {
+  value?: string; // 默认值
   className?: string;
   maxCount?: number; // 最大上传数
-  isRemove?: boolean; // 是否有删除按钮
+  deletable?: boolean; // 是否有删除按钮
+  preview?: boolean; // 是否支持预览
+  onChange?: (files: string[]) => void;
 };
 
-const Uploader = ({ className, isRemove, maxCount }: P) => {
+const Uploader = ({
+  value,
+  className,
+  deletable = true,
+  maxCount,
+  preview = true,
+}: P) => {
   const prefixCls = 'tv-uploader';
   const [list, setList] = useState<string[]>([]);
   const classes = classNames(prefixCls, {}, className);
@@ -43,11 +52,13 @@ const Uploader = ({ className, isRemove, maxCount }: P) => {
           <View key={url} className='tv-uploader__preview'>
             <Image
               className='tv-uploader__img'
-              onClick={() => previewImage({ current: url, urls: list })}
+              onClick={() =>
+                preview && previewImage({ current: url, urls: list })
+              }
               mode='aspectFill'
               src={url}
             />
-            {!isRemove && (
+            {deletable && (
               <View onClick={() => onRemove(i)} className='tv-uploader__remove'>
                 <Icon
                   size='md'
