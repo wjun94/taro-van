@@ -3,6 +3,7 @@ import Field from '../../components/field';
 import Form from '../../components/form';
 import Button from '../../components/button';
 import Radio from '../../components/radio';
+import Uploader from '../../components/uploader';
 import './index.less';
 
 const Index = () => {
@@ -92,6 +93,13 @@ const Index = () => {
             <Radio value='0'>男11</Radio>
             <Radio value='1'>女22</Radio>
           </Radio.Group>
+        </Form.Item>
+        <Form.Item
+          label='上传图片'
+          rules={[{ required: true, message: '图片不能为空' }]}
+          name='imgs'
+        >
+          <Uploader />
         </Form.Item>
         <Form.Item>
           <Button block type='primary' className='mt-20' formType='submit'>

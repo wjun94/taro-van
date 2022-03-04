@@ -11,9 +11,10 @@ export type P = {
   intro?: string;
   required?: boolean;
   children?: ReactNode;
+  align?: 'start' | 'center';
 };
 
-const Field: FC<P & Omit<InputProps, 'type'>> = ({
+const Label: FC<P & Omit<InputProps, 'type'>> = ({
   children,
   error,
   errorMsg,
@@ -21,12 +22,13 @@ const Field: FC<P & Omit<InputProps, 'type'>> = ({
   label,
   required,
   className,
+  align,
   ...props
 }) => {
   const prefixCls = 'tv-label';
   const classes = classNames(prefixCls, 'tv-cell--border', className);
   const containerClasses = classNames(`${prefixCls}-container`, {
-    [`${prefixCls}-container__start`]: intro || errorMsg,
+    [`${prefixCls}-container__start`]: intro || errorMsg || align === 'start',
   });
   const labelClasses = classNames(`${prefixCls}-container__label`, {
     [`${prefixCls}-container__label--required`]: required,
@@ -61,4 +63,4 @@ const Field: FC<P & Omit<InputProps, 'type'>> = ({
   );
 };
 
-export default Field;
+export default Label;

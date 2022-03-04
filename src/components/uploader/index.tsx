@@ -14,14 +14,14 @@ export type UploaderFile = {
 };
 
 export type P = {
-  value: UploaderFile[]; // 默认值
+  value?: UploaderFile[]; // 默认值
   maxCount?: number; // 最大上传数
   deletable?: boolean; // 是否有删除按钮
   preview?: boolean; // 是否支持预览
   maxSize?: number; // 限制上传大小
   multiple?: boolean; // 是否允许上传多张
   disabled?: boolean; // 是否禁用文件上传
-  onChange: (files: UploaderFile[]) => void;
+  onChange?: (files: UploaderFile[]) => void;
   onDelete?: (file: UploaderFile, index) => void; // 删除图片事件
   onOversize?: () => void; // 文件大小超过限制时触发
   afterRead?: (file: chooseImage.ImageFile, index: number) => void; // 文件读取完成后的回调函数
@@ -73,7 +73,7 @@ const Uploader = ({
             } as UploaderFile;
           }),
         ];
-        await onChange([...target].filter((item) => item));
+        onChange && (await onChange([...target].filter((item) => item)));
         for (let i = 0; i < res.tempFiles.length; i++) {
           if (afterRead) {
             await afterRead(res.tempFiles[i], [...list].length + i);
@@ -89,7 +89,7 @@ const Uploader = ({
   const onRemove = (idx: number) => {
     const target = [...list];
     target.splice(idx, 1);
-    onChange([...target]);
+    onChange && onChange([...target]);
     onDelete && onDelete([...list][idx], idx);
   };
   return (

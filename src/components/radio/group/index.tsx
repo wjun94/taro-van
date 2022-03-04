@@ -2,7 +2,6 @@ import { RadioGroup } from '@tarojs/components';
 import { RadioGroupProps } from '@tarojs/components/types/RadioGroup';
 import { ReactNode, Children, cloneElement, ReactElement } from 'react';
 import classNames from 'classnames';
-import Label, { P as LabelProps } from '../../label';
 
 export type P = {
   children?: ReactNode;
@@ -16,7 +15,7 @@ const TvRadioGroup = ({
   className,
   direction,
   ...props
-}: P & RadioGroupProps & LabelProps) => {
+}: P & RadioGroupProps) => {
   const prefixCls = 'tv-radio-group';
   const classes = classNames(
     prefixCls,
@@ -25,7 +24,7 @@ const TvRadioGroup = ({
     },
     className,
   );
-  const GroupItem = (
+  return (
     <RadioGroup className={classes} {...props}>
       {Children.map(children, (child: ReactElement) => {
         return cloneElement(child, {
@@ -34,7 +33,6 @@ const TvRadioGroup = ({
       })}
     </RadioGroup>
   );
-  return <>{props.label ? <Label {...props}>{GroupItem}</Label> : GroupItem}</>;
 };
 
 export default TvRadioGroup;
