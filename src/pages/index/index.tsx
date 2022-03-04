@@ -43,7 +43,7 @@ const Index = () => {
       url: '/pages/radio/index',
     },
     {
-      label: 'uploader上传',
+      label: 'Uploader上传',
       url: '/pages/uploader/index',
     },
   ];

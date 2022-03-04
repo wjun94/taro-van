@@ -36,9 +36,7 @@ const Icon = ({
           <View className={classes} {...props} />
         </View>
       ) : (
-        <View className='tv-icon'>
-          <Text className={classes} {...props} />
-        </View>
+        <Text className={classes} {...props} />
       )}
     </>
   );

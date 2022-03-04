@@ -31,14 +31,19 @@ const Cell: FC<P & ViewProps> = ({
     className,
   );
   return (
-    <Flex className={classes} justify='between' {...props}>
+    <Flex
+      className={classes}
+      justify='between'
+      align={intro ? 'start' : 'center'}
+      {...props}
+    >
       <View className={`${prefixCls}-title`}>
         <Typography.Text>{title}</Typography.Text>
         <Typography.Text type='secondary'>{intro}</Typography.Text>
       </View>
       <Flex align='center' className={`${prefixCls}-right`}>
         <Typography.Text type='secondary'>{value}</Typography.Text>
-        {isLink && <Icon icon='icon-arrow' />}
+        {isLink && <Icon size='lg' icon='icon-arrow' />}
       </Flex>
     </Flex>
   );
