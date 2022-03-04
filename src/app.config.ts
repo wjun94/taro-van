@@ -11,6 +11,7 @@ export default {
     'pages/form/index',
     'pages/radio/index',
     'pages/uploader/index',
+    'pages/icon/index',
   ],
   window: {
     backgroundTextStyle: 'light',

@@ -46,6 +46,10 @@ const Index = () => {
       label: 'Uploader上传',
       url: '/pages/uploader/index',
     },
+    {
+      label: 'Icon图标',
+      url: '/pages/icon/index',
+    },
   ];
   return (
     <View className='example-index'>
