@@ -1,0 +1,13 @@
+@import '../variables/index.less';
+
+.@{tv-prefix}-form {
+  &-item {
+    &:not(:last-child)::after {
+      left: 32px;
+      bottom: 1px;
+    }
+    &__no::after {
+      display: none;
+    }
+  }
+}

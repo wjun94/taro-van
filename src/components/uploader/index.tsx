@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { useMemo } from 'react';
 import Icon from '../icon';
 import Typography from '../typography';
+import Loading from '../loading';
 import Flex from '../flex';
 
 export type UploaderFile = {
@@ -116,15 +117,15 @@ const Uploader = ({
                 className='tv-uploader__mask'
               >
                 <Flex align='center' direction='col'>
-                  <Icon
-                    size='xl'
-                    icon={
-                      item.status === 'uploading'
-                        ? 'icon-loading'
-                        : 'icon-close'
-                    }
-                    className='tv-uploader__mask__icon'
-                  />
+                  {item.status === 'uploading' ? (
+                    <Loading className='tv-uploader__mask__icon' size='xl' />
+                  ) : (
+                    <Icon
+                      size='xl'
+                      icon='icon-close'
+                      className='tv-uploader__mask__icon'
+                    />
+                  )}
                   <Typography.Text type='white' size='sm'>
                     {item.message || item.status === 'uploading'
                       ? '正在上传'

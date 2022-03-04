@@ -33,6 +33,7 @@ const Index = () => {
         <Form.Item
           label='密码'
           name='password'
+          noBorder
           rules={[{ required: true, message: '密码不能为空' }]}
         >
           <Field placeholder='请输入密码' type='password' />
@@ -48,6 +49,7 @@ const Index = () => {
         <Form.Item
           label='正则校验'
           name='reg'
+          noBorder
           rules={[{ pattern: /\d{6}/, message: '请输入6位数字' }]}
         >
           <Field placeholder='请输入正则校验' />
@@ -72,7 +74,7 @@ const Index = () => {
         >
           <Field placeholder='请输入' type='number' />
         </Form.Item>
-        <Form.Item name='email' label='邮箱'>
+        <Form.Item noBorder name='email' label='邮箱'>
           <Field placeholder='请输入' />
         </Form.Item>
         <Form.Item className='example-form-footer'>
@@ -96,6 +98,7 @@ const Index = () => {
         </Form.Item>
         <Form.Item
           label='上传图片'
+          noBorder
           rules={[{ required: true, message: '图片不能为空' }]}
           name='imgs'
         >

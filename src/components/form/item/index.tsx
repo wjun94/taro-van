@@ -26,15 +26,17 @@ export type P = {
   errorMsg?: string;
   label?: string;
   name: string;
+  noBorder?: boolean;
 };
 
 const Item = forwardRef(
-  ({ children, className, rules, name, ...props }: P, myRef) => {
+  ({ children, className, rules, name, noBorder, ...props }: P, myRef) => {
     const prefixCls = 'tv-form-item';
     const classes = classNames(
       prefixCls,
       {
         'tv-cell--border': true,
+        'tv-form-item__no': noBorder,
       },
       className,
     );

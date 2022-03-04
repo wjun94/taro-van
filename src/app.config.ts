@@ -12,6 +12,7 @@ export default {
     'pages/radio/index',
     'pages/uploader/index',
     'pages/icon/index',
+    'pages/loading/index',
   ],
   window: {
     backgroundTextStyle: 'light',

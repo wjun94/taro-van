@@ -47,7 +47,7 @@ const Index = () => {
         <Typography.Text type='secondary' block className='my-title'>
           图标大小
         </Typography.Text>
-        <Flex>
+        <Flex align='end'>
           <Flex
             className='example-icon__box__size'
             direction='col'
