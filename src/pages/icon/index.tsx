@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components';
 import Typography from '../../components/typography';
-import Icon from '../../components/Icon';
+import Icon from '../../components/icon1';
 import Flex from '../../components/flex';
 import './index.less';
 

@@ -3,7 +3,7 @@ import { ViewProps } from '@tarojs/components/types/View';
 import classNames from 'classnames';
 import { FC } from 'react';
 import Typography from '../typography';
-import Icon from '../Icon';
+import Icon from '../icon1';
 import Flex from '../flex';
 
 export type P = {

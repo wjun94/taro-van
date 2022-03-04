@@ -2,7 +2,7 @@ import { chooseImage, previewImage, showToast } from '@tarojs/taro';
 import { View, Image } from '@tarojs/components';
 import classNames from 'classnames';
 import { useMemo } from 'react';
-import Icon from '../Icon';
+import Icon from '../icon1';
 import Typography from '../typography';
 import Flex from '../flex';
 

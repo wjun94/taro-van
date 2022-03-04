@@ -4,7 +4,7 @@ export { default as Typography } from './components/typography';
 export { default as Overlay } from './components/overlay';
 export { default as Dialog } from './components/dialog';
 export { default as Field } from './components/field';
-export { default as Icon } from './components/icon';
+export { default as Icon } from './components/icon1';
 export { default as Form } from './components/form';
 export { default as Radio } from './components/radio';
 export { default as Uploader } from './components/uploader';
