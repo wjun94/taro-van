@@ -64,6 +64,7 @@ const TvForm = forwardRef(
             } else if (
               item.pattern &&
               values &&
+              values[i] &&
               !item.pattern.test(String(values[i]))
             ) {
               // 正则校验

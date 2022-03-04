@@ -1,20 +1,46 @@
-import { Text } from '@tarojs/components';
+import { Text, View } from '@tarojs/components';
 import { TextProps } from '@tarojs/components/types/Text';
+import classNames from 'classnames';
 
 export type P = {
   icon: string;
   className?: string;
-  size?: 'md' | 'lg' | 'xl';
+  size?: 'sm' | 'base' | 'lg' | 'xl' | 'xxl';
 };
 
 const Icon = ({
   icon,
   className,
-  size,
+  size = 'base',
+  style,
   ...props
 }: P & Omit<TextProps, 'className'>) => {
+  const prefixCls = 'tv-icon';
+  const loadingClasses = classNames('tv-icon-loading', {
+    [`tv-icon-loading__${size}`]: icon === 'icon-loading' && size,
+  });
+  const classes = classNames(
+    'iconfont',
+    prefixCls,
+    {
+      [`${icon}`]: icon,
+      [`${prefixCls}-${size}`]: size,
+      [`icon-loading__${size}`]: icon === 'icon-loading' && size,
+    },
+    className,
+  );
   return (
-    <Text className={`iconfont ${icon} ${className} icon-${size}`} {...props} />
+    <>
+      {icon === 'icon-loading' ? (
+        <View className={loadingClasses}>
+          <View className={classes} {...props} />
+        </View>
+      ) : (
+        <View className='tv-icon'>
+          <Text className={classes} {...props} />
+        </View>
+      )}
+    </>
   );
 };
 

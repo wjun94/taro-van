@@ -1,13 +1,93 @@
 @import '../variables/index.less';
 
+.tv-icon {
+  .tv-icon {
+    &-sm {
+      font-size: @font-size-sm;
+    }
+    &-base {
+      font-size: @font-size-base;
+    }
+    &-lg {
+      font-size: @font-size-lg;
+    }
+    &-xl {
+      font-size: 60px;
+    }
+    &-xxl {
+      font-size: 80px;
+    }
+  }
+}
+
+.tv-icon {
+  line-height: normal;
+  &-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    &__md {
+      height: 30px;
+      width: 30px;
+    }
+    &__lg {
+      height: 50px;
+      width: 50px;
+    }
+    &__xl {
+      height: 60px;
+      width: 60px;
+    }
+    &__xxl {
+      height: 110px;
+      width: 110px;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading(@size) {
+  width: 3px * @size;
+  height: 3px * @size;
+  box-shadow: 0 -10px * @size 0 1px * @size, /* 上, 1px 扩展 */ 10px * @size 0px,
+    /* 右 */ 0 10px * @size, /* 下 */ -10px * @size 0,
+    /* 左 */ -7px * @size -7px * @size 0 0.5px * @size,
+    /* 左上, 0.5px扩展 */ 7px * @size -7px * @size 0 1.5px * @size,
+    /* 右上, 1.5px扩展 */ 7px * @size 7px * @size,
+    /* 右下 */ -7px * @size 7px * @size; /* 左下 */
+}
+
 .icon {
-  &-md {
-    font-size: @font-size-sm;
-  }
-  &-lg {
-    font-size: @font-size-lg;
-  }
-  &-xl {
-    font-size: @font-size-xl;
+  &-loading {
+    border-radius: 100%; /* 圆角 */
+    color: #333;
+    animation: spin 1s steps(8) infinite;
+    width: 3px;
+    height: 3px;
+    .loading(1.5);
+    &__md {
+      .loading(1);
+    }
+    &__lg {
+      font-size: @font-size-lg;
+      transform: scale(2);
+      .loading(1.8);
+    }
+    &__xl {
+      .loading(2.2);
+    }
+    &__xxl {
+      .loading(4);
+    }
   }
 }
