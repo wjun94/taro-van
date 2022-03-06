@@ -17,14 +17,17 @@ const Icon = ({
   const prefixCls = 'tv-icon';
   const classes = classNames(
     'iconfont',
-    prefixCls,
     {
       [`${icon}`]: icon,
       [`${prefixCls}-${size}`]: size,
     },
     className,
   );
-  return <Text className={classes} {...props} />;
+  return (
+    <View className={prefixCls}>
+      <Text className={classes} {...props} />
+    </View>
+  );
 };
 
 export default Icon;
