@@ -35,6 +35,12 @@
           "pathName": "pages/form/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/uploader/index",
+          "pathName": "pages/uploader/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -3,7 +3,7 @@ import { ViewProps } from '@tarojs/components/types/View';
 import classNames from 'classnames';
 import { FC } from 'react';
 import Typography from '../typography';
-import Icon from '../Icon';
+import Icon from '../icon';
 import Flex from '../flex';
 
 export type P = {
@@ -31,14 +31,19 @@ const Cell: FC<P & ViewProps> = ({
     className,
   );
   return (
-    <Flex className={classes} justify='between' {...props}>
+    <Flex
+      className={classes}
+      justify='between'
+      align={intro ? 'start' : 'center'}
+      {...props}
+    >
       <View className={`${prefixCls}-title`}>
         <Typography.Text>{title}</Typography.Text>
         <Typography.Text type='secondary'>{intro}</Typography.Text>
       </View>
       <Flex align='center' className={`${prefixCls}-right`}>
         <Typography.Text type='secondary'>{value}</Typography.Text>
-        {isLink && <Icon icon='icon-arrow' />}
+        {isLink && <Icon size='lg' icon='icon-arrow' />}
       </Flex>
     </Flex>
   );

@@ -10,6 +10,9 @@ export default {
     'pages/cell/index',
     'pages/form/index',
     'pages/radio/index',
+    'pages/uploader/index',
+    'pages/icon/index',
+    'pages/loading/index',
   ],
   window: {
     backgroundTextStyle: 'light',

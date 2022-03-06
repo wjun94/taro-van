@@ -1,0 +1,66 @@
+@import '../variables/index.less';
+
+@size: 160px;
+
+.@{tv-prefix}-uploader {
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__preview {
+    height: @size;
+    width: @size;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-right: @padding-x;
+    margin-bottom: @padding-x;
+    border: 1px solid @color-grey-5;
+    position: relative;
+  }
+  &__remove {
+    position: absolute;
+    right: -36px;
+    top: -36px;
+    height: 80px;
+    width: 80px;
+    border-radius: 80px;
+    background-color: @color-black-1;
+    &__icon {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      color: #fff;
+    }
+  }
+
+  &__mask {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    &__icon {
+      color: #fff !important;
+      margin-bottom: 4px;
+    }
+  }
+  &__img {
+    height: @size;
+    width: @size;
+  }
+  &__upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: @size;
+    width: @size;
+    border-radius: 8px;
+    background-color: @color-grey-5;
+    overflow: hidden;
+    border: 1px solid @color-grey-5;
+  }
+  &__add {
+    color: @color-grey-1;
+  }
+}

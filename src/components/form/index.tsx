@@ -56,14 +56,19 @@ const TvForm = forwardRef(
         // 错误校验
         for (let i in validate) {
           validate[i].forEach((item: Rule) => {
-            if (name && name !== i) return;
-            if (item.required && values && !values[i]) {
+            if (name && name !== i && JSON.stringify(errors) === '{}') return;
+            if (
+              item.required &&
+              values &&
+              ['', '[]', 'undefined', 'null'].includes(String(values[i]))
+            ) {
               // 是否为空校验
-              console.warn(item.message || `请输入${i}`);
-              result[i] = item.message || `请输入`;
+              console.warn(item.message || `${i}不能为空`);
+              result[i] = item.message || `${i}不能为空`;
             } else if (
               item.pattern &&
               values &&
+              values[i] &&
               !item.pattern.test(String(values[i]))
             ) {
               // 正则校验
@@ -98,11 +103,12 @@ const TvForm = forwardRef(
     // 提交表单
     const onSubmit = (values) => {
       const { value } = values.detail;
-      setFormValues({ ...value });
+      const result = { ...formValues, ...value };
+      setFormValues({ ...result });
       // 表单校验
-      if (validateFields(value)) {
+      if (validateFields(result)) {
         // 表单校验通过
-        onFinish && onFinish(value);
+        onFinish && onFinish(result);
       }
     };
     return (
@@ -111,9 +117,25 @@ const TvForm = forwardRef(
           {Children.map(children, (child: ReactElement) => {
             // <Form.Item name="name"> ... </Form.Item>
             const { name } = child.props;
+            const config = {
+              onChange: (values) => {
+                if (!values.detail) {
+                  // field和radio onChange带detail不执行以下方法
+                  // Uploader执行以下代码
+                  setFormValues((v: any) => {
+                    if (v) {
+                      v[name] = values;
+                    }
+                    validateFields(v, name);
+                    return { ...v };
+                  });
+                }
+              },
+            };
             if (child.props.rules && name) {
               validate[name] = child.props.rules;
               return cloneElement(child, {
+                ...config,
                 onInput: (e) => {
                   if (e.type === 'input') {
                     setFormValues((v: any) => {
@@ -130,7 +152,9 @@ const TvForm = forwardRef(
                 errorMsg: errors[name],
               });
             }
-            return cloneElement(child, {});
+            return cloneElement(child, {
+              ...config,
+            });
           })}
         </Form>
       </formContext.Provider>

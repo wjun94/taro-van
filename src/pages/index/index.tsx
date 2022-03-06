@@ -42,6 +42,18 @@ const Index = () => {
       label: 'Radio单选框',
       url: '/pages/radio/index',
     },
+    {
+      label: 'Uploader上传',
+      url: '/pages/uploader/index',
+    },
+    {
+      label: 'Icon图标',
+      url: '/pages/icon/index',
+    },
+    {
+      label: 'Loading加载',
+      url: '/pages/loading/index',
+    },
   ];
   return (
     <View className='example-index'>

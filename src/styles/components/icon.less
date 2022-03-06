@@ -1,13 +1,22 @@
 @import '../variables/index.less';
 
-.icon {
-  &-md {
-    font-size: @font-size-sm;
-  }
-  &-lg {
-    font-size: @font-size-lg;
-  }
-  &-xl {
-    font-size: @font-size-xl;
+.@{tv-prefix}-icon {
+  display: inline-block;
+  .@{tv-prefix}-icon {
+    &-sm {
+      font-size: @font-size-sm;
+    }
+    &-base {
+      font-size: @font-size-base;
+    }
+    &-lg {
+      font-size: 40px;
+    }
+    &-xl {
+      font-size: 60px;
+    }
+    &-xxl {
+      font-size: 80px;
+    }
   }
 }

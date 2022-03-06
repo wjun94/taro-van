@@ -9,6 +9,7 @@ import {
 } from 'react';
 import { View } from '@tarojs/components';
 import classNames from 'classnames';
+import Label from '../../label';
 import { formContext } from '../index';
 
 export type Rule = {
@@ -25,15 +26,17 @@ export type P = {
   errorMsg?: string;
   label?: string;
   name: string;
+  noBorder?: boolean;
 };
 
 const Item = forwardRef(
-  ({ children, className, rules, name, ...props }: P, myRef) => {
+  ({ children, className, rules, name, noBorder, ...props }: P, myRef) => {
     const prefixCls = 'tv-form-item';
     const classes = classNames(
       prefixCls,
       {
         'tv-cell--border': true,
+        'tv-form-item__no': noBorder,
       },
       className,
     );
@@ -41,7 +44,7 @@ const Item = forwardRef(
     useImperativeHandle(myRef, () => ({}));
     const config = {
       // onChange: () => { setValue('1') },
-      required: rules && rules.find((item) => item.required),
+      required: !!(rules && rules.find((item) => item.required)),
       name,
     };
     return (
@@ -50,16 +53,41 @@ const Item = forwardRef(
           const type = child.type.name;
           switch (type) {
             case 'Field':
+              // 输入框
+              // 输入框自带Label
               Object.assign(config, { value: initValue[name], ...props });
-              break;
+              return cloneElement(child, config);
             case 'TvRadioGroup':
               Object.assign(config, {
                 defaultValue: initValue[name],
                 ...props,
               });
-              break;
+              return (
+                <Label
+                  align={type === 'Uploader' ? 'start' : 'center'}
+                  {...config}
+                  {...props}
+                >
+                  {cloneElement(child, config)}
+                </Label>
+              );
+            case 'Uploader':
+              // 图片上传
+              Object.assign(config, {
+                value: initValue[name],
+                ...props,
+              });
+              return (
+                <Label
+                  align={type === 'Uploader' ? 'start' : 'center'}
+                  {...config}
+                  {...props}
+                >
+                  {cloneElement(child, config)}
+                </Label>
+              );
           }
-          return cloneElement(child, config);
+          return cloneElement(child, {});
         })}
       </View>
     );

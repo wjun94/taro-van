@@ -11,6 +11,16 @@ nav:
 
 # 更新日志
 
+## v1.0.25
+
+**Features**
+
+- 新增`Uploader`文件上传组件和`Icon`图标组件。
+
+**Performance**
+
+- `Form.Item`:添加 noBorder。
+
 ## v1.0.24
 
 **Features**
