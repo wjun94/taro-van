@@ -60,7 +60,7 @@ const TvForm = forwardRef(
             if (
               item.required &&
               values &&
-              ['', '[]'].includes(String(values[i]))
+              ['', '[]', 'undefined', 'null'].includes(String(values[i]))
             ) {
               // 是否为空校验
               console.warn(item.message || `${i}不能为空`);
