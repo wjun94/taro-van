@@ -139,13 +139,13 @@ const Uploader = ({
                 <View
                   onClick={() => onRemove(i)}
                   className='tv-uploader__remove'
-                >
-                  <Icon
-                    size='sm'
-                    className='tv-uploader__remove__icon'
-                    icon='icon-cross'
-                  />
-                </View>
+                ></View>
+                <Icon
+                  onClick={() => onRemove(i)}
+                  size='sm'
+                  className='tv-uploader__remove__icon'
+                  icon='icon-cross'
+                />
               </>
             )}
           </View>

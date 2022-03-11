@@ -18,7 +18,8 @@
     }
     &__label {
       display: flex;
-      width: 200px;
+      width: 180px;
+      min-width: 180px;
       vertical-align: middle;
       text-align: left;
       line-height: @line-height-zh;
@@ -48,7 +49,8 @@
       vertical-align: middle;
       color: @color-text-base;
       width: 100%;
-      input {
+      input,
+      textarea {
         font-size: @font-size-base;
         &::placeholder,
         &::input-placeholder {
@@ -64,6 +66,12 @@
         &__inp {
           flex: 1;
         }
+        &__textarea {
+          width: auto;
+        }
+      }
+      &--textarea {
+        align-items: flex-start;
       }
       &--center {
         text-align: center;
