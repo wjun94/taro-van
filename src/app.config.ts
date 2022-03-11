@@ -13,6 +13,7 @@ export default {
     'pages/uploader/index',
     'pages/icon/index',
     'pages/loading/index',
+    'pages/card/index',
   ],
   window: {
     backgroundTextStyle: 'light',
