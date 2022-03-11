@@ -35,6 +35,7 @@ const Index = () => {
       <Field label='账号' error placeholder='请输入账号' />
       <Field label='手机号' errorMsg='手机号格式错误' placeholder='请输入' />
       <Field label='对齐' inputAlign='right' placeholder='请输入' />
+      <Field label='留言' placeholder='请输入留言' type='textarea' />
     </View>
   );
 };
