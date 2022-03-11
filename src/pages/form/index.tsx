@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { Textarea } from '@tarojs/components';
 import Field from '../../components/field';
 import Form from '../../components/form';
 import Button from '../../components/button';

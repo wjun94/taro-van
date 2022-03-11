@@ -2,7 +2,17 @@
 
 .@{tv-prefix}-card {
   background-color: #fff;
-  // padding: @padding-x @padding-y;
   width: 710px;
   margin: 0 auto;
+  &-round {
+    border-radius: @border-radius-lg;
+    overflow: hidden;
+  }
+  &-header {
+    padding: @padding-sm @padding-x;
+  }
+  &-body {
+    padding: @padding-sm @padding-x;
+    line-height: normal;
+  }
 }
