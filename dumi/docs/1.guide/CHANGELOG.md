@@ -11,6 +11,13 @@ nav:
 
 # 更新日志
 
+## v1.0.26
+
+**Performance**
+
+- `Uploader`:添加自定义上传样式。
+- `Field`:添加`Textarea`。
+
 ## v1.0.25
 
 **Features**
