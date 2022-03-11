@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Textarea } from '@tarojs/components';
 import Field from '../../components/field';
 import Form from '../../components/form';
 import Button from '../../components/button';
@@ -33,10 +34,17 @@ const Index = () => {
         <Form.Item
           label='密码'
           name='password'
-          noBorder
           rules={[{ required: true, message: '密码不能为空' }]}
         >
           <Field placeholder='请输入密码' type='password' />
+        </Form.Item>
+        <Form.Item
+          label='备注'
+          name='mark'
+          rules={[{ required: true, message: '备注不能为空' }]}
+          noBorder
+        >
+          <Field placeholder='请输入备注' type='textarea' />
         </Form.Item>
         <Form.Item>
           <Button block type='primary' className='mt-20' formType='submit'>

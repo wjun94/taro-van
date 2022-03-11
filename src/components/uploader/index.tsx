@@ -1,7 +1,7 @@
 import { chooseImage, previewImage, showToast } from '@tarojs/taro';
 import { View, Image } from '@tarojs/components';
 import classNames from 'classnames';
-import { useMemo } from 'react';
+import { ReactNode, useMemo } from 'react';
 import Icon from '../icon';
 import Typography from '../typography';
 import Loading from '../loading';
@@ -15,6 +15,7 @@ export type UploaderFile = {
 };
 
 export type P = {
+  children?: ReactNode;
   value?: UploaderFile[]; // 默认值
   maxCount?: number; // 最大上传数
   deletable?: boolean; // 是否有删除按钮
@@ -41,6 +42,7 @@ const Uploader = ({
   onDelete,
   onOversize,
   afterRead,
+  children,
   preview = true,
 }: P) => {
   const prefixCls = 'tv-uploader';
@@ -139,20 +141,22 @@ const Uploader = ({
                 <View
                   onClick={() => onRemove(i)}
                   className='tv-uploader__remove'
-                >
-                  <Icon
-                    size='sm'
-                    className='tv-uploader__remove__icon'
-                    icon='icon-cross'
-                  />
-                </View>
+                ></View>
+                <Icon
+                  onClick={() => onRemove(i)}
+                  size='sm'
+                  className='tv-uploader__remove__icon'
+                  icon='icon-cross'
+                />
               </>
             )}
           </View>
         ))}
         {((maxCount && list.length < maxCount) || !maxCount) && (
           <View onClick={onUpload} className='tv-uploader__upload'>
-            <Icon size='xxl' icon='icon-plus' className='tv-uploader__add' />
+            {children || (
+              <Icon size='xxl' icon='icon-plus' className='tv-uploader__add' />
+            )}
           </View>
         )}
       </View>

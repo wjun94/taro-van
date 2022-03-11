@@ -2,6 +2,8 @@ import { View } from '@tarojs/components';
 import { useState } from 'react';
 import Uploader, { UploaderFile } from '../../components/uploader';
 import Typography from '../../components/typography';
+import Icon from '../../components/icon';
+import Flex from '../../components/flex';
 import './index.less';
 
 const Index = () => {
@@ -9,6 +11,7 @@ const Index = () => {
   const [value2, setValue2] = useState<UploaderFile[]>([]);
   const [value3, setValue3] = useState<UploaderFile[]>([]);
   const [value4, setValue4] = useState<UploaderFile[]>([]);
+  const [value5, setValue5] = useState<UploaderFile[]>([]);
   const [statusValue, setStatusValue] = useState<UploaderFile[]>([
     {
       url: 'https://img.jinse.cn/jinse_1646357741626951478_small.png',
@@ -80,6 +83,18 @@ const Index = () => {
         value={value6}
         maxCount={1}
       />
+
+      <Typography.Text type='secondary' block className='my-title'>
+        自定义上传样式
+      </Typography.Text>
+      <Uploader onChange={setValue5} value={value5}>
+        <Flex justify='center'>
+          <Icon size='xxl' icon='icon-camera' className='tv-uploader__add' />
+          <Typography.Text type='secondary' size='sm'>
+            上传图片
+          </Typography.Text>
+        </Flex>
+      </Uploader>
     </View>
   );
 };

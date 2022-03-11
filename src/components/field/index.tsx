@@ -1,5 +1,6 @@
-import { Input, View } from '@tarojs/components';
+import { Input, Textarea, View } from '@tarojs/components';
 import { InputProps } from '@tarojs/components/types/Input';
+import { TextareaProps } from '@tarojs/components/types/Textarea';
 import classNames from 'classnames';
 import { FC, ReactNode } from 'react';
 import Typography from '../typography';
@@ -12,10 +13,10 @@ export type P = {
   intro?: string;
   inputAlign?: 'center' | 'right';
   required?: boolean;
-  type?: 'text' | 'number' | 'idcard' | 'digit' | 'password';
+  type?: 'text' | 'number' | 'idcard' | 'digit' | 'password' | 'textarea';
 };
 
-const Field: FC<P & Omit<InputProps, 'type'>> = ({
+const Field: FC<P & Omit<InputProps, 'type'> & TextareaProps> = ({
   label,
   className,
   error,
@@ -30,7 +31,7 @@ const Field: FC<P & Omit<InputProps, 'type'>> = ({
   const prefixCls = 'tv-field';
   const classes = classNames(prefixCls, 'tv-cell--border', className);
   const containerClasses = classNames(`${prefixCls}-container`, {
-    [`${prefixCls}-container__start`]: intro || errorMsg,
+    [`${prefixCls}-container__start`]: intro || errorMsg || type === 'textarea',
   });
   const labelClasses = classNames(`${prefixCls}-container__label`, {
     [`${prefixCls}-container__label--required`]: required,
@@ -54,11 +55,19 @@ const Field: FC<P & Omit<InputProps, 'type'>> = ({
         <View className={inputClasses}>
           <View className={`${prefixCls}-container__input--body`}>
             <View className={`${prefixCls}-container__input--body__inp pr-14`}>
-              <Input
-                placeholderClass={phClasses}
-                type={type as any}
-                {...props}
-              />
+              {type === 'textarea' ? (
+                <Textarea
+                  className={`${prefixCls}-container__input--body__textarea`}
+                  placeholderClass={phClasses}
+                  {...props}
+                />
+              ) : (
+                <Input
+                  placeholderClass={phClasses}
+                  type={type as any}
+                  {...props}
+                />
+              )}
             </View>
             {rightItem && rightItem}
           </View>
