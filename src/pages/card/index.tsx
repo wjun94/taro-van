@@ -6,8 +6,8 @@ import './index.less';
 const Index = () => {
   return (
     <View>
-      <Card round title='标题'>
-        <Typography.Text>测试</Typography.Text>
+      <Card className='mt-20' title='标题'>
+        <Typography.Text>卡片内容区域</Typography.Text>
       </Card>
 
       <Card

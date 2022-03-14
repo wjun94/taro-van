@@ -11,6 +11,16 @@ nav:
 
 # 更新日志
 
+## v1.0.27
+
+**Performance**
+
+- 新增`Card`单选框组件。
+
+**Performance**
+
+- 调整组件全局样式。
+
 ## v1.0.26
 
 **Performance**
