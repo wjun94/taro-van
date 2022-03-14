@@ -15,6 +15,10 @@ const Index = () => {
       url: '/pages/flex/index',
     },
     {
+      label: 'Card 卡片',
+      url: '/pages/card/index',
+    },
+    {
       label: 'Typography排版',
       url: '/pages/typography/index',
     },

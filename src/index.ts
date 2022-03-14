@@ -8,3 +8,4 @@ export { default as Icon } from './components/icon';
 export { default as Form } from './components/form';
 export { default as Radio } from './components/radio';
 export { default as Uploader } from './components/uploader';
+export { default as Card } from './components/card';
