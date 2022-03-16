@@ -14,6 +14,7 @@ export default {
     'pages/icon/index',
     'pages/loading/index',
     'pages/card/index',
+    'pages/empty/index',
   ],
   window: {
     backgroundTextStyle: 'light',
