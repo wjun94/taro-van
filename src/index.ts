@@ -10,3 +10,4 @@ export { default as Radio } from './components/radio';
 export { default as Uploader } from './components/uploader';
 export { default as Card } from './components/card';
 export { default as Empty } from './components/empty';
+export { default as Tabs } from './components/tabs';
