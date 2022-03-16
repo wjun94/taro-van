@@ -22,10 +22,7 @@ const Index = () => {
       <Typography.Text type='secondary' block className='my-title'>
         底部内容
       </Typography.Text>
-      <Empty
-        image={<Icon icon='icon-empty' className='tv-empty__icon' size='xxl' />}
-        description='文字描述'
-      >
+      <Empty description='文字描述'>
         <Button type='primary' size='mini' className='mt-20'>
           按钮
         </Button>

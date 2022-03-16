@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## v1.0.28
+
+**Performance**
+
+- 新增`Empty`空状态组件。
+
 ## v1.0.27
 
 **Performance**
