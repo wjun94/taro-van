@@ -10,9 +10,8 @@ const Index = () => {
         基础用法
       </Typography.Text>
       <Tabs>
-        <Tabs.Tab title='水果' key='fruits'>
-          菠萝
-        </Tabs.Tab>
+        <Tabs.Tab title='水果' value='fruits1' />
+        <Tabs.Tab title='菠萝' value='fruits2' />
       </Tabs>
     </View>
   );

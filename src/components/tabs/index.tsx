@@ -1,17 +1,27 @@
-import { ReactNode } from 'react';
+import {
+  ReactNode,
+  cloneElement,
+  Children,
+  createContext,
+  useState,
+  useEffect,
+} from 'react';
 import { ViewProps } from '@tarojs/components/types/View';
 import classNames from 'classnames';
 import Tab from './tab';
-import Typography from '../typography';
-import Icon from '../icon';
 import Flex from '../flex';
 
 export type P = {
-  children?: ReactNode;
+  children?: ReactNode | any;
   className?: string;
   description?: ReactNode;
   image?: ReactNode;
 };
+
+export const tabsContext = createContext({
+  index: 0,
+  value: '',
+});
 
 const TvTabs = ({
   children,
@@ -20,12 +30,28 @@ const TvTabs = ({
   image,
   ...props
 }: P & Omit<ViewProps, 'className'>) => {
-  const prefixCls = 'tv-empty';
+  const prefixCls = 'tv-tabs';
   const classes = classNames(prefixCls, className);
+  const [value, setValue] = useState({
+    index: 0,
+    value: '',
+  });
   return (
-    <Flex direction='col' className={classes} {...props}>
-      {children}
-    </Flex>
+    <tabsContext.Provider value={value as any}>
+      <Flex className={classes} {...props}>
+        {Children.map(children, (child, index) => {
+          return cloneElement(child, {
+            index,
+            onTitle: (e, idx) => {
+              setValue({
+                value: e,
+                index: idx,
+              });
+            },
+          });
+        })}
+      </Flex>
+    </tabsContext.Provider>
   );
 };
 
