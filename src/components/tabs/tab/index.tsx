@@ -30,13 +30,13 @@ const TvTab = ({ title, value, children, disabled, className, onTitle }: P) => {
   });
   return (
     <View className={classes}>
-      <View className={`${prefixCls}__head`}>
-        <Typography.Title
-          onClick={() => onTitle && onTitle(value)}
-          className={titleClasses}
-        >
-          {title}
-        </Typography.Title>
+      <View
+        onClick={() => {
+          onTitle && onTitle(value);
+        }}
+        className={`${prefixCls}__head`}
+      >
+        <Typography.Title className={titleClasses}>{title}</Typography.Title>
       </View>
       <View>{children}</View>
     </View>

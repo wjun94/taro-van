@@ -2,17 +2,31 @@
 
 .@{tv-prefix}-tabs {
   background-color: #fff;
+  padding: 0 @space-y;
   position: relative;
+  &__container {
+    overflow-x: auto;
+    position: relative;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none; /* Chrome Safari */
+    }
+  }
   &__line {
     height: 6px;
     background-color: @color-primary;
     width: 48px;
     position: absolute;
     bottom: 0;
-    transition: left 0.38s;
+    transition: transform 0.28s;
   }
   .@{tv-prefix}-tab {
-    padding: @space-x @space-y;
+    &__head {
+      padding: @space-x @space-lg;
+    }
+    &__title {
+      white-space: nowrap;
+    }
     &__actived {
       .@{tv-prefix}-tab__title {
         color: @color-primary;
