@@ -10,22 +10,29 @@ export type P = {
   index?: number;
   children?: ReactNode;
   className?: string;
-  onTitle?: (value: string, index: number | undefined) => void;
+  disabled?: boolean;
+  onTitle?: (value: string) => void;
 };
 
-const TvTab = ({ title, value, children, className, index, onTitle }: P) => {
+const TvTab = ({ title, value, children, disabled, className, onTitle }: P) => {
   const initValue = useContext(tabsContext);
   const prefixCls = 'tv-tab';
-  const classes = classNames(prefixCls, className);
+  const classes = classNames(
+    prefixCls,
+    {
+      [`${prefixCls}__actived`]: value === initValue,
+    },
+    className,
+  );
   const titleClasses = classNames({
     [`${prefixCls}__title`]: true,
-    [`${prefixCls}__title--actived`]: index === initValue.index,
+    [`${prefixCls}__disabled`]: disabled,
   });
   return (
     <View className={classes}>
       <View className={`${prefixCls}__head`}>
         <Typography.Title
-          onClick={() => onTitle && onTitle(value, index)}
+          onClick={() => onTitle && onTitle(value)}
           className={titleClasses}
         >
           {title}

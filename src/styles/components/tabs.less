@@ -1,11 +1,25 @@
 @import '../variables/index.less';
 
 .@{tv-prefix}-tabs {
+  background-color: #fff;
+  position: relative;
+  &__line {
+    height: 6px;
+    background-color: @color-primary;
+    width: 48px;
+    position: absolute;
+    bottom: 0;
+    transition: left 0.38s;
+  }
   .@{tv-prefix}-tab {
-    &__title {
-      &--actived {
+    padding: @space-x @space-y;
+    &__actived {
+      .@{tv-prefix}-tab__title {
         color: @color-primary;
       }
+    }
+    &__disabled {
+      color: @color-secondary;
     }
   }
 }

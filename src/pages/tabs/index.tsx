@@ -9,9 +9,10 @@ const Index = () => {
       <Typography.Text type='secondary' block className='my-title'>
         基础用法
       </Typography.Text>
-      <Tabs>
+      <Tabs activeKey='fruits2'>
         <Tabs.Tab title='水果' value='fruits1' />
-        <Tabs.Tab title='菠萝' value='fruits2' />
+        <Tabs.Tab title='菠萝333333' value='fruits2' />
+        <Tabs.Tab title='苹果' disabled value='fruits3' />
       </Tabs>
     </View>
   );
