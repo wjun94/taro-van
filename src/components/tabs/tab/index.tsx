@@ -7,7 +7,6 @@ import Typography from '../../typography';
 export type P = {
   title: string;
   value: string;
-  index?: number;
   children?: ReactNode;
   className?: string;
   disabled?: boolean;

@@ -17,11 +17,9 @@ import Flex from '../flex';
 export type P = {
   children?: ReactNode;
   className?: string;
-  description?: ReactNode;
-  image?: ReactNode;
-  defaultActiveKey?: string;
+  defaultActiveValue?: string;
   name?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: string, index: number) => void;
 };
 
 export const tabsContext = createContext('');
@@ -30,9 +28,7 @@ const TvTabs = ({
   name,
   children,
   className,
-  description,
-  image,
-  defaultActiveKey,
+  defaultActiveValue,
   onChange,
   ...props
 }: P & Omit<ViewProps, 'className'>) => {
@@ -46,7 +42,7 @@ const TvTabs = ({
   );
   const [scroll, setScroll] = useState(0);
   const [value, setValue] = useState(
-    defaultActiveKey ||
+    defaultActiveValue ||
       (children && children[0] ? children[0].props.value : ''),
   );
   const [rect, setRect] = useState({
@@ -119,7 +115,7 @@ const TvTabs = ({
                 if (!child.props.disabled) {
                   setValue(e);
                   getQuery(idx);
-                  onChange && onChange(e);
+                  onChange && onChange(e, idx);
                 }
               },
             });

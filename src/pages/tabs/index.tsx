@@ -9,7 +9,11 @@ const Index = () => {
       <Typography.Text type='secondary' block className='my-title p-20'>
         基础用法
       </Typography.Text>
-      <Tabs name='one' defaultActiveKey='fruits2'>
+      <Tabs
+        name='one'
+        onChange={(val, idx) => console.log(val, idx)}
+        defaultActiveValue='fruits2'
+      >
         <Tabs.Tab title='水果' value='fruits1'>
           <View className='bg-white'>
             <Typography.Text>苹果</Typography.Text>

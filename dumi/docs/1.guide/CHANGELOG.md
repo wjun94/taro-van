@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## v1.0.29
+
+**Performance**
+
+- 新增`Tabs`标签页组件。
+
 ## v1.0.28
 
 **Performance**
