@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { ViewProps } from '@tarojs/components/types/View';
 import classNames from 'classnames';
-import { View } from '@tarojs/components';
+import { View, ScrollView } from '@tarojs/components';
 import { createSelectorQuery } from '@tarojs/taro';
 import Tab from './tab';
 import Flex from '../flex';
@@ -19,7 +19,7 @@ export type P = {
   className?: string;
   description?: ReactNode;
   image?: ReactNode;
-  activeKey?: string;
+  defaultActiveKey?: string;
   name?: string;
   onChange?: (value: string) => void;
 };
@@ -32,7 +32,7 @@ const TvTabs = ({
   className,
   description,
   image,
-  activeKey,
+  defaultActiveKey,
   onChange,
   ...props
 }: P & Omit<ViewProps, 'className'>) => {
@@ -44,8 +44,10 @@ const TvTabs = ({
     },
     className,
   );
+  const [scroll, setScroll] = useState(0);
   const [value, setValue] = useState(
-    activeKey || (children && children[0] ? children[0].props.value : ''),
+    defaultActiveKey ||
+      (children && children[0] ? children[0].props.value : ''),
   );
   const [rect, setRect] = useState({
     all: [], // 所有dom位置
@@ -65,10 +67,17 @@ const TvTabs = ({
           for (let i = 0; i < idx; i++) {
             left += (v.all[i] as any).width;
           }
+          setTimeout(() => {
+            if (res[0].left > 160) {
+              setScroll(50 * Math.ceil(left / 160));
+            } else if (res[0].left < 100) {
+              setScroll(-30 * Math.ceil(left / 160));
+            }
+          }, 30);
           return { ...v, width: res[0].width, left: left };
         });
       });
-    }, 100);
+    }, 120);
   };
   useEffect(() => {
     setTimeout(() => {
@@ -79,15 +88,29 @@ const TvTabs = ({
       query.exec((res) => {
         setRect((v) => ({ ...v, all: res[0] }));
       });
-    }, 90);
+    }, 100);
     const idx = children
       ? (children as any).findIndex((item) => item.props.value === value)
       : 0;
     getQuery(idx);
   }, []);
+  const ChildRender = () => {
+    const child =
+      children &&
+      Object.prototype.toString.call(children) === '[object Array]' &&
+      (children as any).find((item) => item.props.value === value);
+    return child.props.children ? <>{child.props.children}</> : <></>;
+  };
   return (
     <tabsContext.Provider value={value as any}>
-      <Flex className={classes} {...props}>
+      <ScrollView
+        scrollWithAnimation
+        showScrollbar={false}
+        scrollX
+        scrollLeft={scroll}
+        className={classes}
+        {...props}
+      >
         <Flex wrap='nowrap' className={`${prefixCls}__container`}>
           {Children.map(children, (child: ReactElement, idx: number) => {
             return cloneElement(child, {
@@ -108,7 +131,8 @@ const TvTabs = ({
             className='tv-tabs__line'
           />
         </Flex>
-      </Flex>
+      </ScrollView>
+      <ChildRender />
     </tabsContext.Provider>
   );
 };

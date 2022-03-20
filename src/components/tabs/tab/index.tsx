@@ -14,7 +14,7 @@ export type P = {
   onTitle?: (value: string) => void;
 };
 
-const TvTab = ({ title, value, children, disabled, className, onTitle }: P) => {
+const TvTab = ({ title, value, disabled, className, onTitle }: P) => {
   const initValue = useContext(tabsContext);
   const prefixCls = 'tv-tab';
   const classes = classNames(
@@ -22,6 +22,7 @@ const TvTab = ({ title, value, children, disabled, className, onTitle }: P) => {
     {
       [`${prefixCls}__actived`]: value === initValue,
     },
+    'tv-cell--border',
     className,
   );
   const titleClasses = classNames({
@@ -36,9 +37,10 @@ const TvTab = ({ title, value, children, disabled, className, onTitle }: P) => {
         }}
         className={`${prefixCls}__head`}
       >
-        <Typography.Title className={titleClasses}>{title}</Typography.Title>
+        <Typography.Title level={2} className={titleClasses}>
+          {title}
+        </Typography.Title>
       </View>
-      <View>{children}</View>
     </View>
   );
 };
