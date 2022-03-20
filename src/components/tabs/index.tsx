@@ -107,6 +107,7 @@ const TvTabs = ({
         scrollWithAnimation
         showScrollbar={false}
         scrollX
+        enhanced
         scrollLeft={scroll}
         className={classes}
         {...props}

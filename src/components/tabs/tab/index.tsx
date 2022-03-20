@@ -22,7 +22,6 @@ const TvTab = ({ title, value, disabled, className, onTitle }: P) => {
     {
       [`${prefixCls}__actived`]: value === initValue,
     },
-    'tv-cell--border',
     className,
   );
   const titleClasses = classNames({
