@@ -1,0 +1,47 @@
+@import '../variables/index.less';
+
+.@{tv-prefix}-tabs {
+  background-color: #fff;
+  position: relative;
+  box-shadow: 0 1px 5px 0 rgb(0 0 0 / 19%);
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+    color: transparent;
+  }
+  &__container {
+    position: relative;
+    &::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+      color: transparent;
+    }
+    // padding: 0 @space-y;
+  }
+  &__line {
+    height: 6px;
+    background-color: @color-primary;
+    width: 48px;
+    position: absolute;
+    bottom: 0;
+    transition: transform 0.28s;
+  }
+  .@{tv-prefix}-tab {
+    &__head {
+      padding: @space-x @space-lg;
+    }
+    &__title {
+      white-space: nowrap;
+    }
+    &__actived {
+      .@{tv-prefix}-tab__title {
+        color: @color-primary;
+      }
+    }
+    &__disabled {
+      color: @color-secondary;
+    }
+  }
+}

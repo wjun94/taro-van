@@ -62,6 +62,10 @@ const Index = () => {
       label: 'Empty空状态',
       url: '/pages/empty/index',
     },
+    {
+      label: 'Tabs标签页',
+      url: '/pages/tabs/index',
+    },
   ];
   return (
     <View className='example-index'>
