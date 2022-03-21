@@ -12,7 +12,7 @@ const Index = () => {
       <Tabs
         name='one'
         onChange={(val, idx) => console.log(val, idx)}
-        defaultActiveValue='fruits2'
+        active='fruits2'
       >
         <Tabs.Tab title='水果' value='fruits1'>
           <View className='bg-white'>
