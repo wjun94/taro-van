@@ -11,21 +11,27 @@ nav:
 
 # 更新日志
 
-## v1.0.29
+## v1.0.30
 
 **Performance**
+
+- 调整`Tabs` props。
+
+## v1.0.29
+
+**Features**
 
 - 新增`Tabs`标签页组件。
 
 ## v1.0.28
 
-**Performance**
+**Features**
 
 - 新增`Empty`空状态组件。
 
 ## v1.0.27
 
-**Performance**
+**Features**
 
 - 新增`Card`单选框组件。
 
