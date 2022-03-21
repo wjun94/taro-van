@@ -17,7 +17,7 @@ import Flex from '../flex';
 export type P = {
   children?: ReactNode;
   className?: string;
-  defaultActiveValue?: string;
+  active?: string;
   name?: string;
   onChange?: (value: string, index: number) => void;
 };
@@ -28,7 +28,7 @@ const TvTabs = ({
   name,
   children,
   className,
-  defaultActiveValue,
+  active,
   onChange,
   ...props
 }: P & Omit<ViewProps, 'className'>) => {
@@ -42,8 +42,7 @@ const TvTabs = ({
   );
   const [scroll, setScroll] = useState(0);
   const [value, setValue] = useState(
-    defaultActiveValue ||
-      (children && children[0] ? children[0].props.value : ''),
+    active || (children && children[0] ? children[0].props.value : ''),
   );
   const [rect, setRect] = useState({
     all: [], // 所有dom位置
@@ -75,6 +74,11 @@ const TvTabs = ({
       });
     }, 120);
   };
+  useEffect(() => {
+    if (active) {
+      setValue(active);
+    }
+  }, [active]);
   useEffect(() => {
     setTimeout(() => {
       // 获取并保存所有节点位置信息
