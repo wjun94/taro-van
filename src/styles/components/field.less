@@ -6,7 +6,7 @@
   overflow: hidden;
   padding-left: 0;
   &:not(:last-child)::after {
-    left: 40px;
+    left: @space-xl;
     bottom: 1px;
   }
   &-container {
@@ -56,6 +56,9 @@
         &::input-placeholder {
           color: @color-gray-3;
         }
+      }
+      &__pl {
+        padding-left: @space-xl;
       }
       &--disabled {
         color: @color-gray-2;

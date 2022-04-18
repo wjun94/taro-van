@@ -17,7 +17,7 @@ const Index = () => {
         required
         placeholder='请输入'
       />
-      <Field label='整数' type='digit' placeholder='请输入' />
+      <Field type='digit' placeholder='请输入' />
       <Field label='艺名' disabled value='禁止输入' placeholder='请输入' />
       <Field label='数字' type='number' placeholder='请输入' />
       <Field label='身份证' type='idcard' placeholder='请输入' />
