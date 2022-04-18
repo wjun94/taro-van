@@ -14,14 +14,24 @@
     overflow: hidden;
   }
   &-head {
-    padding-top: 14px;
+    padding-top: @space-y;
   }
   &-content {
-    padding: 12px 14px;
-    padding-bottom: 20px;
+    padding: @space-sm @space-y;
+    padding-bottom: @space-lg;
     text-align: center;
   }
   &-footer {
+    &--radio {
+      width: 100%;
+      padding-bottom: @space-y;
+      &__btn {
+        width: 200px;
+        &:first-child {
+          margin-right: @space-y;
+        }
+      }
+    }
     &--btn {
       &--more {
         margin-left: -1px;

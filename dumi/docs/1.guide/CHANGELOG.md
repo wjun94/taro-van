@@ -11,6 +11,16 @@ nav:
 
 # 更新日志
 
+## v1.0.31
+
+**Performance**
+
+- 优化 `Dialog` 组件。
+
+**Performance**
+
+- 调整输入框无 label 样式。
+
 ## v1.0.30
 
 **Performance**
