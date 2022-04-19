@@ -1,7 +1,7 @@
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
 import classNames from 'classnames';
-import { ReactNode, FC } from 'react';
+import { ReactNode, FC, useState, cloneElement } from 'react';
 import Typography from '../typography';
 import Button from '../button';
 import Flex from '../flex';
@@ -20,7 +20,9 @@ export type P = {
   onCancel?: () => void;
 };
 
-const Dialog: FC<P & Omit<ViewProps, 'onClick'>> = ({
+const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
+  Alert: FC<Omit<P, 'visible'> & Omit<ViewProps, 'onClick'>>;
+} = ({
   children,
   visible,
   title,
@@ -144,5 +146,34 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> = ({
     </Overlay>
   );
 };
+
+const Alert = ({ children, onCancel, onConfirm, ...props }) => {
+  const [visible, setVisible] = useState(false);
+  const onAlterCancel = () => {
+    setVisible(false);
+    onCancel && onCancel();
+  };
+  const onAlterConfirm = () => {
+    setVisible(false);
+    onCancel && onConfirm();
+  };
+  return (
+    <>
+      {cloneElement(children as any, {
+        onClick: () => {
+          setVisible(true);
+        },
+      })}
+      <Dialog
+        onCancel={onAlterCancel}
+        onConfirm={onAlterConfirm}
+        visible={visible}
+        {...props}
+      />
+    </>
+  );
+};
+
+Dialog.Alert = Alert;
 
 export default Dialog;

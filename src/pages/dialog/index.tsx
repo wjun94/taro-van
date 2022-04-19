@@ -83,6 +83,26 @@ const Index = () => {
           />
         </View>
       </View>
+
+      <View className='p-20'>
+        <View>
+          <Dialog.Alert
+            title='标题'
+            theme='radio'
+            content={
+              <View style={{ margin: '14px' }}>
+                <Typography.Text>逆水行舟，不进则退。</Typography.Text>
+              </View>
+            }
+            showCancelButton
+            closeOnMaskClick
+            onCancel={() => console.log('onCancel')}
+            onConfirm={() => console.log('onConfirm')}
+          >
+            <Button type='primary'>Dialog.Alert</Button>
+          </Dialog.Alert>
+        </View>
+      </View>
     </>
   );
 };
