@@ -13,6 +13,10 @@ nav:
 
 ## v1.0.31
 
+**Features**
+
+- 新增`Dialog.Alert`组件。
+
 **Performance**
 
 - 优化 `Dialog` 组件。

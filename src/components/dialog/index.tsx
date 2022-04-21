@@ -1,7 +1,14 @@
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
 import classNames from 'classnames';
-import { ReactNode, FC, useState, cloneElement } from 'react';
+import {
+  forwardRef,
+  useImperativeHandle,
+  ReactNode,
+  FC,
+  useState,
+  cloneElement,
+} from 'react';
 import Typography from '../typography';
 import Button from '../button';
 import Flex from '../flex';
@@ -16,12 +23,17 @@ export type P = {
   closeOnMaskClick?: boolean;
   content?: ReactNode;
   message?: string;
-  onConfirm?: () => void;
+  onConfirm?: () => void | Promise<any>;
   onCancel?: () => void;
 };
 
+export type DialogInstance = {
+  show: () => void;
+  hide: () => void;
+};
+
 const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
-  Alert: FC<Omit<P, 'visible'> & Omit<ViewProps, 'onClick'>>;
+  Alert: any;
 } = ({
   children,
   visible,
@@ -36,6 +48,8 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
   content,
   ...props
 }) => {
+  const [confireLoading, setConfireLoading] = useState(false);
+  const [cancelLoading, setCancelLoading] = useState(false);
   const prefixCls = 'tv-dialog';
   const classes = classNames(
     prefixCls,
@@ -44,6 +58,44 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
     },
     className,
   );
+  const onConfirmBtn = () => {
+    if (onConfirm) {
+      const target: any = onConfirm();
+      if (target && typeof target.then === 'function') {
+        setConfireLoading(true);
+        try {
+          target.finally(() => setConfireLoading(false));
+        } catch (err) {
+          console.log(err);
+          setConfireLoading(false);
+        }
+      }
+    }
+  };
+  const onCancelBtn = () => {
+    if (onCancel) {
+      const target: any = onCancel();
+      if (target && typeof target.then === 'function') {
+        setCancelLoading(true);
+        try {
+          target.finally(() => setCancelLoading(false));
+        } catch (err) {
+          console.log(err);
+          setCancelLoading(false);
+        }
+      }
+    }
+  };
+  const confirmProps: any = {
+    onClick: onConfirmBtn,
+    loading: confireLoading,
+    type: 'primary',
+  };
+  const cancelProps: any = {
+    onClick: onCancelBtn,
+    loading: cancelLoading,
+    plain: true,
+  };
   /** 按钮底部普通按钮 */
   const FooterBaseItem = () => {
     return (
@@ -51,16 +103,14 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
         {showCancelButton ? (
           <>
             <Button
-              onClick={onCancel}
-              plain
+              {...cancelProps}
               className={`${prefixCls}-footer--btn ${prefixCls}-footer--btn--more`}
             >
               取消
             </Button>
             <Button
-              onClick={onConfirm}
+              {...confirmProps}
               plain
-              type='primary'
               className={`${prefixCls}-footer--btn ${prefixCls}-footer--btn--more`}
             >
               确定
@@ -68,10 +118,9 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
           </>
         ) : (
           <Button
+            {...confirmProps}
             block
-            onClick={onConfirm}
             plain
-            type='primary'
             className={`${prefixCls}-footer--btn`}
           >
             确定
@@ -88,17 +137,15 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
         {showCancelButton ? (
           <Flex className={`${prefixCls}-footer--radio`} justify='center'>
             <Button
-              onClick={onCancel}
-              plain
+              {...cancelProps}
               round
               className={`${prefixCls}-footer--radio__btn`}
             >
               取消
             </Button>
             <Button
-              onClick={onConfirm}
+              {...confirmProps}
               round
-              type='primary'
               className={`${prefixCls}-footer--radio__btn`}
             >
               确定
@@ -106,10 +153,9 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
           </Flex>
         ) : (
           <Button
+            {...confirmProps}
             block
-            onClick={onConfirm}
             plain
-            type='primary'
             className={`${prefixCls}-footer--btn`}
           >
             确定
@@ -147,23 +193,31 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
   );
 };
 
-const Alert = ({ children, onCancel, onConfirm, ...props }) => {
+const Alert = forwardRef<
+  DialogInstance,
+  Omit<P, 'visible'> & Omit<ViewProps, 'onClick'>
+>(({ children, onCancel, onConfirm, ...props }, ref) => {
   const [visible, setVisible] = useState(false);
+  useImperativeHandle(ref, () => ({
+    show: () => setVisible(true),
+    hide: () => setVisible(false),
+  }));
   const onAlterCancel = () => {
     setVisible(false);
     onCancel && onCancel();
   };
   const onAlterConfirm = () => {
     setVisible(false);
-    onCancel && onConfirm();
+    onConfirm && onConfirm();
   };
   return (
     <>
-      {cloneElement(children as any, {
-        onClick: () => {
-          setVisible(true);
-        },
-      })}
+      {children &&
+        cloneElement(children as any, {
+          onClick: () => {
+            setVisible(true);
+          },
+        })}
       <Dialog
         onCancel={onAlterCancel}
         onConfirm={onAlterConfirm}
@@ -172,7 +226,7 @@ const Alert = ({ children, onCancel, onConfirm, ...props }) => {
       />
     </>
   );
-};
+});
 
 Dialog.Alert = Alert;
 

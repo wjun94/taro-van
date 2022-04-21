@@ -26,6 +26,9 @@
         display: none;
       }
     }
+    &__plain[plain][disabled] {
+      background-color: @color-gray-5;
+    }
   }
   &--@{type}:not([disabled]):active {
     background-color: @color;
