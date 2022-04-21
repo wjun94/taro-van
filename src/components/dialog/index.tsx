@@ -23,6 +23,7 @@ export type P = {
   closeOnMaskClick?: boolean;
   content?: ReactNode;
   message?: string;
+  footer?: ReactNode;
   onConfirm?: () => void | Promise<any>;
   onCancel?: () => void;
 };
@@ -46,6 +47,7 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
   theme,
   closeOnMaskClick,
   content,
+  footer,
   ...props
 }) => {
   const [confireLoading, setConfireLoading] = useState(false);
@@ -172,9 +174,11 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
     >
       <View className={`${prefixCls}-body`}>
         <View className={classes} onClick={(e) => e.stopPropagation()}>
-          <Typography.Title className={`${prefixCls}-head`} align='center'>
-            {title}
-          </Typography.Title>
+          {title && (
+            <Typography.Title className={`${prefixCls}-head`} align='center'>
+              {title}
+            </Typography.Title>
+          )}
           {content || (
             <Flex className={`${prefixCls}-content`} justify='center'>
               {message ? (
@@ -184,9 +188,11 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
               )}
             </Flex>
           )}
-          <Flex className={`${prefixCls}-footer`} wrap='nowrap'>
-            {theme === 'radio' ? <FooterRadioItem /> : <FooterBaseItem />}
-          </Flex>
+          {footer || (
+            <Flex className={`${prefixCls}-footer`} wrap='nowrap'>
+              {theme === 'radio' ? <FooterRadioItem /> : <FooterBaseItem />}
+            </Flex>
+          )}
         </View>
       </View>
     </Overlay>
