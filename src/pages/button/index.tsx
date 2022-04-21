@@ -29,7 +29,7 @@ const Index = () => {
   return (
     <View className='p-20'>
       <Typography.Text type='secondary' className='my-title'>
-        普通用法
+        基础用法
       </Typography.Text>
       <View>
         {items.map((item) => (

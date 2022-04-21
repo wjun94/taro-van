@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import Field from '../../components/field';
+import Typography from '../../components/typography';
 import Form from '../../components/form';
 import Button from '../../components/button';
 import Radio from '../../components/radio';
@@ -11,7 +12,7 @@ const Index = () => {
   const onFn = (values) => {
     console.log(values);
   };
-  const onTest = () => {
+  const onSet = () => {
     formRef.current.setFieldsValue({
       phone: 12345,
       email: '10086@xx.com',
@@ -22,6 +23,9 @@ const Index = () => {
   };
   return (
     <>
+      <Typography.Text type='secondary' className='my-title'>
+        基础用法
+      </Typography.Text>
       <Form onFinish={onFn} className='p-20'>
         <Form.Item
           label='用户名'
@@ -52,6 +56,9 @@ const Index = () => {
         </Form.Item>
       </Form>
 
+      <Typography.Text type='secondary' className='my-title'>
+        校验规则
+      </Typography.Text>
       <Form onFinish={onFn} className='p-20'>
         <Form.Item
           label='正则校验'
@@ -68,6 +75,9 @@ const Index = () => {
         </Form.Item>
       </Form>
 
+      <Typography.Text type='secondary' className='my-title'>
+        设置重置值
+      </Typography.Text>
       <Form
         ref={formRef}
         onFinish={onFn}
@@ -85,7 +95,7 @@ const Index = () => {
           <Field placeholder='请输入' />
         </Form.Item>
         <Form.Item className='example-form-footer'>
-          <Button onClick={onTest}>设置值</Button>
+          <Button onClick={onSet}>设置值</Button>
           <Button onClick={onReset}>重置</Button>
           <Button type='primary' className='mt-20' formType='submit'>
             提交
@@ -93,6 +103,9 @@ const Index = () => {
         </Form.Item>
       </Form>
 
+      <Typography.Text type='secondary' className='my-title'>
+        图片上传
+      </Typography.Text>
       <Form onFinish={onFn} initialValues={{ sex: '0' }} className='p-20'>
         <Form.Item label='姓名' name='name'>
           <Field placeholder='请输入姓名' />

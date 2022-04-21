@@ -5,6 +5,10 @@ export default {
   title: 'Taro UI库',
   description: '📖 Taro-Van文档',
   mode: 'doc',
+  // 然后 import('taro-van')，实际上是 import('/src')。
+  alias: {
+    'taro-van': '/src',
+  },
   metas: [
     {
       name: 'description',

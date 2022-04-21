@@ -58,13 +58,11 @@ import { Button } from 'taro-van';
 import { View } from '@tarojs/components';
 import { Button } from 'taro-van';
 
-const Index = () => {
+export default () => {
   return (
     <View className='wrapper'>
       <Button type='primary'>按钮</Button>
     </View>
   );
 };
-
-export default Index;
 ```
