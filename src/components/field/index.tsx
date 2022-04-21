@@ -39,6 +39,7 @@ const Field: FC<P & Omit<InputProps, 'type'> & TextareaProps> = ({
   });
   const inputClasses = classNames(`${prefixCls}-container__input`, {
     [`${prefixCls}-container__input--${inputAlign}`]: inputAlign,
+    [`${prefixCls}-container__input__pl`]: !label,
     [`${prefixCls}-container__input--disabled`]: props.disabled,
     [`${prefixCls}-container__input--error`]: error,
   });
@@ -49,9 +50,11 @@ const Field: FC<P & Omit<InputProps, 'type'> & TextareaProps> = ({
   return (
     <View className={classes}>
       <View className={`${containerClasses}`}>
-        <View className={labelClasses}>
-          <Typography.Text type='secondary'>{label}</Typography.Text>
-        </View>
+        {label && (
+          <View className={labelClasses}>
+            <Typography.Text type='secondary'>{label}</Typography.Text>
+          </View>
+        )}
         <View className={inputClasses}>
           <View className={`${prefixCls}-container__input--body`}>
             <View className={`${prefixCls}-container__input--body__inp pr-14`}>
