@@ -6,7 +6,7 @@ import Typography from '../../components/typography';
 import './index.less';
 
 const Index = () => {
-  const [visible1, setVisible1] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [radioVisible, setRadioVisible] = useState(false);
   const [closeVisible, setCloseVisible] = useState(false);
   const [titleVisible, setTitleVisible] = useState(false);
@@ -17,12 +17,12 @@ const Index = () => {
         基本用法
       </Typography.Text>
       <View>
-        <Cell title='基本用法' isLink onClick={() => setVisible1(true)} />
+        <Cell title='基本用法' isLink onClick={() => setVisible(true)} />
       </View>
       <Popup
         style={{ height: '30%' }}
-        visible={visible1}
-        onClose={() => setVisible1(false)}
+        visible={visible}
+        onClose={() => setVisible(false)}
       />
 
       <Typography.Text type='secondary' block className='my-title'>
@@ -82,6 +82,7 @@ const Index = () => {
         style={{ height: '30%' }}
         visible={closeVisible}
         closeIcon
+        closeOnMaskClick={false}
         onClose={() => setCloseVisible(false)}
       />
 

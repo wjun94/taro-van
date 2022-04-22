@@ -10,12 +10,12 @@ import Typography from '../typography';
 export type P = {
   children?: ReactNode;
   visible?: boolean;
-  onClose?: () => void;
   closeOnMaskClick?: boolean;
   round?: boolean; // 圆角
   title?: string;
   closeIcon?: boolean;
   position?: 'top' | 'left' | 'right' | 'bottom';
+  onClose?: () => void;
 };
 
 const TvPopup = ({

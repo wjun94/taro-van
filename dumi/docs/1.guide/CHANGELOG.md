@@ -11,6 +11,10 @@ nav:
 
 # 更新日志
 
+## v1.0.32
+
+- 新增`Popup`弹出层组件。
+
 ## v1.0.31
 
 **Features**
@@ -20,9 +24,6 @@ nav:
 **Performance**
 
 - 优化 `Dialog` 组件。
-
-**Performance**
-
 - 调整输入框无 label 样式。
 
 ## v1.0.30
