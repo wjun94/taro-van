@@ -75,6 +75,22 @@
 .@{tv-prefix}-popup {
   position: fixed;
   background-color: #fff;
+  overflow: hidden;
+  &--body {
+    padding: @space-sm @space-x;
+    height: 100%;
+  }
+  &--head {
+    margin-bottom: @space-sm;
+  }
+  .tv-icon {
+    position: absolute;
+    right: @space-y;
+    top: @space-sm;
+  }
+  &--round {
+    border-radius: @border-radius-xl @border-radius-xl 0 0;
+  }
   &--bottom {
     width: 100%;
     left: 0;
