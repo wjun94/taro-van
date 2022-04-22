@@ -1,5 +1,24 @@
 @import '../variables/index.less';
 
+/* 弹出或关闭动画来动态设置内容高度 */
+@keyframes slideBGOpen {
+  from {
+    background: transparent;
+  }
+  to {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+
+@keyframes slideBGClose {
+  from {
+    background: rgba(0, 0, 0, 0.6);
+  }
+  to {
+    background: transparent;
+  }
+}
+
 .@{tv-prefix}-overlay {
   position: fixed;
   visibility: hidden;
@@ -11,7 +30,14 @@
   background-color: rgba(0, 0, 0, 0.6);
   height: 100%;
   width: 100%;
-  &--active {
+  &--open {
     visibility: visible;
+    &__animate {
+      animation: slideBGOpen 0.3s ease-in both;
+    }
+  }
+  &--close__animate {
+    transition: visibility 300ms cubic-bezier(0.36, 0.66, 0.04, 1);
+    animation: slideBGClose 0.3s ease-in both;
   }
 }
