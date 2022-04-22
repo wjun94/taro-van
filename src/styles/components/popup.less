@@ -1,0 +1,122 @@
+@import '../variables/index.less';
+
+@keyframes slideBottonOpen {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slideBottonClose {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(100%); /*设置为正数则底部弹出来，负数则相反*/
+  }
+}
+
+@keyframes slideTopOpen {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slideTopClose {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%); /*设置为正数则底部弹出来，负数则相反*/
+  }
+}
+
+@keyframes slideLeftOpen {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideLeftClose {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%); /*设置为正数则底部弹出来，负数则相反*/
+  }
+}
+
+@keyframes slideRightOpen {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideRightClose {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%); /*设置为正数则底部弹出来，负数则相反*/
+  }
+}
+
+.@{tv-prefix}-popup {
+  position: fixed;
+  background-color: #fff;
+  &--bottom {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    &__open {
+      animation: slideBottonOpen 0.3s ease-in both;
+    }
+    &__close {
+      animation: slideBottonClose 0.3s ease-in both;
+    }
+  }
+  &--top {
+    width: 100%;
+    left: 0;
+    top: 0;
+    &__open {
+      animation: slideTopOpen 0.3s ease-in both;
+    }
+    &__close {
+      animation: slideTopClose 0.3s ease-in both;
+    }
+  }
+  &--left {
+    height: 100%;
+    left: 0;
+    top: 0;
+    &__open {
+      animation: slideLeftOpen 0.3s ease-in both;
+    }
+    &__close {
+      animation: slideLeftClose 0.3s ease-in both;
+    }
+  }
+  &--right {
+    height: 100%;
+    right: 0;
+    top: 0;
+    &__open {
+      animation: slideRightOpen 0.3s ease-in both;
+    }
+    &__close {
+      animation: slideRightClose 0.3s ease-in both;
+    }
+  }
+}

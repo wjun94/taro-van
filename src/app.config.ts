@@ -16,6 +16,7 @@ export default {
     'pages/card/index',
     'pages/empty/index',
     'pages/tabs/index',
+    'pages/popup/index',
   ],
   window: {
     backgroundTextStyle: 'light',

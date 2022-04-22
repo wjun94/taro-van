@@ -7,11 +7,13 @@ export type P = {
   children?: ReactNode;
   visible?: boolean;
   zIndex?: number;
+  animate?: boolean;
 };
 
 export default ({
   children,
   visible,
+  animate,
   zIndex = 50,
   className,
   ...props
@@ -20,7 +22,9 @@ export default ({
   const classes = classNames(
     prefixCls,
     {
-      [`${prefixCls}--active`]: visible,
+      [`${prefixCls}--open`]: visible,
+      [`${prefixCls}--open__animate`]: visible && animate,
+      [`${prefixCls}--close__animate`]: !visible && animate,
     },
     className,
   );

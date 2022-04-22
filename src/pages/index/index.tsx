@@ -66,6 +66,10 @@ const Index = () => {
       label: 'Tabs标签页',
       url: '/pages/tabs/index',
     },
+    {
+      label: 'Popup弹出层',
+      url: '/pages/popup/index',
+    },
   ];
   return (
     <View className='example-index'>
