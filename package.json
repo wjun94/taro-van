@@ -6,6 +6,7 @@
   "private": false,
   "main": "lib/src/index.js",
   "description": "taro ui库",
+  "homepage": "https://wjun94.github.io/taro-van",
   "bugs": {
     "url": "https://github.com/wjun94/taro-van/issues"
   },
