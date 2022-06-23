@@ -8,7 +8,6 @@ import {
   useState,
   Children,
 } from 'react';
-import './index.less';
 
 export type DragP = {
   children?: ReactNode | ReactNode[];
