@@ -11,3 +11,4 @@ export { default as Uploader } from './components/uploader';
 export { default as Card } from './components/card';
 export { default as Empty } from './components/empty';
 export { default as Tabs } from './components/tabs';
+export { default as DragList, Drag } from './components/dragList';

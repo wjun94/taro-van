@@ -46,10 +46,18 @@ import 'taro-van/lib/styles/components/button.less';
 import 'taro-van/lib/styles/index.less';
 ```
 
-页面中使用组件。
+## 解决样式引入问题
 
-```jsx | pure
-import { Button } from 'taro-van';
+在 config/index.js 文件中添加如下代码：
+
+```js
+const config = {
+  ...
+  h5: {
+    esnextModules: ['taro-van'],
+  }
+  ...
+}
 ```
 
 ## 示例

@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## v1.0.34
+
+**Features**
+
+- 新增`DragList`拖拽排序组件。
+
 ## v1.0.32
 
 **Features**

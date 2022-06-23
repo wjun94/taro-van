@@ -70,6 +70,10 @@ const Index = () => {
       label: 'Popup弹出层',
       url: '/pages/popup/index',
     },
+    {
+      label: 'DragList拖拽排序',
+      url: '/pages/dragList/index',
+    },
   ];
   return (
     <View className='example-index'>

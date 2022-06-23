@@ -1,0 +1,18 @@
+.drag {
+  &-body {
+    width: 750px;
+  }
+  &-ani {
+    animation: mymove 0.5s infinite;
+  }
+}
+
+@keyframes mymove {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(5px);
+  }
+}

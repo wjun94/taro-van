@@ -17,6 +17,7 @@ export default {
     'pages/empty/index',
     'pages/tabs/index',
     'pages/popup/index',
+    'pages/dragList/index',
   ],
   window: {
     backgroundTextStyle: 'light',
