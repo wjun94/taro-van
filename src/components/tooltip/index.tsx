@@ -1,5 +1,5 @@
 import cls from 'classnames';
-import { cloneElement, useState } from 'react';
+import { cloneElement, useEffect, useState } from 'react';
 import type { ViewProps } from '@tarojs/components/types/View';
 import Flex from '../flex';
 import Typography from '../typography';
@@ -9,6 +9,7 @@ export type P = {
   title: React.ReactNode;
   placement?: 'bottom' | 'top';
   color?: string;
+  visible?: boolean;
 } & ViewProps;
 
 export default ({
@@ -17,10 +18,16 @@ export default ({
   title,
   color = '#fff',
   placement = 'bottom',
+  visible,
   ...props
 }: P) => {
   const prefixCls = 'tv-tooltip';
-  const [visible, setVisible] = useState(false);
+  const [vis, setVis] = useState(false);
+  useEffect(() => {
+    if (visible !== undefined) {
+      setVis(visible);
+    }
+  }, [visible]);
   const classes = cls(prefixCls, className);
   const childClasses = cls(`${prefixCls}-alert`, {
     [`${prefixCls}-alert__${placement}`]: placement,
@@ -33,10 +40,10 @@ export default ({
             // 设置显示内容
             (children as React.ReactElement).props.onClick(event);
           }
-          setVisible((v) => !v);
+          setVis((v) => !v);
         },
       })}
-      {visible && (
+      {vis && (
         <Flex justify='center' className={childClasses}>
           <Flex className={`${prefixCls}-body ${prefixCls}-body__${placement}`}>
             {typeof title === 'string' ? (

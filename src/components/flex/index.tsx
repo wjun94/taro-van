@@ -10,7 +10,7 @@ export type P = {
   // 对齐项目
   align?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
   // Flex Direction
-  direction?: 'row' | 'col' | 'row-reverse' | 'col-reverse';
+  direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   wrap?: 'wrap' | 'wrap-reverse' | 'nowrap';
 };
 

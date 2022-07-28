@@ -1,9 +1,11 @@
 import { View } from '@tarojs/components';
+import { useState } from 'react';
 import Typography from '../../components/typography';
 import Tooltip from '../../components/tooltip';
 import Flex from '../../components/flex';
 
 const Index = () => {
+  const [visible, setVisible] = useState(false);
   return (
     <View className='p-20'>
       <Typography.Text type='secondary' block className='my-title'>
@@ -11,15 +13,22 @@ const Index = () => {
       </Typography.Text>
       <Flex>
         <Tooltip
+          visible={visible}
           title={
-            <Flex direction='col'>
-              <Typography.Text>编辑</Typography.Text>
-              <Typography.Text type='danger'>删除</Typography.Text>
+            <Flex direction='column'>
+              <Typography.Text onClick={() => setVisible(false)}>
+                编辑
+              </Typography.Text>
+              <Typography.Text type='danger' onClick={() => setVisible(false)}>
+                删除
+              </Typography.Text>
             </Flex>
           }
           className='mr-20'
         >
-          <Typography.Text>底部显示</Typography.Text>
+          <Typography.Text onClick={() => setVisible(true)}>
+            底部显示
+          </Typography.Text>
         </Tooltip>
 
         <Tooltip placement='top' title='prompt text'>

@@ -25,7 +25,7 @@ const TvEmpty = ({
     <Flex
       justify='center'
       align='center'
-      direction='col'
+      direction='column'
       className={classes}
       {...props}
     >
