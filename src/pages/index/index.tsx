@@ -74,6 +74,10 @@ const Index = () => {
       label: 'DragList拖拽排序',
       url: '/pages/dragList/index',
     },
+    {
+      label: 'Tooltip文字提示',
+      url: '/pages/tooltip/index',
+    },
   ];
   return (
     <View className='example-index'>
