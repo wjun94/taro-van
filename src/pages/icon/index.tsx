@@ -12,31 +12,31 @@ const Index = () => {
           基本图标
         </Typography.Text>
         <Flex justify='around'>
-          <Flex className='example-icon__box' direction='col' align='center'>
+          <Flex className='example-icon__box' direction='column' align='center'>
             <Icon icon='icon-cross' />
             <Typography.Text type='secondary' size='sm'>
               icon-cross
             </Typography.Text>
           </Flex>
-          <Flex className='example-icon__box' direction='col' align='center'>
+          <Flex className='example-icon__box' direction='column' align='center'>
             <Icon icon='icon-plus' />
             <Typography.Text type='secondary' size='sm'>
               icon-plus
             </Typography.Text>
           </Flex>
-          <Flex className='example-icon__box' direction='col' align='center'>
+          <Flex className='example-icon__box' direction='column' align='center'>
             <Icon icon='icon-close' />
             <Typography.Text type='secondary' size='sm'>
               icon-close
             </Typography.Text>
           </Flex>
-          <Flex className='example-icon__box' direction='col' align='center'>
+          <Flex className='example-icon__box' direction='column' align='center'>
             <Icon icon='icon-camera' />
             <Typography.Text type='secondary' size='sm'>
               icon-camera
             </Typography.Text>
           </Flex>
-          <Flex className='example-icon__box' direction='col' align='center'>
+          <Flex className='example-icon__box' direction='column' align='center'>
             <Icon icon='icon-arrow' />
             <Typography.Text type='secondary' size='sm'>
               icon-arrow
@@ -50,7 +50,7 @@ const Index = () => {
         <Flex align='end'>
           <Flex
             className='example-icon__box__size'
-            direction='col'
+            direction='column'
             align='center'
           >
             <Icon size='sm' icon='icon-camera' />
@@ -60,7 +60,7 @@ const Index = () => {
           </Flex>
           <Flex
             className='example-icon__box__size'
-            direction='col'
+            direction='column'
             align='center'
           >
             <Icon size='base' icon='icon-camera' />
@@ -70,7 +70,7 @@ const Index = () => {
           </Flex>
           <Flex
             className='example-icon__box__size'
-            direction='col'
+            direction='column'
             align='center'
           >
             <Icon size='lg' icon='icon-camera' />
@@ -80,7 +80,7 @@ const Index = () => {
           </Flex>
           <Flex
             className='example-icon__box__size'
-            direction='col'
+            direction='column'
             align='center'
           >
             <Icon size='xl' icon='icon-camera' />
@@ -90,7 +90,7 @@ const Index = () => {
           </Flex>
           <Flex
             className='example-icon__box__size'
-            direction='col'
+            direction='column'
             align='center'
           >
             <Icon size='xxl' icon='icon-camera' />

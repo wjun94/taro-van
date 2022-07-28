@@ -58,7 +58,7 @@ const Index = () => {
       <Typography.Title className='pl-20 pt-20' level={3}>
         Direction
       </Typography.Title>
-      {['row', 'row-reverse', 'col', 'col-reverse'].map((item) => (
+      {['row', 'row-reverse', 'column', 'column-reverse'].map((item) => (
         <Fragment key={item}>
           <Typography.Text
             type='secondary'

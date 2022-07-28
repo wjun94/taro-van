@@ -11,6 +11,13 @@ nav:
 
 # 更新日志
 
+## v1.0.36
+
+**Performance**
+
+- `Flex` 调整 `direction` 参数。
+- `Tooltip` 添加 `visible` 参数。
+
 ## v1.0.35
 
 **Features**

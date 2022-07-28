@@ -17,7 +17,7 @@ const Index = () => {
         <Flex align='end'>
           <Flex
             className='example-loading__box__size'
-            direction='col'
+            direction='column'
             align='center'
           >
             <Loading size='sm' />
@@ -27,7 +27,7 @@ const Index = () => {
           </Flex>
           <Flex
             className='example-loading__box__size'
-            direction='col'
+            direction='column'
             align='center'
           >
             <Loading size='base' />
@@ -37,7 +37,7 @@ const Index = () => {
           </Flex>
           <Flex
             className='example-loading__box__size'
-            direction='col'
+            direction='column'
             align='center'
           >
             <Loading size='lg' />
@@ -47,7 +47,7 @@ const Index = () => {
           </Flex>
           <Flex
             className='example-loading__box__size'
-            direction='col'
+            direction='column'
             align='center'
           >
             <Loading size='xl' />
@@ -57,7 +57,7 @@ const Index = () => {
           </Flex>
           <Flex
             className='example-loading__box__size'
-            direction='col'
+            direction='column'
             align='center'
           >
             <Loading size='xxl' />

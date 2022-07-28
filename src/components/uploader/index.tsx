@@ -118,7 +118,7 @@ const Uploader = ({
                 align='center'
                 className='tv-uploader__mask'
               >
-                <Flex align='center' direction='col'>
+                <Flex align='center' direction='column'>
                   {item.status === 'uploading' ? (
                     <Loading className='tv-uploader__mask__icon' size='xl' />
                   ) : (
