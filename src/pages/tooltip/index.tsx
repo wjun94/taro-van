@@ -10,7 +10,15 @@ const Index = () => {
         基础用法
       </Typography.Text>
       <Flex>
-        <Tooltip title='prompt text' className='mr-20'>
+        <Tooltip
+          title={
+            <Flex direction='col'>
+              <Typography.Text>编辑</Typography.Text>
+              <Typography.Text type='danger'>删除</Typography.Text>
+            </Flex>
+          }
+          className='mr-20'
+        >
           <Typography.Text>底部显示</Typography.Text>
         </Tooltip>
 

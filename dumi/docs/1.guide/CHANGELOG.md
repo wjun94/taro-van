@@ -11,6 +11,16 @@ nav:
 
 # 更新日志
 
+## v1.0.35
+
+**Features**
+
+- 新增`Tooltip`文字提示组件。
+
+**Performance**
+
+- `Dialog` 组件添加`cancelButtonText`，`confirmButtonText`。
+
 ## v1.0.34
 
 **Features**
