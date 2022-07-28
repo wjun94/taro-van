@@ -42,7 +42,13 @@ const Index = () => {
               icon-arrow
             </Typography.Text>
           </Flex>
-          <View className='example-icon__box' />
+          <Flex className='example-icon__box' direction='column' align='center'>
+            <Icon icon='icon-shut' />
+            <Typography.Text type='secondary' size='sm'>
+              icon-shut
+            </Typography.Text>
+          </Flex>
+          {/* <View className='example-icon__box' /> */}
         </Flex>
         <Typography.Text type='secondary' block className='my-title'>
           图标大小

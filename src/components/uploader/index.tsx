@@ -138,15 +138,11 @@ const Uploader = ({
             )}
             {deletable && item.status !== 'uploading' && (
               <>
-                <View
-                  onClick={() => onRemove(i)}
-                  className='tv-uploader__remove'
-                ></View>
                 <Icon
                   onClick={() => onRemove(i)}
-                  size='sm'
-                  className='tv-uploader__remove__icon'
-                  icon='icon-cross'
+                  size='lg'
+                  className='tv-uploader__icon'
+                  icon='icon-shut'
                 />
               </>
             )}
