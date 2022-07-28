@@ -1,6 +1,7 @@
 import { View } from '@tarojs/components';
 import { ReactNode, useContext } from 'react';
 import classNames from 'classnames';
+import { ViewProps } from '@tarojs/components/types/View';
 import { tabsContext } from '../index';
 import Typography from '../../typography';
 
@@ -13,7 +14,13 @@ export type P = {
   onTitle?: (value: string) => void;
 };
 
-const TvTab = ({ title, value, disabled, className, onTitle }: P) => {
+const TvTab = ({
+  title,
+  value,
+  disabled,
+  className,
+  onTitle,
+}: P & Omit<ViewProps, 'className'>) => {
   const initValue = useContext(tabsContext);
   const prefixCls = 'tv-tab';
   const classes = classNames(

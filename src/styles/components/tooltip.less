@@ -1,0 +1,72 @@
+.@{tv-prefix}-tooltip {
+  position: relative;
+  &-alert {
+    position: absolute;
+    &__bottom {
+      border-color: red !important;
+      &::after {
+        position: absolute;
+        top: 40px;
+        z-index: 11;
+        width: 0;
+        height: 0;
+        border-right: 18px solid transparent;
+        border-bottom: 20px solid #fff;
+        border-left: 18px solid transparent;
+        content: '';
+      }
+      &::before {
+        position: absolute;
+        top: 39px;
+        z-index: 11;
+        width: 0;
+        height: 0;
+        border-right: 18px solid transparent;
+        border-bottom: 20px solid rgba(204, 204, 204, 0.5);
+        border-left: 18px solid transparent;
+        content: '';
+      }
+    }
+    &__top {
+      &::after {
+        position: absolute;
+        bottom: 10px;
+        z-index: 11;
+        width: 0;
+        height: 0;
+        border-top: 20px solid #fff;
+        border-right: 18px solid transparent;
+        border-left: 18px solid transparent;
+        content: '';
+      }
+      &::before {
+        position: absolute;
+        bottom: 9px;
+        z-index: 11;
+        width: 0;
+        height: 0;
+        border-top: 20px solid rgba(204, 204, 204, 0.5);
+        border-right: 18px solid transparent;
+        border-left: 18px solid transparent;
+        content: '';
+      }
+    }
+  }
+  &-body {
+    position: absolute;
+    width: max-content;
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 1px 2px 8px 0 rgba(50, 50, 50, 0.2);
+    &__bottom {
+      top: 58px;
+    }
+    &__top {
+      bottom: 30px;
+    }
+    &__txt {
+      font-weight: bolder;
+      font-size: 24px;
+    }
+  }
+}

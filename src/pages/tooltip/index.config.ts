@@ -1,4 +1,4 @@
 export default {
-  navigationBarTitleText: 'Tooltip 文字提示',
+  navigationBarTitleText: 'Card 卡片',
   enableShareAppMessage: true,
 };
