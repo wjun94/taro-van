@@ -24,6 +24,8 @@ export type P = {
   content?: ReactNode;
   message?: string;
   footer?: ReactNode;
+  cancelButtonText?: string;
+  confirmButtonText?: string;
   onConfirm?: () => void | Promise<any>;
   onCancel?: () => void;
 };
@@ -48,6 +50,8 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
   closeOnMaskClick,
   content,
   footer,
+  cancelButtonText = '取消',
+  confirmButtonText = '确定',
   ...props
 }) => {
   const [confireLoading, setConfireLoading] = useState(false);
@@ -108,14 +112,14 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
               {...cancelProps}
               className={`${prefixCls}-footer--btn ${prefixCls}-footer--btn--more`}
             >
-              取消
+              {cancelButtonText}
             </Button>
             <Button
               {...confirmProps}
               plain
               className={`${prefixCls}-footer--btn ${prefixCls}-footer--btn--more`}
             >
-              确定
+              {confirmButtonText}
             </Button>
           </>
         ) : (
