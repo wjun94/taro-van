@@ -26,7 +26,7 @@ export type P = {
   onChange?: (files: UploaderFile[]) => void;
   onDelete?: (file: UploaderFile, index) => void; // 删除图片事件
   onOversize?: () => void; // 文件大小超过限制时触发
-  afterRead?: (file: chooseImage.ImageFile, index: number) => void; // 文件读取完成后的回调函数
+  afterRead?: (file: any, index: number) => void; // 文件读取完成后的回调函数
   className?: string;
 };
 
