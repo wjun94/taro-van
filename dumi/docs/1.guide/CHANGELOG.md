@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## v1.0.38
+
+**Performance**
+
+- `Spin` 组件 loading 状态下不可点击内容。
+
 ## v1.0.37
 
 **Features**
