@@ -35,9 +35,15 @@ const Spin = ({
   const classes = cls(prefixCls, className);
   return (
     <View className={classes} {...props}>
-      <Flex align='center' justify='center' className='tv-loader-container'>
-        {spinning && <View className='tv-loader-main' />}
-      </Flex>
+      {spinning && (
+        <Flex
+          align='center'
+          justify='center'
+          className={children ? 'tv-loader-container' : 'tv-loader-box'}
+        >
+          <View className='tv-loader-main' />
+        </Flex>
+      )}
       {children &&
         cloneElement(children as any, {
           className: `${children.props.className} ${
