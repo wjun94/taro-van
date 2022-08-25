@@ -1,7 +1,7 @@
 import { View } from '@tarojs/components';
 import { useState } from 'react';
 import Typography from '../../components/typography';
-import Spin from '../../components/spin';
+import Spin from '../../components/spin1';
 import Card from '../../components/card';
 import Button from '../../components/button';
 import './index.less';
