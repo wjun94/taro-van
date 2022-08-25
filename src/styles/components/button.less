@@ -136,6 +136,14 @@
     }
   }
 
+  &--white[plain] {
+    color: #fff;
+    border-color: #fff;
+    &::after {
+      display: none;
+    }
+  }
+
   .button-theme(primary, @color-primary);
 
   .button-theme(danger, @color-danger);

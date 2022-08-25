@@ -11,6 +11,16 @@ nav:
 
 # 更新日志
 
+## v1.0.37
+
+**Features**
+
+- 新增`Spin`加载中组件。
+
+**Performance**
+
+- `Loading` 修改样式并导出。
+
 ## v1.0.36
 
 **Performance**

@@ -3,29 +3,23 @@ import { TextProps } from '@tarojs/components/types/Text';
 import classNames from 'classnames';
 
 export type P = {
-  size?: 'sm' | 'base' | 'lg' | 'xl' | 'xxl';
   className?: string;
+  color?: string;
 };
 
 const Loading = ({
   className,
-  size = 'base',
+  color = 'gray',
   ...props
 }: P & Omit<TextProps, 'className'>) => {
   const prefixCls = 'tv-loading';
-  const loadingClasses = classNames(prefixCls, {
-    [`${prefixCls}__${size}`]: size,
-  });
-  const classes = classNames(
-    'tv-loading__body',
-    {
-      [`${prefixCls}__body__${size}`]: size,
-    },
-    className,
-  );
+  const loadingClasses = classNames(prefixCls, className);
   return (
-    <View className={loadingClasses}>
-      <View className={classes} {...props} />
+    <View style={{ borderColor: color }} className={loadingClasses} {...props}>
+      <View
+        style={{ borderColor: `${color} transparent` }}
+        className='tv-loading-item'
+      />
     </View>
   );
 };
