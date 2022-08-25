@@ -1,3 +1,9 @@
+.@{tv-prefix}-loader-container {
+  position: absolute;
+  width: 100%;
+  min-height: 200px;
+}
+
 .@{tv-prefix}-loader-main {
   width: 64px;
   height: 64px;
@@ -10,6 +16,9 @@
   background-size: 16px 16px;
   background-position: left top, left bottom, right top, right bottom;
   animation: rotate 1s linear infinite;
+  &_opacity {
+    opacity: 0.5;
+  }
 }
 @keyframes rotate {
   0% {

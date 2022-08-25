@@ -15,21 +15,21 @@ const Index = () => {
         </Typography.Text>
         <Spin>
           <View>
-            <Typography.Text>111</Typography.Text>
-          </View>
-          <View>
-            <Typography.Text>111</Typography.Text>
-          </View>
-          <View>
-            <Typography.Text>111</Typography.Text>
-          </View>
-          <View>
-            <Typography.Text>111</Typography.Text>
-          </View>
-          <View>
-            <Typography.Text>111</Typography.Text>
+            <View>
+              <Typography.Text>111</Typography.Text>
+            </View>
+            <View>
+              <Typography.Text>111</Typography.Text>
+            </View>
+            <View>
+              <Typography.Text>111</Typography.Text>
+            </View>
           </View>
         </Spin>
+        <View>
+          <Typography.Text>222</Typography.Text>
+        </View>
+        <Spin />
       </View>
     </View>
   );

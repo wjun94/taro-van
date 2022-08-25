@@ -1,12 +1,13 @@
-import { ReactElement } from 'react';
+import { cloneElement, ReactElement } from 'react';
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
 import cls from 'classnames';
 import Button from '../button';
 import Empty from '../empty';
+import Flex from '../flex';
 
 export type P = {
-  children?: ReactElement | ReactElement[] | null | string;
+  children?: ReactElement;
   className?: string;
   spinning?: boolean; // 是否在加载中
   error?: boolean; // 是否加载失败
@@ -31,11 +32,18 @@ const Spin = ({
         </Button>
       </Empty>
     );
-  if (spinning) return <View className='tv-loader-main' />;
   const classes = cls(prefixCls, className);
   return (
     <View className={classes} {...props}>
-      {children}
+      <Flex align='center' justify='center' className='tv-loader-container'>
+        {spinning && <View className='tv-loader-main' />}
+      </Flex>
+      {children &&
+        cloneElement(children as any, {
+          className: `${children.props.className} ${
+            spinning && 'tv-loader-main_opacity'
+          }`,
+        })}
     </View>
   );
 };
