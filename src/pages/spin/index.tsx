@@ -13,7 +13,7 @@ const Index = () => {
         <Typography.Text type='secondary' block className='my-title'>
           加载大小
         </Typography.Text>
-        <Spin spinning>
+        <Spin>
           <View>
             <Typography.Text>111</Typography.Text>
           </View>

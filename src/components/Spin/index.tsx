@@ -17,7 +17,7 @@ export type P = {
 const Spin = ({
   children,
   className,
-  spinning,
+  spinning = true,
   error,
   refresh,
   ...props
