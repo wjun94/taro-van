@@ -19,6 +19,7 @@ export default {
     'pages/popup/index',
     'pages/dragList/index',
     'pages/tooltip/index',
+    'pages/spin/index',
   ],
   window: {
     backgroundTextStyle: 'light',

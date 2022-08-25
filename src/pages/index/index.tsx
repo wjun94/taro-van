@@ -27,6 +27,10 @@ const Index = () => {
       url: '/pages/overlay/index',
     },
     {
+      label: 'Spin 加载中',
+      url: '/pages/spin/index',
+    },
+    {
       label: 'Dialog弹出框',
       url: '/pages/dialog/index',
     },
