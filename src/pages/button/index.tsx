@@ -53,6 +53,9 @@ const Index = () => {
             {item.label}
           </Button>
         ))}
+        <Button className='mr-32' type='white' plain>
+          白色按钮
+        </Button>
       </View>
 
       <Typography.Text type='secondary' className='my-title'>
