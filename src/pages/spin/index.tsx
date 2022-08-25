@@ -33,7 +33,9 @@ const Index = () => {
             title='标题'
             extra={<Typography.Link>更多</Typography.Link>}
           >
-            <Typography.Text>测试</Typography.Text>
+            <Typography.Text onClick={() => console.log(111)}>
+              测试
+            </Typography.Text>
           </Card>
         </Spin>
       </View>

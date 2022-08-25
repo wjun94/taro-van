@@ -47,7 +47,7 @@ const Spin = ({
       {children &&
         cloneElement(children as any, {
           className: `${children.props.className} ${
-            spinning && 'tv-loader-main_opacity'
+            spinning && 'tv-loader-main_disabled'
           }`,
         })}
     </View>
