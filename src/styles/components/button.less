@@ -16,7 +16,7 @@
     &__plain[plain],
     &__plain[plain][disabled],
     &__plain[plain]:not([disabled]):active {
-      background-color: #fff;
+      background-color: transparent;
       &:active {
         background-color: @color-gray-5;
       }
@@ -63,7 +63,7 @@
     margin: 0;
     line-height: 1;
     &:active {
-      background-color: transparent !important;
+      background-color: transparent;
     }
     &[size='mini'] {
       padding: 0;
@@ -139,9 +139,10 @@
     }
   }
 
-  &--white[plain] {
+  &--default[plain] {
     color: #fff;
     border-color: #fff;
+    background-color: transparent;
     &::after {
       display: none;
     }
@@ -154,6 +155,4 @@
   .button-theme(info, @color-success);
 
   .button-theme(warning, @color-warning);
-
-  .button-theme(white, @color-warning);
 }

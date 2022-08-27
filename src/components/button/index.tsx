@@ -6,7 +6,7 @@ import classNames from 'classnames';
 export type P = {
   children: ReactNode;
   // primary:主题 danger:红色 info:信息按钮 default:默认 warning:警告
-  type?: 'primary' | 'danger' | 'info' | 'default' | 'warning' | 'white';
+  type?: 'primary' | 'danger' | 'info' | 'default' | 'warning';
   // large:满格 normal:普通按钮 small:小型按钮 mini:迷你
   size?: 'large' | 'normal' | 'small' | 'mini';
   plain?: boolean; // 按钮是否镂空，背景色透明
