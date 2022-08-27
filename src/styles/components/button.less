@@ -63,7 +63,7 @@
     margin: 0;
     line-height: 1;
     &:active {
-      background-color: transparent;
+      background-color: transparent !important;
     }
     &[size='mini'] {
       padding: 0;
@@ -109,7 +109,8 @@
     }
     &:not([disabled]):active {
       border-color: #d1d5db;
-      background-color: @color-gray-5;
+      color: #d1d5db;
+      background-color: transparent;
       opacity: 1;
     }
   }

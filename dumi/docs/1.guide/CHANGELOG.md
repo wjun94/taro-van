@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## v1.1.3
+
+**Performance**
+
+- `Button` 组件调整样式。
+
 ## v1.0.38
 
 **Performance**

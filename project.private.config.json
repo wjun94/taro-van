@@ -1,37 +1,13 @@
 {
   "setting": {
-    "compileHotReLoad": true
+    "compileHotReLoad": false
   },
   "condition": {
     "miniprogram": {
       "list": [
         {
-          "name": "pages/button/index",
-          "pathName": "pages/button/index",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "pages/field/index",
           "pathName": "pages/field/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/radio/index",
-          "pathName": "pages/radio/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/form/index",
-          "pathName": "pages/form/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/uploader/index",
-          "pathName": "pages/uploader/index",
           "query": "",
           "scene": null
         }
