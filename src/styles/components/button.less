@@ -40,7 +40,7 @@
   cursor: pointer;
   &-view {
     display: inline-block;
-    line-height: 0;
+    line-height: 1;
   }
   &:active {
     opacity: 0.8;
@@ -61,11 +61,14 @@
   &-nostyle {
     padding: 0;
     margin: 0;
-    line-height: inherit;
+    line-height: 1;
+    &:active {
+      background-color: transparent !important;
+    }
     &[size='mini'] {
       padding: 0;
       margin: 0;
-      line-height: inherit;
+      line-height: 1;
     }
     &::after {
       display: none;
@@ -151,4 +154,6 @@
   .button-theme(info, @color-success);
 
   .button-theme(warning, @color-warning);
+
+  .button-theme(white, @color-warning);
 }
