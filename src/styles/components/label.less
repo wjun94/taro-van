@@ -23,7 +23,7 @@
       &::before {
         display: inline-block;
         margin-right: 8px;
-        color: @color-text-error;
+        color: @color-danger;
         font-size: @font-size-base;
         font-family: SimSun, sans-serif;
         content: '*';
@@ -42,7 +42,7 @@
     }
     &__content {
       vertical-align: middle;
-      color: @color-text-base;
+      color: @color-default;
       width: 100%;
       &--disabled {
         color: @color-gray-2;
@@ -55,11 +55,11 @@
         }
       }
       &--error {
-        color: @color-text-error;
+        color: @color-danger;
         input {
           &::placeholder,
           &::input-placeholder {
-            color: @color-text-error;
+            color: @color-danger;
           }
         }
       }

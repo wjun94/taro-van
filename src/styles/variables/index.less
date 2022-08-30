@@ -1,16 +1,27 @@
 @import '../common/index.less';
 @import '../common/font.css';
 
+:root {
+  --tv-color-primary: #4338ca;
+  --tv-color-success: #00c852;
+  --tv-color-danger: #dc2626;
+  --tv-color-warning: #fbbf24;
+  --tv-color-secondary: #969799;
+  --tv-color-default: #323232;
+  --tv-color-border: rgba(0, 0, 0, 0.14);
+}
+
 @tv-prefix: tv;
 @hd: 2; // 基本单位
 
 /* Color */
-@color-primary: #4338ca;
-@color-success: #00c852;
-@color-danger: #dc2626;
-@color-warning: #fbbf24;
+@color-primary: var(--tv-color-primary);
+@color-success: var(--tv-color-success);
+@color-danger: var(--tv-color-danger);
+@color-warning: var(--tv-color-warning);
+@color-secondary: var(--tv-color-secondary);
+@color-default: var(--tv-color-default); // 文字的基本色
 @color-white: #eee;
-@color-secondary: #969799;
 
 /* Color Palette */
 @color-black-0: #000;
@@ -20,23 +31,13 @@
 
 @color-gray-0: #333;
 @color-gray-1: #666;
-@color-gray-2: rgba(0, 0, 0, 0.14);
+@color-gray-2: var(--tv-color-border);
 @color-gray-3: #ccc;
 @color-gray-4: #e5e5e5;
 @color-gray-5: #f0f0f0;
 @color-gray-6: #f7f7f7;
 
 @color-white: #fff;
-
-/* Text Color */
-@color-text-base: #323232; // 文字的基本色
-@color-text-base-inverse: #fff; // 反色
-@color-text-secondary: #969799; // 辅助色
-@color-text-placeholder: #c9c9c9;
-@color-text-disabled: #ccc;
-@color-text-title: #2c405a; // 文章标题
-@color-text-paragraph: #3f536e; // 文章段落
-@color-text-error: #dc2626;
 
 /* Link */
 @color-link: #6190e8;

@@ -28,7 +28,7 @@
       &::before {
         display: inline-block;
         margin-right: 8px;
-        color: @color-text-error;
+        color: @color-danger;
         font-size: @font-size-base;
         font-family: SimSun, sans-serif;
         content: '*';
@@ -47,7 +47,7 @@
     }
     &__input {
       vertical-align: middle;
-      color: @color-text-base;
+      color: @color-default;
       width: 100%;
       input,
       textarea {
@@ -83,11 +83,11 @@
         text-align: right;
       }
       &--error {
-        color: @color-text-error;
+        color: @color-danger;
         input {
           &::placeholder,
           &::input-placeholder {
-            color: @color-text-error;
+            color: @color-danger;
           }
         }
       }
@@ -98,6 +98,6 @@
 .@{tv-prefix}-field-ph {
   color: @color-gray-3;
   &--error {
-    color: @color-text-error;
+    color: @color-danger;
   }
 }
