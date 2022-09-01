@@ -100,7 +100,6 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
   const cancelProps: any = {
     onClick: onCancelBtn,
     loading: cancelLoading,
-    plain: true,
   };
   /** 按钮底部普通按钮 */
   const FooterBaseItem = () => {

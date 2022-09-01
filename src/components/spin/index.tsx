@@ -9,8 +9,12 @@ import Flex from '../flex';
 export type P = {
   children?: ReactElement;
   className?: string;
-  spinning?: boolean; // 是否在加载中
-  error?: boolean; // 是否加载失败
+  /** 是否在加载中 */
+  spinning?: boolean;
+  /** 是否加载失败 */
+  error?: boolean;
+  /** 报错显示内容 */
+  errorRender?: ReactElement;
   refresh?: () => void;
 };
 
@@ -21,16 +25,24 @@ const Spin = ({
   spinning = true,
   error,
   refresh,
+  errorRender,
   ...props
 }: P & ViewProps) => {
-  const prefixCls = 'tv-loader';
+  const prefixCls = 'tv-spin';
   if (error)
     return (
-      <Empty description='服务端异常'>
-        <Button type='primary' onClick={refresh} size='mini' className='mt-20'>
-          刷新试试
-        </Button>
-      </Empty>
+      errorRender || (
+        <Empty description='服务端异常'>
+          <Button
+            type='primary'
+            onClick={refresh}
+            size='mini'
+            style={{ marginTop: '20px' }}
+          >
+            刷新试试
+          </Button>
+        </Empty>
+      )
     );
   const classes = cls(prefixCls, className);
   return (
