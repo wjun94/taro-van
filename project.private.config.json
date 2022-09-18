@@ -10,6 +10,13 @@
           "pathName": "pages/field/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/form/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

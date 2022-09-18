@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { View } from '@tarojs/components';
 import classNames from 'classnames';
-import Label from '../../label';
+import Label from '../../Label';
 import { formContext } from '../index';
 
 export type Rule = {
@@ -30,7 +30,10 @@ export type P = {
 };
 
 const Item = forwardRef(
-  ({ children, className, rules, name, noBorder, ...props }: P, myRef) => {
+  (
+    { children, className, rules, name, noBorder, label, ...props }: P,
+    myRef,
+  ) => {
     const prefixCls = 'tv-form-item';
     const classes = classNames(
       prefixCls,
@@ -50,42 +53,15 @@ const Item = forwardRef(
     return (
       <View className={classes}>
         {Children.map(children, (child: ReactElement | any) => {
-          const type = child.type.name;
-          switch (type) {
-            case 'Field':
-              // 输入框
-              // 输入框自带Label
-              Object.assign(config, { value: initValue[name], ...props });
-              return cloneElement(child, config);
-            case 'TvRadioGroup':
-              Object.assign(config, {
-                defaultValue: initValue[name],
-                ...props,
-              });
-              return (
-                <Label
-                  align={type === 'Uploader' ? 'start' : 'center'}
-                  {...config}
-                  {...props}
-                >
-                  {cloneElement(child, config)}
-                </Label>
-              );
-            case 'Uploader':
-              // 图片上传
-              Object.assign(config, {
-                value: initValue[name],
-                ...props,
-              });
-              return (
-                <Label
-                  align={type === 'Uploader' ? 'start' : 'center'}
-                  {...config}
-                  {...props}
-                >
-                  {cloneElement(child, config)}
-                </Label>
-              );
+          Object.assign(config, { value: initValue[name], ...props });
+          if (label) {
+            return (
+              <Label label={label} align='start' {...config}>
+                {cloneElement(child, { ...config, errorMsg: '', error: false })}
+              </Label>
+            );
+          } else if (name) {
+            return cloneElement(child, config);
           }
           return cloneElement(child, {});
         })}

@@ -23,7 +23,7 @@ const Label: FC<P & Omit<InputProps, 'type'>> = ({
   required,
   className,
   align,
-  ...props
+  disabled,
 }) => {
   const prefixCls = 'tv-label';
   const classes = classNames(prefixCls, 'tv-cell--border', className);
@@ -32,10 +32,10 @@ const Label: FC<P & Omit<InputProps, 'type'>> = ({
   });
   const labelClasses = classNames(`${prefixCls}-container__label`, {
     [`${prefixCls}-container__label--required`]: required,
-    [`${prefixCls}-container__label--disabled`]: props.disabled,
+    [`${prefixCls}-container__label--disabled`]: disabled,
   });
   const contentClasses = classNames(`${prefixCls}-container__content`, {
-    [`${prefixCls}-container__content--disabled`]: props.disabled,
+    [`${prefixCls}-container__content--disabled`]: disabled,
     [`${prefixCls}-container__content--error`]: error,
   });
 
@@ -53,7 +53,12 @@ const Label: FC<P & Omit<InputProps, 'type'>> = ({
             </Typography.Text>
           )}
           {errorMsg && (
-            <Typography.Text block size='xs' type='danger'>
+            <Typography.Text
+              block
+              size='xs'
+              className='tv-label-error'
+              type='danger'
+            >
               {errorMsg}
             </Typography.Text>
           )}
