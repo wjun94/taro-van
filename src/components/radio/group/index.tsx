@@ -14,7 +14,6 @@ const TvRadioGroup = ({
   defaultValue,
   className,
   direction,
-  ...props
 }: P & RadioGroupProps) => {
   const prefixCls = 'tv-radio-group';
   const classes = classNames(
@@ -25,7 +24,7 @@ const TvRadioGroup = ({
     className,
   );
   return (
-    <RadioGroup className={classes} {...props}>
+    <RadioGroup className={classes}>
       {Children.map(children, (child: ReactElement) => {
         return cloneElement(child, {
           checked: defaultValue && Object.is(child.props.value, defaultValue),

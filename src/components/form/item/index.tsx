@@ -53,7 +53,11 @@ const Item = forwardRef(
     return (
       <View className={classes}>
         {Children.map(children, (child: ReactElement | any) => {
-          Object.assign(config, { value: initValue[name], ...props });
+          Object.assign(config, {
+            defaultValue: initValue[name],
+            value: initValue[name],
+            ...props,
+          });
           if (label) {
             return (
               <Label label={label} align='start' {...config}>
