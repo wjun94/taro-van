@@ -1,4 +1,4 @@
-import NodePath from 'path';
+// import NodePath from 'path';
 import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -21,7 +21,7 @@ const regexesOfPackages = externalPackages.map(
   (packageName) => new RegExp(`^${packageName}(\/.*)?`),
 ); */
 
-const resolveFile = (path) => NodePath.resolve(__dirname, '..', path);
+// const resolveFile = (path) => NodePath.resolve(__dirname, '..', path);
 
 export default [
   // 打包声明文件
@@ -98,8 +98,8 @@ export default [
       RollupCopy({
         targets: [
           {
-            src: resolveFile('src/styles'),
-            dest: resolveFile('./lib'),
+            src: 'src/styles',
+            dest: 'lib',
           },
         ],
       }),
