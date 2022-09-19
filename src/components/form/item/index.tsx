@@ -27,11 +27,12 @@ export type P = {
   label?: string;
   name: string;
   noBorder?: boolean;
+  align?: 'start' | 'center';
 };
 
 const Item = forwardRef(
   (
-    { children, className, rules, name, noBorder, label, ...props }: P,
+    { children, align, className, rules, name, noBorder, label, ...props }: P,
     myRef,
   ) => {
     const prefixCls = 'tv-form-item';
@@ -60,7 +61,7 @@ const Item = forwardRef(
           });
           if (label) {
             return (
-              <Label label={label} align='start' {...config}>
+              <Label label={label} align={align} {...config}>
                 {cloneElement(child, { ...config, errorMsg: '', error: false })}
               </Label>
             );

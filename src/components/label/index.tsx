@@ -31,7 +31,6 @@ const Label: FC<P & Omit<InputProps, 'type'>> = ({
     [`${prefixCls}-container__start`]: intro || errorMsg || align === 'start',
   });
   const labelClasses = classNames(`${prefixCls}-container__label`, {
-    [`${prefixCls}-container__label__app`]: process.env.TARO_ENV !== 'h5',
     [`${prefixCls}-container__label--required`]: required,
     [`${prefixCls}-container__label--disabled`]: disabled,
   });

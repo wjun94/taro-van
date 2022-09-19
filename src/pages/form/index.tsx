@@ -44,6 +44,7 @@ const Index = () => {
         <Form.Item
           label='备注'
           name='mark'
+          align='start'
           rules={[{ required: true, message: '备注不能为空' }]}
           noBorder
         >
@@ -119,6 +120,7 @@ const Index = () => {
         <Form.Item
           label='上传图片'
           noBorder
+          align='start'
           rules={[{ required: true, message: '图片不能为空' }]}
           name='imgs'
         >
