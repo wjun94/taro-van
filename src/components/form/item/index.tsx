@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { View } from '@tarojs/components';
 import classNames from 'classnames';
-import Label from '../../Label';
+import Label from '../../label';
 import { formContext } from '../index';
 
 export type Rule = {
