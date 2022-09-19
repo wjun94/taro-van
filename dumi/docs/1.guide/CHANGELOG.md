@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## v1.1.11
+
+**Features**
+
+- 新增`Switch`开关组件。
+
 ## v1.1.10
 
 **Performance**

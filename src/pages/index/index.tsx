@@ -23,6 +23,10 @@ const Index = () => {
       url: '/pages/typography/index',
     },
     {
+      label: 'Switch开关',
+      url: '/pages/switch/index',
+    },
+    {
       label: 'Overlay遮罩层',
       url: '/pages/overlay/index',
     },

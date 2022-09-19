@@ -5,6 +5,7 @@ import Form from '../../components/form';
 import Button from '../../components/button';
 import Radio from '../../components/radio';
 import Uploader from '../../components/uploader';
+import Switch from '../../components/switch';
 import './index.less';
 
 const Index = () => {
@@ -107,7 +108,11 @@ const Index = () => {
       <Typography.Text type='secondary' className='my-title'>
         图片上传
       </Typography.Text>
-      <Form onFinish={onFn} initialValues={{ sex: '0' }} className='p-20'>
+      <Form
+        onFinish={onFn}
+        initialValues={{ sex: '0', isDefault: '1' }}
+        className='p-20'
+      >
         <Form.Item label='姓名' name='name'>
           <Field placeholder='请输入姓名' />
         </Form.Item>
@@ -119,12 +124,14 @@ const Index = () => {
         </Form.Item>
         <Form.Item
           label='上传图片'
-          noBorder
           align='start'
           rules={[{ required: true, message: '图片不能为空' }]}
           name='imgs'
         >
           <Uploader />
+        </Form.Item>
+        <Form.Item noBorder label='默认设置' name='isDefault'>
+          <Switch />
         </Form.Item>
         <Form.Item>
           <Button block type='primary' className='mt-20' formType='submit'>

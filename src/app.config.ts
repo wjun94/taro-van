@@ -20,6 +20,7 @@ export default {
     'pages/dragList/index',
     'pages/tooltip/index',
     'pages/spin/index',
+    'pages/switch/index',
   ],
   window: {
     backgroundTextStyle: 'light',

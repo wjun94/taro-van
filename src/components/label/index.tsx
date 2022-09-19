@@ -43,7 +43,7 @@ const Label: FC<P & Omit<InputProps, 'type'>> = ({
     <View className={classes}>
       <View className={`${containerClasses}`}>
         <View className={labelClasses}>
-          <Typography.Text type='secondary'>{label}</Typography.Text>
+          <Typography.Text>{label}</Typography.Text>
         </View>
         <View className={contentClasses}>
           {children}
