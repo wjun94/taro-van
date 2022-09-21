@@ -67,12 +67,14 @@ const Index = () => {
     },
   ];
   return (
-    <View className='p-20'>
-      <Typography.Text type='secondary' block className='my-title'>
-        基础用法
-      </Typography.Text>
+    <>
+      <View className='p-20'>
+        <Typography.Text type='secondary' block className='my-title'>
+          基础用法
+        </Typography.Text>
+      </View>
       <Cascader options={data} />
-    </View>
+    </>
   );
 };
 

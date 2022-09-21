@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Field from '../../components/field';
 import Typography from '../../components/typography';
 import Form from '../../components/form';
@@ -6,10 +6,75 @@ import Button from '../../components/button';
 import Radio from '../../components/radio';
 import Uploader from '../../components/uploader';
 import Switch from '../../components/switch';
+import Popup from '../../components/popup';
+import Cascader from '../../components/cascader';
 import './index.less';
 
 const Index = () => {
   const formRef = useRef<any>();
+  const [visible, setVisible] = useState(false);
+  const data = [
+    {
+      value: '11',
+      name: '北京市',
+      children: [
+        {
+          value: '1101',
+          name: '市辖区',
+          children: [
+            {
+              value: '110101',
+              name: '东城区',
+            },
+            {
+              value: '110102',
+              name: '西城区',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      value: '12',
+      name: '天津市',
+      children: [
+        {
+          value: '1201',
+          name: '市辖区',
+          children: [
+            {
+              value: '120101',
+              name: '和平区',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      value: '13',
+      name: '河北省',
+      children: [
+        {
+          value: '1301',
+          name: '石家庄市',
+          children: [
+            {
+              value: '130102',
+              name: '长安区',
+            },
+            {
+              value: '130104',
+              name: '桥西区',
+            },
+            {
+              value: '130105',
+              name: '新华区',
+            },
+          ],
+        },
+      ],
+    },
+  ];
   const onFn = (values) => {
     console.log(values);
   };
@@ -42,6 +107,9 @@ const Index = () => {
         >
           <Field placeholder='请输入密码' type='password' />
         </Form.Item>
+        <Form.Item label='选择地区' onClick={() => setVisible(true)}>
+          <Field placeholder='请选择地址' />
+        </Form.Item>
         <Form.Item
           label='备注'
           name='mark'
@@ -57,6 +125,13 @@ const Index = () => {
           </Button>
         </Form.Item>
       </Form>
+      <Popup visible={visible} onClose={() => setVisible(false)}>
+        <Cascader
+          onFinish={() => setVisible(false)}
+          onClose={() => setVisible(false)}
+          options={data}
+        />
+      </Popup>
 
       <Typography.Text type='secondary' className='my-title'>
         校验规则
