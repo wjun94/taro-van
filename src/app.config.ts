@@ -21,6 +21,7 @@ export default {
     'pages/tooltip/index',
     'pages/spin/index',
     'pages/switch/index',
+    'pages/cascader/index',
   ],
   window: {
     backgroundTextStyle: 'light',
