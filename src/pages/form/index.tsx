@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import Field from '../../components/field';
 import Typography from '../../components/typography';
 import Form from '../../components/form';
@@ -6,13 +6,11 @@ import Button from '../../components/button';
 import Radio from '../../components/radio';
 import Uploader from '../../components/uploader';
 import Switch from '../../components/switch';
-import Popup from '../../components/popup';
 import Cascader from '../../components/cascader';
 import './index.less';
 
 const Index = () => {
   const formRef = useRef<any>();
-  const [visible, setVisible] = useState(false);
   const data = [
     {
       value: '11',
@@ -159,16 +157,14 @@ const Index = () => {
         >
           <Field placeholder='请输入' type='number' />
         </Form.Item>
-        <Form.Item noBorder name='email' label='邮箱'>
+        <Form.Item name='email' label='邮箱'>
           <Field placeholder='请输入' />
         </Form.Item>
 
-        <Form.Item
-          label='选择地区'
-          name='area'
-          onClick={() => setVisible(true)}
-        >
-          <Field disabled placeholder='请选择地址' />
+        <Form.Item label='选择地区' name='area' noBorder>
+          <Cascader popup options={data}>
+            {(text) => <Typography.Text>{text || '请选择'}</Typography.Text>}
+          </Cascader>
         </Form.Item>
 
         <Form.Item className='example-form-footer'>
@@ -179,18 +175,6 @@ const Index = () => {
           </Button>
         </Form.Item>
       </Form>
-      <Popup visible={visible} onClose={() => setVisible(false)}>
-        <Cascader
-          onFinish={(_, selectedRows) => {
-            formRef.current.setFieldsValue({
-              area: selectedRows.map((item) => item.name).join(),
-            });
-            setVisible(false);
-          }}
-          onClose={() => setVisible(false)}
-          options={data}
-        />
-      </Popup>
 
       <Typography.Text type='secondary' className='my-title'>
         图片上传

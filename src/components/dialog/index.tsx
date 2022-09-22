@@ -5,6 +5,7 @@ import {
   forwardRef,
   useImperativeHandle,
   ReactNode,
+  ReactElement,
   FC,
   useState,
   cloneElement,
@@ -15,7 +16,7 @@ import Flex from '../flex';
 import Overlay from '../overlay';
 
 export type P = {
-  children?: ReactNode;
+  children?: ReactElement;
   visible?: boolean;
   title?: string;
   showCancelButton?: boolean;

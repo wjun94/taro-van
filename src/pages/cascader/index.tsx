@@ -74,6 +74,12 @@ const Index = () => {
         </Typography.Text>
       </View>
       <Cascader options={data} />
+      <View className='p-20'>
+        <Typography.Text type='secondary' block className='my-title'>
+          弹窗用法
+        </Typography.Text>
+      </View>
+      <Cascader popup options={data} />
     </>
   );
 };

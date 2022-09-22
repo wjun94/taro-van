@@ -5,8 +5,9 @@ import {
   PickerViewProps,
 } from '@tarojs/components';
 import classNames from 'classnames';
-import { useEffect, useState, Key } from 'react';
+import { useEffect, useState, Key, cloneElement, ReactElement } from 'react';
 import Typography from '../typography';
+import Popup from '../popup';
 import Flex from '../flex';
 
 export type Item =
@@ -18,9 +19,13 @@ export type Item =
   | any;
 
 export type P = {
+  /** 渲染函数 */
+  children?: (text: string) => ReactElement;
   /** 数据化配置选项内容 */
   options: Item[];
-  // 自定义字段
+  /** 是否弹窗显示 */
+  popup?: boolean;
+  /** 自定义字段 */
   fieldNames?: {
     text: string;
     value: string;
@@ -39,7 +44,7 @@ export type P = {
    */
   onFinish?: (values: Key[], selectedRows: Item[]) => void;
   /** 点击取消 */
-  onClose?: () => void;
+  onCancel?: () => void;
   /** 初始值 */
   value?: Key[];
 };
@@ -47,7 +52,7 @@ export type P = {
 const Cascader = ({
   options = [],
   headClassName,
-  onClose,
+  onCancel,
   fieldNames = {
     text: 'name',
     value: 'value',
@@ -55,9 +60,13 @@ const Cascader = ({
   },
   value = [],
   onChange,
+  children,
   onFinish,
+  popup,
   ...props
-}: P & Omit<PickerViewProps, 'value' | 'onChange'>) => {
+}: P & Omit<PickerViewProps, 'value' | 'onChange' | 'children'>) => {
+  const [visible, setVisible] = useState(false);
+  const [text, setText] = useState('');
   const [area, setArea] = useState([0, 0, 0] as Key[]);
   const prefixCls = 'tv-cascader';
   const headClasses = classNames(`${prefixCls}-head`, headClassName);
@@ -128,82 +137,123 @@ const Cascader = ({
   };
   // 点击确定
   const onSubmit = () => {
+    const [prov = 0, city = 0, dt = 0] = area;
+    const rows = [options[prov], citys[city], district[dt]];
     if (onFinish) {
-      const [prov = 0, city = 0, dt = 0] = area;
-      const rows = [options[prov], citys[city], district[dt]];
       onFinish(
         rows.map((item) => item[fieldNames.value]),
         rows,
       );
     }
+    if (popup) {
+      onChange &&
+        onChange(
+          rows.map((item) => item[fieldNames.value]),
+          rows,
+        );
+      setText(rows.map((item) => item[fieldNames.text]).join());
+      setVisible(false);
+    }
+  };
+
+  // 联级选择
+  const CascaderRender = () => {
+    return (
+      <>
+        {options && options.length ? (
+          <View {...props}>
+            <Flex justify='between' className={headClasses}>
+              <Typography.Text
+                type='secondary'
+                onClick={() => {
+                  if (popup) {
+                    setVisible(false);
+                  }
+                  onCancel && onCancel();
+                }}
+              >
+                取消
+              </Typography.Text>
+              <Typography.Text type='primary' onClick={() => onSubmit()}>
+                确定
+              </Typography.Text>
+            </Flex>
+            <PickerView
+              indicatorStyle='height: 50px;'
+              style='width: 100%; height: 300px;'
+              value={area as any}
+              onChange={onPickerChange}
+            >
+              <PickerViewColumn>
+                {options.map((item) => {
+                  return (
+                    <Flex
+                      align='center'
+                      justify='center'
+                      key={item[fieldNames.value]}
+                    >
+                      {item[fieldNames.text]}
+                    </Flex>
+                  );
+                })}
+              </PickerViewColumn>
+              <PickerViewColumn>
+                {citys &&
+                  citys.map((item) => {
+                    return (
+                      <Flex
+                        align='center'
+                        justify='center'
+                        key={item[fieldNames.value]}
+                      >
+                        {item[fieldNames.text]}
+                      </Flex>
+                    );
+                  })}
+              </PickerViewColumn>
+              <PickerViewColumn>
+                {district &&
+                  district.map((item) => {
+                    return (
+                      <Flex
+                        align='center'
+                        justify='center'
+                        key={item[fieldNames.value]}
+                      >
+                        {item[fieldNames.text]}
+                      </Flex>
+                    );
+                  })}
+              </PickerViewColumn>
+            </PickerView>
+          </View>
+        ) : (
+          <></>
+        )}
+      </>
+    );
   };
 
   return (
     <>
-      {options && options.length ? (
-        <View {...props}>
-          <Flex justify='between' className={headClasses}>
-            <Typography.Text
-              type='secondary'
-              onClick={() => onClose && onClose()}
-            >
-              取消
+      {popup ? (
+        <>
+          {children ? (
+            cloneElement(children(text), {
+              onClick: () => setVisible(true),
+            })
+          ) : (
+            <Typography.Text onClick={() => setVisible(true)}>
+              {text || '请选择地址'}
             </Typography.Text>
-            <Typography.Text type='primary' onClick={() => onSubmit()}>
-              确定
-            </Typography.Text>
-          </Flex>
-          <PickerView
-            indicatorStyle='height: 50px;'
-            style='width: 100%; height: 300px;'
-            value={area as any}
-            onChange={onPickerChange}
-          >
-            <PickerViewColumn>
-              {options.map((item) => {
-                return (
-                  <Flex
-                    align='center'
-                    justify='center'
-                    key={item[fieldNames.value]}
-                  >
-                    {item[fieldNames.text]}
-                  </Flex>
-                );
-              })}
-            </PickerViewColumn>
-            <PickerViewColumn>
-              {citys &&
-                citys.map((item) => {
-                  return (
-                    <Flex
-                      align='center'
-                      justify='center'
-                      key={item[fieldNames.value]}
-                    >
-                      {item[fieldNames.text]}
-                    </Flex>
-                  );
-                })}
-            </PickerViewColumn>
-            <PickerViewColumn>
-              {district &&
-                district.map((item) => {
-                  return (
-                    <Flex
-                      align='center'
-                      justify='center'
-                      key={item[fieldNames.value]}
-                    >
-                      {item[fieldNames.text]}
-                    </Flex>
-                  );
-                })}
-            </PickerViewColumn>
-          </PickerView>
-        </View>
+          )}
+
+          <Popup visible={visible} onClose={() => setVisible(false)}>
+            <CascaderRender />
+          </Popup>
+        </>
       ) : (
-        <></>
+        <CascaderRender />
       )}
     </>
   );
