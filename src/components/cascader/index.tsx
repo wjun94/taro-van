@@ -21,6 +21,8 @@ export type Item =
 export type P = {
   /** 渲染函数 */
   children?: (text: string) => ReactElement;
+  /** 初始值 */
+  value?: Key[];
   /** 数据化配置选项内容 */
   options: Item[];
   /** 是否弹窗显示 */
@@ -38,15 +40,13 @@ export type P = {
    * @params selectedRows
    */
   onChange?: (values: Key[], selectedRows: Item[]) => void;
-  /** 值改变
+  /** 点击确定
    * @params values
    * @params selectedRows
    */
   onFinish?: (values: Key[], selectedRows: Item[]) => void;
   /** 点击取消 */
   onCancel?: () => void;
-  /** 初始值 */
-  value?: Key[];
 };
 
 const Cascader = ({

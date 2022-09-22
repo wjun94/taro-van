@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## v1.1.12
+
+**Features**
+
+- 新增`Cascader`地区选择组件
+
 ## v1.1.11
 
 **Features**
