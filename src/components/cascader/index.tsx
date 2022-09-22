@@ -5,7 +5,14 @@ import {
   PickerViewProps,
 } from '@tarojs/components';
 import classNames from 'classnames';
-import { useEffect, useState, Key, cloneElement, ReactElement } from 'react';
+import {
+  useEffect,
+  useState,
+  Key,
+  cloneElement,
+  ReactElement,
+  useCallback,
+} from 'react';
 import Typography from '../typography';
 import Popup from '../popup';
 import Flex from '../flex';
@@ -232,7 +239,10 @@ const Cascader = ({
         )}
       </>
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   };
+
+  const CascaderRenderH5 = useCallback(CascaderRender, [options, citys]);
 
   return (
     <>
@@ -249,11 +259,21 @@ const Cascader = ({
           )}
 
           <Popup visible={visible} onClose={() => setVisible(false)}>
-            <CascaderRender />
+            {process.env.TARO_ENV === 'h5' ? (
+              <CascaderRenderH5 />
+            ) : (
+              <CascaderRender />
+            )}
           </Popup>
         </>
       ) : (
-        <CascaderRender />
+        <>
+          {process.env.TARO_ENV === 'h5' ? (
+            <CascaderRenderH5 />
+          ) : (
+            <CascaderRender />
+          )}
+        </>
       )}
     </>
   );
