@@ -193,6 +193,7 @@ const Cascader = ({
               </Typography.Text>
             </Flex>
             <PickerView
+              className='tv-cascader-body'
               indicatorStyle='height: 50px;'
               style='width: 100%; height: 300px;'
               value={area as any}
@@ -260,7 +261,10 @@ const Cascader = ({
               onClick: () => setVisible(true),
             })
           ) : (
-            <Typography.Text onClick={() => setVisible(true)}>
+            <Typography.Text
+              className={!text ? 'tv-cascader-text' : ''}
+              onClick={() => setVisible(true)}
+            >
               {text || '请选择地址'}
             </Typography.Text>
           )}

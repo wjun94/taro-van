@@ -52,13 +52,28 @@ const TvForm = forwardRef(
       name: string = '',
     ): boolean => {
       let result = {};
+      let isBreak = false; // 是否跳出循环
       if (JSON.stringify(validate) !== '{}') {
         // 错误校验
         for (let i in validate) {
           validate[i].forEach((item: Rule) => {
-            if (name && name !== i && JSON.stringify(errors) === '{}') return;
             if (
+              (name && name !== i && JSON.stringify(errors) === '{}') ||
+              isBreak
+            )
+              return;
+            if (name && item.required && values && name === i) {
+              result = errors;
+              if (['', '[]', 'undefined', 'null'].includes(String(values[i]))) {
+                console.warn(item.message || `${i}不能为空`);
+                result[i] = item.message || `${i}不能为空`;
+              } else {
+                delete errors[i];
+              }
+              isBreak = true;
+            } else if (
               item.required &&
+              ((name && name === i) || !name) &&
               values &&
               ['', '[]', 'undefined', 'null'].includes(String(values[i]))
             ) {
