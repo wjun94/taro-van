@@ -20,7 +20,7 @@ const Index = () => {
       children: [
         {
           value: '1101',
-          name: '市辖区',
+          name: '市辖区1',
           children: [
             {
               value: '110101',
@@ -40,7 +40,7 @@ const Index = () => {
       children: [
         {
           value: '1201',
-          name: '市辖区',
+          name: '市辖区2',
           children: [
             {
               value: '120101',
@@ -87,6 +87,7 @@ const Index = () => {
   const onReset = () => {
     formRef.current.resetFields();
   };
+
   return (
     <>
       <Typography.Text type='secondary' className='my-title'>
@@ -107,9 +108,6 @@ const Index = () => {
         >
           <Field placeholder='请输入密码' type='password' />
         </Form.Item>
-        <Form.Item label='选择地区' onClick={() => setVisible(true)}>
-          <Field placeholder='请选择地址' />
-        </Form.Item>
         <Form.Item
           label='备注'
           name='mark'
@@ -125,13 +123,6 @@ const Index = () => {
           </Button>
         </Form.Item>
       </Form>
-      <Popup visible={visible} onClose={() => setVisible(false)}>
-        <Cascader
-          onFinish={() => setVisible(false)}
-          onClose={() => setVisible(false)}
-          options={data}
-        />
-      </Popup>
 
       <Typography.Text type='secondary' className='my-title'>
         校验规则
@@ -171,6 +162,15 @@ const Index = () => {
         <Form.Item noBorder name='email' label='邮箱'>
           <Field placeholder='请输入' />
         </Form.Item>
+
+        <Form.Item
+          label='选择地区'
+          name='area'
+          onClick={() => setVisible(true)}
+        >
+          <Field disabled placeholder='请选择地址' />
+        </Form.Item>
+
         <Form.Item className='example-form-footer'>
           <Button onClick={onSet}>设置值</Button>
           <Button onClick={onReset}>重置</Button>
@@ -179,6 +179,18 @@ const Index = () => {
           </Button>
         </Form.Item>
       </Form>
+      <Popup visible={visible} onClose={() => setVisible(false)}>
+        <Cascader
+          onFinish={(_, selectedRows) => {
+            formRef.current.setFieldsValue({
+              area: selectedRows.map((item) => item.name).join(),
+            });
+            setVisible(false);
+          }}
+          onClose={() => setVisible(false)}
+          options={data}
+        />
+      </Popup>
 
       <Typography.Text type='secondary' className='my-title'>
         图片上传

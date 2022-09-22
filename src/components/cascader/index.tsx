@@ -58,7 +58,7 @@ const Cascader = ({
   onFinish,
   ...props
 }: P & Omit<PickerViewProps, 'value' | 'onChange'>) => {
-  const [area, setArea] = useState([] as Key[]);
+  const [area, setArea] = useState([0, 0, 0] as Key[]);
   const prefixCls = 'tv-cascader';
   const headClasses = classNames(`${prefixCls}-head`, headClassName);
 
@@ -116,9 +116,9 @@ const Cascader = ({
       // 选择区
       result = target;
     }
-    setArea(result);
+    setArea([...result]);
     if (onChange) {
-      const [prov, city, dt] = result;
+      const [prov = 0, city = 0, dt = 0] = result;
       const rows = [options[prov], citys[city], district[dt]];
       onChange(
         rows.map((item) => item[fieldNames.value]),
@@ -129,7 +129,7 @@ const Cascader = ({
   // 点击确定
   const onSubmit = () => {
     if (onFinish) {
-      const [prov, city, dt] = area;
+      const [prov = 0, city = 0, dt = 0] = area;
       const rows = [options[prov], citys[city], district[dt]];
       onFinish(
         rows.map((item) => item[fieldNames.value]),
