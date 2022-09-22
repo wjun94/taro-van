@@ -80,6 +80,7 @@ const Index = () => {
     formRef.current.setFieldsValue({
       phone: 12345,
       email: '10086@xx.com',
+      area: ['11', '1101', '110101'],
     });
   };
   const onReset = () => {

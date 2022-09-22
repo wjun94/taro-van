@@ -80,13 +80,16 @@ const Cascader = ({
 
   useEffect(() => {
     let count = -1;
-    const result: Array<string | number> = [];
+    const result: Array<{ index: number; node: Item }> = [];
     const fd = (data) => {
       count += 1;
       return data.find((item, i) => {
         const isKeep = item[fieldNames.value] === value[count];
         if (isKeep) {
-          result[count] = i;
+          result[count] = {
+            index: i,
+            node: item,
+          };
           if (item && item[fieldNames.children]) {
             fd(item.children);
           }
@@ -95,11 +98,15 @@ const Cascader = ({
       });
     };
     fd(options);
-    setArea([...result]);
+    setArea([...result.map((item) => item.index)]);
     setTimeout(() => {
       // 需要二次更新
-      setArea([...result]);
+      setArea([...result.map((item) => item.index)]);
     }, 10);
+    // 设置初始值
+    if (!visible) {
+      setText([...result.map((item) => item.node[fieldNames.text])].join());
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [JSON.stringify(value)]);
 
