@@ -1,26 +1,26 @@
 import { ReactNode } from 'react';
 import { ViewProps } from '@tarojs/components/types/View';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import Typography from '../typography';
 import Icon from '../icon';
 import Flex from '../flex';
 
-export type P = {
+export type EmptyProps = {
   children?: ReactNode;
   className?: string;
   description?: ReactNode;
   image?: ReactNode;
 };
 
-const TvEmpty = ({
+const Empty = ({
   children,
   className,
   description,
   image,
   ...props
-}: P & Omit<ViewProps, 'className'>) => {
+}: EmptyProps & Omit<ViewProps, 'className'>) => {
   const prefixCls = 'tv-empty';
-  const classes = classNames(prefixCls, className);
+  const classes = clsx(prefixCls, className);
   return (
     <Flex
       justify='center'
@@ -42,4 +42,4 @@ const TvEmpty = ({
   );
 };
 
-export default TvEmpty;
+export default Empty;

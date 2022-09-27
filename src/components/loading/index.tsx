@@ -1,8 +1,8 @@
 import { View } from '@tarojs/components';
 import { TextProps } from '@tarojs/components/types/Text';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
-export type P = {
+export type LoadingProps = {
   className?: string;
   color?: string;
 };
@@ -11,9 +11,9 @@ const Loading = ({
   className,
   color = 'gray',
   ...props
-}: P & Omit<TextProps, 'className'>) => {
+}: LoadingProps & Omit<TextProps, 'className'>) => {
   const prefixCls = 'tv-loading';
-  const loadingClasses = classNames(prefixCls, className);
+  const loadingClasses = clsx(prefixCls, className);
   return (
     <View style={{ borderColor: color }} className={loadingClasses} {...props}>
       <View

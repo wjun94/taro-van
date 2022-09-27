@@ -8,7 +8,7 @@ import {
   useImperativeHandle,
 } from 'react';
 import { View } from '@tarojs/components';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import Label from '../../label';
 import { formContext } from '../index';
 
@@ -36,7 +36,7 @@ const Item = forwardRef(
     myRef,
   ) => {
     const prefixCls = 'tv-form-item';
-    const classes = classNames(
+    const classes = clsx(
       prefixCls,
       {
         'tv-cell--border': true,

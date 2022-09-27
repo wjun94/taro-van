@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
-export type P = {
+export type FlexProps = {
   children?: ReactNode;
   // 对齐内容
   justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
@@ -22,9 +22,9 @@ const Flex = ({
   children,
   className,
   ...props
-}: P & ViewProps) => {
+}: FlexProps & ViewProps) => {
   const prefixCls = 'tv-flex';
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     {
       [`${prefixCls}-${direction}`]: direction,

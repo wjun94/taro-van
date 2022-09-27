@@ -9,7 +9,7 @@ import {
   Children,
 } from 'react';
 
-export type DragP = {
+export type DragProps = {
   children?: ReactNode | ReactNode[];
   disabled?: boolean; // 是否可以拖动
   height?: number; // 内容高度
@@ -28,7 +28,7 @@ export type P = {
   type?: 'default' | 'replace';
   onChange?: (data: any[], startIdx: number, endIdx: number) => void;
   onDragEnd?: (data: any[]) => void;
-} & Omit<DragP, 'children' | 'onEnd'>;
+} & Omit<DragProps, 'children' | 'onEnd'>;
 
 export const Drag = ({
   children,
@@ -41,7 +41,7 @@ export const Drag = ({
   height = 80,
   animateCls,
   ...props
-}: DragP) => {
+}: DragProps) => {
   const [startY, setStartY] = useState(0);
   const [startIdx, setStartIdx] = useState(0);
   const [isMove, setIsMove] = useState(false); // 是否可以拖动

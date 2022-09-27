@@ -1,12 +1,12 @@
 import { cloneElement, ReactElement } from 'react';
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
-import cls from 'classnames';
+import cls from 'clsx';
 import Button from '../button';
 import Empty from '../empty';
 import Flex from '../flex';
 
-export type P = {
+export type SpinProps = {
   children?: ReactElement;
   className?: string;
   /** 是否在加载中 */
@@ -27,7 +27,7 @@ const Spin = ({
   refresh,
   errorRender,
   ...props
-}: P & ViewProps) => {
+}: SpinProps & ViewProps) => {
   const prefixCls = 'tv-spin';
   if (error)
     return (

@@ -1,9 +1,9 @@
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { ReactNode } from 'react';
 
-export type P = {
+export type OverlayProps = {
   children?: ReactNode;
   visible?: boolean;
   zIndex?: number;
@@ -17,9 +17,9 @@ export default ({
   zIndex = 50,
   className,
   ...props
-}: P & ViewProps) => {
+}: OverlayProps & ViewProps) => {
   const prefixCls = 'tv-overlay';
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     {
       [`${prefixCls}--open`]: visible,

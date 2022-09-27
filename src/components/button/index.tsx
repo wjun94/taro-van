@@ -1,9 +1,9 @@
-import { Button, View } from '@tarojs/components';
-import { ButtonProps } from '@tarojs/components/types/Button';
+import { Button as TaroButton, View } from '@tarojs/components';
+import { ButtonProps as TaroButtonProps } from '@tarojs/components/types/Button';
 import { ReactNode } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
-export type P = {
+export type ButtonProps = {
   children: ReactNode;
   // primary:主题 danger:红色 info:信息按钮 default:默认 warning:警告
   type?: 'primary' | 'danger' | 'info' | 'default' | 'warning';
@@ -13,9 +13,9 @@ export type P = {
   round?: boolean; // 圆角
   block?: boolean; // 是否为块级元素
   noStyle?: boolean;
-} & Omit<ButtonProps, 'type' | 'size'>;
+} & Omit<TaroButtonProps, 'type' | 'size'>;
 
-const TvButton = ({
+const Button = ({
   children,
   size = 'normal',
   block,
@@ -27,16 +27,16 @@ const TvButton = ({
   noStyle,
   onClick,
   ...props
-}: P) => {
+}: ButtonProps) => {
   const prefixCls = 'tv-button';
-  const viewClasses = classNames(
+  const viewClasses = clsx(
     {
       [`${prefixCls}-view`]: true,
       [`${prefixCls}-block`]: block,
     },
     className,
   );
-  const classes = classNames(prefixCls, {
+  const classes = clsx(prefixCls, {
     [`${prefixCls}-${size}`]: size,
     [`${prefixCls}--${type}`]: type,
     [`${prefixCls}--${type}__round`]: type && round,
@@ -46,7 +46,7 @@ const TvButton = ({
   });
   return (
     <View className={viewClasses}>
-      <Button
+      <TaroButton
         loading={loading}
         className={classes}
         plain={plain}
@@ -59,9 +59,9 @@ const TvButton = ({
         }}
       >
         {children}
-      </Button>
+      </TaroButton>
     </View>
   );
 };
 
-export default TvButton;
+export default Button;

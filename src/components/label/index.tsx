@@ -1,10 +1,10 @@
 import { View } from '@tarojs/components';
 import { InputProps } from '@tarojs/components/types/Input';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { FC, ReactNode } from 'react';
 import Typography from '../typography';
 
-export type P = {
+export type LabelProps = {
   label?: string;
   error?: boolean;
   errorMsg?: string;
@@ -14,7 +14,7 @@ export type P = {
   align?: 'start' | 'center';
 };
 
-const Label: FC<P & Omit<InputProps, 'type'>> = ({
+const Label: FC<LabelProps & Omit<InputProps, 'type'>> = ({
   children,
   error,
   errorMsg,
@@ -26,15 +26,15 @@ const Label: FC<P & Omit<InputProps, 'type'>> = ({
   disabled,
 }) => {
   const prefixCls = 'tv-label';
-  const classes = classNames(prefixCls, 'tv-cell--border', className);
-  const containerClasses = classNames(`${prefixCls}-container`, {
+  const classes = clsx(prefixCls, 'tv-cell--border', className);
+  const containerClasses = clsx(`${prefixCls}-container`, {
     [`${prefixCls}-container__start`]: intro || errorMsg || align === 'start',
   });
-  const labelClasses = classNames(`${prefixCls}-container__label`, {
+  const labelClasses = clsx(`${prefixCls}-container__label`, {
     [`${prefixCls}-container__label--required`]: required,
     [`${prefixCls}-container__label--disabled`]: disabled,
   });
-  const contentClasses = classNames(`${prefixCls}-container__content`, {
+  const contentClasses = clsx(`${prefixCls}-container__content`, {
     [`${prefixCls}-container__content--disabled`]: disabled,
     [`${prefixCls}-container__content--error`]: error,
   });

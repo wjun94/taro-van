@@ -1,10 +1,10 @@
-import cls from 'classnames';
+import cls from 'clsx';
 import { cloneElement, useEffect, useState } from 'react';
 import type { ViewProps } from '@tarojs/components/types/View';
 import Flex from '../flex';
 import Typography from '../typography';
 
-export type P = {
+export type TooltipProps = {
   children: React.ReactNode;
   title: React.ReactNode;
   placement?: 'bottom' | 'top';
@@ -20,7 +20,7 @@ export default ({
   placement = 'bottom',
   visible,
   ...props
-}: P) => {
+}: TooltipProps) => {
   const prefixCls = 'tv-tooltip';
   const [vis, setVis] = useState(false);
   useEffect(() => {

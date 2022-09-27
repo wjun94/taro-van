@@ -1,22 +1,22 @@
-import { RadioGroup } from '@tarojs/components';
-import { RadioGroupProps } from '@tarojs/components/types/RadioGroup';
+import { RadioGroup as TaroRadioGroup } from '@tarojs/components';
+import { RadioGroupProps as TaroRadioGroupProps } from '@tarojs/components/types/RadioGroup';
 import { ReactNode, Children, cloneElement, ReactElement } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
-export type P = {
+export type RadioGroupProps = {
   children?: ReactNode;
   defaultValue?: string;
   direction?: 'horizontal' | 'vertical';
 };
 
-const TvRadioGroup = ({
+const RadioGroup = ({
   children,
   defaultValue,
   className,
   direction,
-}: P & RadioGroupProps) => {
+}: RadioGroupProps & TaroRadioGroupProps) => {
   const prefixCls = 'tv-radio-group';
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     {
       [`${prefixCls}--${direction}`]: direction,
@@ -24,14 +24,14 @@ const TvRadioGroup = ({
     className,
   );
   return (
-    <RadioGroup className={classes}>
+    <TaroRadioGroup className={classes}>
       {Children.map(children, (child: ReactElement) => {
         return cloneElement(child, {
           checked: defaultValue && Object.is(child.props.value, defaultValue),
         });
       })}
-    </RadioGroup>
+    </TaroRadioGroup>
   );
 };
 
-export default TvRadioGroup;
+export default RadioGroup;

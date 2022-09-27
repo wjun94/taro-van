@@ -1,10 +1,10 @@
 import { Text } from '@tarojs/components';
-import type { TextProps } from '@tarojs/components/types/Text';
+import type { TextProps as TaroTextProps } from '@tarojs/components/types/Text';
 import { setClipboardData, showToast } from '@tarojs/taro';
 import { ReactNode } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
-export type P = {
+export type TextProps = {
   children?: ReactNode;
   // primary: 主题色 default:默认色 text:灰色 danger:红色 white:白色 copy:复制
   type?:
@@ -21,7 +21,7 @@ export type P = {
   copyable?: { text: string; info?: string }; // 拷贝
   ellipsis?: boolean;
   block?: boolean;
-} & Omit<TextProps, 'children'>;
+} & Omit<TaroTextProps, 'children'>;
 
 const TextComp = ({
   children,
@@ -35,9 +35,9 @@ const TextComp = ({
   className,
   onClick,
   ...props
-}: P) => {
+}: TextProps) => {
   const prefixCls = 'tv-text';
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     {
       [`${prefixCls}-${ellipsis}`]: ellipsis,

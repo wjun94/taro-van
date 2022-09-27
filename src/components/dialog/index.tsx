@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import {
   forwardRef,
   useImperativeHandle,
@@ -15,7 +15,7 @@ import Button from '../button';
 import Flex from '../flex';
 import Overlay from '../overlay';
 
-export type P = {
+export type DialogProps = {
   children?: ReactElement;
   visible?: boolean;
   title?: string;
@@ -36,7 +36,7 @@ export type DialogInstance = {
   hide: () => void;
 };
 
-const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
+const Dialog: FC<DialogProps & Omit<ViewProps, 'onClick'>> & {
   Alert: any;
 } = ({
   children,
@@ -58,7 +58,7 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
   const [confireLoading, setConfireLoading] = useState(false);
   const [cancelLoading, setCancelLoading] = useState(false);
   const prefixCls = 'tv-dialog';
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     {
       [`${prefixCls}-container`]: true,
@@ -205,7 +205,7 @@ const Dialog: FC<P & Omit<ViewProps, 'onClick'>> & {
 
 const Alert = forwardRef<
   DialogInstance,
-  Omit<P, 'visible'> & Omit<ViewProps, 'onClick'>
+  Omit<DialogProps, 'visible'> & Omit<ViewProps, 'onClick'>
 >(({ children, onCancel, onConfirm, ...props }, ref) => {
   const [visible, setVisible] = useState(false);
   useImperativeHandle(ref, () => ({

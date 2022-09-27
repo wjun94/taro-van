@@ -1,6 +1,6 @@
 import { chooseImage, previewImage, showToast } from '@tarojs/taro';
 import { View, Image } from '@tarojs/components';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { ReactNode, useMemo } from 'react';
 import Icon from '../icon';
 import Typography from '../typography';
@@ -14,7 +14,7 @@ export type UploaderFile = {
   url: string;
 };
 
-export type P = {
+export type UploadProps = {
   children?: ReactNode;
   value?: UploaderFile[]; // 默认值
   maxCount?: number; // 最大上传数
@@ -44,12 +44,12 @@ const Uploader = ({
   afterRead,
   children,
   preview = true,
-}: P) => {
+}: UploadProps) => {
   const prefixCls = 'tv-uploader';
   const list = useMemo(() => {
     return [...value];
   }, [value]);
-  const classes = classNames(prefixCls, {}, className);
+  const classes = clsx(prefixCls, {}, className);
   /** 上传图片 */
   const onUpload = () => {
     if (disabled) return;

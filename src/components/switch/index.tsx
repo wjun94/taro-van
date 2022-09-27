@@ -1,7 +1,7 @@
-import { Switch } from '@tarojs/components';
-import classNames from 'classnames';
+import { Switch as TaroSwitch } from '@tarojs/components';
+import clsx from 'clsx';
 
-export type P = {
+export type SwitchProps = {
   color?: string;
   type?: 'checkbox' | 'switch';
   disabled?: boolean;
@@ -13,20 +13,20 @@ export type P = {
   onChange?: (value: boolean) => void;
 };
 
-const TvSwitch = ({
+const Switch = ({
   value,
   checked,
   size = 'default',
   defaultChecked,
   onChange,
   ...props
-}: P) => {
+}: SwitchProps) => {
   const prefixCls = 'tv-switch';
-  const classes = classNames(prefixCls, {
+  const classes = clsx(prefixCls, {
     [`${prefixCls}-${size}`]: size,
   });
   return (
-    <Switch
+    <TaroSwitch
       {...props}
       onChange={(e) => onChange && onChange(e.detail.value)}
       className={classes}
@@ -35,4 +35,4 @@ const TvSwitch = ({
   );
 };
 
-export default TvSwitch;
+export default Switch;

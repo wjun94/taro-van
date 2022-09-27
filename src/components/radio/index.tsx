@@ -1,17 +1,22 @@
-import { Radio, View } from '@tarojs/components';
-import { RadioProps } from '@tarojs/components/types/Radio';
+import { Radio as TaroRadio, View } from '@tarojs/components';
+import { RadioProps as TaroRadioProps } from '@tarojs/components/types/Radio';
 import { ReactNode } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import RadioGroup from './group';
 
-export type P = {
+export type RadioProps = {
   children?: ReactNode;
   size?: 'sm' | 'lg';
 };
 
-const TvRadio = ({ children, className, size, ...props }: P & RadioProps) => {
+const Radio = ({
+  children,
+  className,
+  size,
+  ...props
+}: RadioProps & TaroRadioProps) => {
   const prefixCls = 'tv-radio';
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     {
       [`${prefixCls}-app`]: process.env.TARO_ENV !== 'h5',
@@ -23,11 +28,11 @@ const TvRadio = ({ children, className, size, ...props }: P & RadioProps) => {
   );
   return (
     <View className={classes}>
-      <Radio {...props}>{children}</Radio>
+      <TaroRadio {...props}>{children}</TaroRadio>
     </View>
   );
 };
 
-TvRadio.Group = RadioGroup;
+Radio.Group = RadioGroup;
 
-export default TvRadio;
+export default Radio;

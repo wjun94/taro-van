@@ -1,13 +1,13 @@
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { ReactNode } from 'react';
 import Flex from '../flex';
 import Icon from '../icon';
 import Overlay from '../overlay';
 import Typography from '../typography';
 
-export type P = {
+export type PopupProps = {
   children?: ReactNode;
   visible?: boolean;
   closeOnMaskClick?: boolean;
@@ -18,7 +18,7 @@ export type P = {
   onClose?: () => void;
 };
 
-const TvPopup = ({
+const Popup = ({
   className,
   children,
   style,
@@ -29,9 +29,9 @@ const TvPopup = ({
   title,
   onClose,
   ...props
-}: P & ViewProps) => {
+}: PopupProps & ViewProps) => {
   const prefixCls = 'tv-popup';
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     {
       [`${prefixCls}--${position}`]: position,
@@ -72,4 +72,4 @@ const TvPopup = ({
   );
 };
 
-export default TvPopup;
+export default Popup;

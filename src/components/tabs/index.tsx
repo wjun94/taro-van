@@ -8,13 +8,13 @@ import {
   useEffect,
 } from 'react';
 import { ViewProps } from '@tarojs/components/types/View';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { View, ScrollView } from '@tarojs/components';
 import { createSelectorQuery } from '@tarojs/taro';
 import Tab from './tab';
 import Flex from '../flex';
 
-export type P = {
+export type TabsProps = {
   children?: ReactNode;
   className?: string;
   active?: string;
@@ -24,16 +24,16 @@ export type P = {
 
 export const tabsContext = createContext('');
 
-const TvTabs = ({
+const Tabs = ({
   name,
   children,
   className,
   active,
   onChange,
   ...props
-}: P & Omit<ViewProps, 'className'>) => {
+}: TabsProps & Omit<ViewProps, 'className'>) => {
   const prefixCls = 'tv-tabs';
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     {
       [`tv-tabs-${name}`]: true,
@@ -138,6 +138,6 @@ const TvTabs = ({
   );
 };
 
-TvTabs.Tab = Tab;
+Tabs.Tab = Tab;
 
-export default TvTabs;
+export default Tabs;

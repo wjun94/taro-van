@@ -1,11 +1,11 @@
 import { View } from '@tarojs/components';
 import { ReactNode } from 'react';
 import { ViewProps } from '@tarojs/components/types/View';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import Typography from '../typography';
 import Flex from '../flex';
 
-export type P = {
+export type CardProps = {
   children?: ReactNode;
   extra?: ReactNode;
   title?: ReactNode;
@@ -13,16 +13,16 @@ export type P = {
   round?: boolean;
 };
 
-const TvCard = ({
+const Card = ({
   className,
   title,
   children,
   extra,
   round,
   ...props
-}: P & Omit<ViewProps, 'className'>) => {
+}: CardProps & Omit<ViewProps, 'className'>) => {
   const prefixCls = 'tv-card';
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     {
       [`${prefixCls}-round`]: round,
@@ -46,4 +46,4 @@ const TvCard = ({
   );
 };
 
-export default TvCard;
+export default Card;

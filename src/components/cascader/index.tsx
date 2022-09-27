@@ -4,7 +4,7 @@ import {
   PickerView,
   PickerViewProps,
 } from '@tarojs/components';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import {
   useEffect,
   useState,
@@ -25,7 +25,7 @@ export type Item =
     }
   | any;
 
-export type P = {
+export type CascaderProps = {
   /** 渲染函数 */
   children?: (text: string) => ReactElement;
   /** 初始值 */
@@ -71,12 +71,13 @@ const Cascader = ({
   onFinish,
   popup,
   ...props
-}: P & Omit<PickerViewProps, 'value' | 'onChange' | 'children'>) => {
+}: CascaderProps &
+  Omit<PickerViewProps, 'value' | 'onChange' | 'children'>) => {
   const [visible, setVisible] = useState(false);
   const [text, setText] = useState('');
   const [area, setArea] = useState([0, 0, 0] as Key[]);
   const prefixCls = 'tv-cascader';
-  const headClasses = classNames(`${prefixCls}-head`, headClassName);
+  const headClasses = clsx(`${prefixCls}-head`, headClassName);
 
   useEffect(() => {
     let count = -1;

@@ -9,12 +9,12 @@ import {
   Children,
   ReactElement,
 } from 'react';
-import { Form } from '@tarojs/components';
-import { FormProps } from '@tarojs/components/types/Form';
-import classNames from 'classnames';
+import { Form as TaroForm } from '@tarojs/components';
+import { FormProps as TaroFormProps } from '@tarojs/components/types/Form';
+import clsx from 'clsx';
 import Item, { Rule } from './item';
 
-export type P = {
+export type FormProps = {
   children?: ReactNode;
   initialValues?: { [key: string]: string | number };
   onFinish?: (values?: any) => void;
@@ -22,7 +22,7 @@ export type P = {
 
 export const formContext = createContext({});
 
-const TvForm = forwardRef(
+const Form = forwardRef(
   (
     {
       children,
@@ -30,13 +30,13 @@ const TvForm = forwardRef(
       initialValues = {},
       onFinish,
       ...props
-    }: P & FormProps,
+    }: FormProps & TaroFormProps,
     ref: Ref<any>,
   ) => {
     const prefixCls = 'tv-form';
     // 保存name rules
     const validate: { [key: string]: Rule[] } = {};
-    const classes = classNames(prefixCls, {}, className);
+    const classes = clsx(prefixCls, {}, className);
     // form表单值
     const [formValues, setFormValues] = useState(initialValues);
     // 保存错误数据
@@ -128,7 +128,7 @@ const TvForm = forwardRef(
     };
     return (
       <formContext.Provider value={formValues}>
-        <Form className={classes} onSubmit={onSubmit} {...props}>
+        <TaroForm className={classes} onSubmit={onSubmit} {...props}>
           {Children.map(children, (child: ReactElement) => {
             // <Form.Item name="name"> ... </Form.Item>
             const { name } = child.props;
@@ -171,12 +171,12 @@ const TvForm = forwardRef(
               ...config,
             });
           })}
-        </Form>
+        </TaroForm>
       </formContext.Provider>
     );
   },
 );
 
-(TvForm as any).Item = Item;
+(Form as any).Item = Item;
 
-export default TvForm as any;
+export default Form as any;

@@ -1,17 +1,23 @@
 import { Text } from '@tarojs/components';
-import type { TextProps } from '@tarojs/components/types/Text';
+import type { TextProps as TaroTextProps } from '@tarojs/components/types/Text';
 import { ReactNode } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { navigateTo } from '@tarojs/taro';
 
-export type P = {
+export type LinkProps = {
   children?: ReactNode;
   href?: string;
-} & Omit<TextProps, 'children'>;
+} & Omit<TaroTextProps, 'children'>;
 
-const TextComp = ({ children, className, href, onClick, ...props }: P) => {
+const TextComp = ({
+  children,
+  className,
+  href,
+  onClick,
+  ...props
+}: LinkProps) => {
   const prefixCls = 'tv-link';
-  const classes = classNames(prefixCls, className);
+  const classes = clsx(prefixCls, className);
   return (
     <Text
       className={classes}

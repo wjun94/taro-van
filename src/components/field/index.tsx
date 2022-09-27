@@ -1,11 +1,11 @@
 import { Input, Textarea, View } from '@tarojs/components';
 import { InputProps } from '@tarojs/components/types/Input';
 import { TextareaProps } from '@tarojs/components/types/Textarea';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { FC, ReactNode } from 'react';
 import Typography from '../typography';
 
-export type P = {
+export type FieldProps = {
   label?: string;
   error?: boolean;
   errorMsg?: string;
@@ -16,7 +16,7 @@ export type P = {
   type?: 'text' | 'number' | 'idcard' | 'digit' | 'password' | 'textarea';
 };
 
-const Field: FC<P & Omit<InputProps, 'type'> & TextareaProps> = ({
+const Field: FC<FieldProps & Omit<InputProps, 'type'> & TextareaProps> = ({
   label,
   className,
   error,
@@ -29,22 +29,22 @@ const Field: FC<P & Omit<InputProps, 'type'> & TextareaProps> = ({
   ...props
 }) => {
   const prefixCls = 'tv-field';
-  const classes = classNames(prefixCls, 'tv-cell--border', className);
-  const containerClasses = classNames(`${prefixCls}-container`, {
+  const classes = clsx(prefixCls, 'tv-cell--border', className);
+  const containerClasses = clsx(`${prefixCls}-container`, {
     [`${prefixCls}-container__start`]: intro || errorMsg || type === 'textarea',
   });
-  const labelClasses = classNames(`${prefixCls}-container__label`, {
+  const labelClasses = clsx(`${prefixCls}-container__label`, {
     [`${prefixCls}-container__label--required`]: required,
     [`${prefixCls}-container__label--disabled`]: props.disabled,
   });
-  const inputClasses = classNames(`${prefixCls}-container__input`, {
+  const inputClasses = clsx(`${prefixCls}-container__input`, {
     [`${prefixCls}-container__input--${inputAlign}`]: inputAlign,
     [`${prefixCls}-container__input__pl`]: !label,
     [`${prefixCls}-container__input--disabled`]: props.disabled,
     [`${prefixCls}-container__input--error`]: error,
   });
 
-  const phClasses = classNames(`${prefixCls}-ph`, {
+  const phClasses = clsx(`${prefixCls}-ph`, {
     [`${prefixCls}-ph--error`]: error,
   });
   return (

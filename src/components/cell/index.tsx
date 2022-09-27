@@ -1,19 +1,19 @@
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { FC } from 'react';
 import Typography from '../typography';
 import Icon from '../icon';
 import Flex from '../flex';
 
-export type P = {
+export type CellProps = {
   title?: string;
   value?: string;
   intro?: string;
   isLink?: boolean;
 };
 
-const Cell: FC<P & ViewProps> = ({
+const Cell: FC<CellProps & ViewProps> = ({
   title,
   value,
   isLink,
@@ -22,7 +22,7 @@ const Cell: FC<P & ViewProps> = ({
   ...props
 }) => {
   const prefixCls = 'tv-cell';
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     `${prefixCls}--border`,
     {

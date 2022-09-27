@@ -1,11 +1,11 @@
 import { View } from '@tarojs/components';
 import { ReactNode, useContext } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { ViewProps } from '@tarojs/components/types/View';
 import { tabsContext } from '../index';
 import Typography from '../../typography';
 
-export type P = {
+export type TabProps = {
   title: string;
   value: string;
   children?: ReactNode;
@@ -14,23 +14,23 @@ export type P = {
   onTitle?: (value: string) => void;
 };
 
-const TvTab = ({
+const Tab = ({
   title,
   value,
   disabled,
   className,
   onTitle,
-}: P & Omit<ViewProps, 'className'>) => {
+}: TabProps & Omit<ViewProps, 'className'>) => {
   const initValue = useContext(tabsContext);
   const prefixCls = 'tv-tab';
-  const classes = classNames(
+  const classes = clsx(
     prefixCls,
     {
       [`${prefixCls}__actived`]: value === initValue,
     },
     className,
   );
-  const titleClasses = classNames({
+  const titleClasses = clsx({
     [`${prefixCls}__title`]: true,
     [`${prefixCls}__disabled`]: disabled,
   });
@@ -50,4 +50,4 @@ const TvTab = ({
   );
 };
 
-export default TvTab;
+export default Tab;
