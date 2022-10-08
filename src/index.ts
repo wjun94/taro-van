@@ -7,6 +7,8 @@ export { default as Field } from './components/field';
 export { default as Icon } from './components/icon';
 export { default as Form } from './components/form';
 export { default as Radio } from './components/radio';
+export { default as Cell } from './components/cell';
+export { default as Popup } from './components/popup';
 export { default as Uploader } from './components/uploader';
 export { default as Card } from './components/card';
 export { default as Empty } from './components/empty';
