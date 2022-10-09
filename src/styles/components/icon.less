@@ -1,26 +1,21 @@
 @import '../variables/index.less';
 
+text.@{tv-prefix}-icon,
 .@{tv-prefix}-icon {
   display: inline-block;
-  line-height: 1;
-  .iconfont {
-    line-height: 1;
+  &-sm {
+    font-size: @font-size-sm;
   }
-  .@{tv-prefix}-icon {
-    &-sm {
-      font-size: @font-size-sm;
-    }
-    &-base {
-      font-size: @font-size-base;
-    }
-    &-lg {
-      font-size: 40px;
-    }
-    &-xl {
-      font-size: 60px;
-    }
-    &-xxl {
-      font-size: 80px;
-    }
+  &-base {
+    font-size: @font-size-base;
+  }
+  &-lg {
+    font-size: 40px;
+  }
+  &-xl {
+    font-size: 60px;
+  }
+  &-xxl {
+    font-size: 80px;
   }
 }

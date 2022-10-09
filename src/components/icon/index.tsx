@@ -1,4 +1,4 @@
-import { Text, View } from '@tarojs/components';
+import { Text } from '@tarojs/components';
 import { TextProps } from '@tarojs/components/types/Text';
 import clsx from 'classnames';
 
@@ -16,6 +16,7 @@ const Icon = ({
 }: IconProps & Omit<TextProps, 'className'>) => {
   const prefixCls = 'tv-icon';
   const classes = clsx(
+    prefixCls,
     'iconfont',
     {
       [`${icon}`]: icon,
@@ -23,11 +24,7 @@ const Icon = ({
     },
     className,
   );
-  return (
-    <View className={prefixCls}>
-      <Text className={classes} {...props} />
-    </View>
-  );
+  return <Text className={classes} {...props} />;
 };
 
 export default Icon;
