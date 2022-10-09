@@ -34,6 +34,7 @@ const Button = ({
     prefixCls,
     {
       [`${prefixCls}-${size}`]: size,
+      [`${prefixCls}-block`]: block,
       [`${prefixCls}--${type}`]: type,
       [`${prefixCls}--${type}__round`]: type && shape && shape === 'rounded',
       [`${prefixCls}--${type}__rectangular`]:
