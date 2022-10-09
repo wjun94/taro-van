@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components';
 import { ReactNode, useContext } from 'react';
-import clsx from 'clsx';
+import clsx from 'classnames';
 import { ViewProps } from '@tarojs/components/types/View';
 import { tabsContext } from '../index';
 import Typography from '../../typography';

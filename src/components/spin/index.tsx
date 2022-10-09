@@ -1,7 +1,7 @@
 import { cloneElement, ReactElement } from 'react';
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
-import cls from 'clsx';
+import clsx from 'classnames';
 import Button from '../button';
 import Empty from '../empty';
 import Flex from '../flex';
@@ -44,7 +44,7 @@ const Spin = ({
         </Empty>
       )
     );
-  const classes = cls(prefixCls, className);
+  const classes = clsx(prefixCls, className);
   return (
     <View className={classes} {...props}>
       {spinning && (

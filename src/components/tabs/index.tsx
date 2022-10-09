@@ -8,7 +8,7 @@ import {
   useEffect,
 } from 'react';
 import { ViewProps } from '@tarojs/components/types/View';
-import clsx from 'clsx';
+import clsx from 'classnames';
 import { View, ScrollView } from '@tarojs/components';
 import { createSelectorQuery } from '@tarojs/taro';
 import Tab from './tab';

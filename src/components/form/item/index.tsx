@@ -8,7 +8,7 @@ import {
   useImperativeHandle,
 } from 'react';
 import { View } from '@tarojs/components';
-import clsx from 'clsx';
+import clsx from 'classnames';
 import Label from '../../label';
 import { formContext } from '../index';
 

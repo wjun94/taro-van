@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components';
 import { TextProps } from '@tarojs/components/types/Text';
-import clsx from 'clsx';
+import clsx from 'classnames';
 
 export type LoadingProps = {
   className?: string;

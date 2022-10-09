@@ -2,7 +2,7 @@ import { Text } from '@tarojs/components';
 import type { TextProps as TaroTextProps } from '@tarojs/components/types/Text';
 import { setClipboardData, showToast } from '@tarojs/taro';
 import { ReactNode } from 'react';
-import clsx from 'clsx';
+import clsx from 'classnames';
 
 export type TextProps = {
   children?: ReactNode;

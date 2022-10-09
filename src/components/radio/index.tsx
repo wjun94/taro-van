@@ -1,7 +1,7 @@
 import { Radio as TaroRadio, View } from '@tarojs/components';
 import { RadioProps as TaroRadioProps } from '@tarojs/components/types/Radio';
 import { ReactNode } from 'react';
-import clsx from 'clsx';
+import clsx from 'classnames';
 import RadioGroup from './group';
 
 export type RadioProps = {

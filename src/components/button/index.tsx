@@ -1,7 +1,7 @@
 import { Button as TaroButton, View } from '@tarojs/components';
 import { ButtonProps as TaroButtonProps } from '@tarojs/components/types/Button';
 import { ReactNode } from 'react';
-import clsx from 'clsx';
+import clsx from 'classnames';
 
 export type ButtonProps = {
   children: ReactNode;

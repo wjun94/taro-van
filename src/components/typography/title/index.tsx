@@ -1,7 +1,7 @@
 import { Text } from '@tarojs/components';
 import type { TextProps } from '@tarojs/components/types/Text';
 import { ReactNode } from 'react';
-import clsx from 'clsx';
+import clsx from 'classnames';
 
 export type TitleProps = {
   children?: ReactNode;

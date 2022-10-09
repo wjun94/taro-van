@@ -1,7 +1,7 @@
 import { RadioGroup as TaroRadioGroup } from '@tarojs/components';
 import { RadioGroupProps as TaroRadioGroupProps } from '@tarojs/components/types/RadioGroup';
 import { ReactNode, Children, cloneElement, ReactElement } from 'react';
-import clsx from 'clsx';
+import clsx from 'classnames';
 
 export type RadioGroupProps = {
   children?: ReactNode;

@@ -1,7 +1,7 @@
 import { Input, Textarea, View } from '@tarojs/components';
 import { InputProps } from '@tarojs/components/types/Input';
 import { TextareaProps } from '@tarojs/components/types/Textarea';
-import clsx from 'clsx';
+import clsx from 'classnames';
 import { FC, ReactNode } from 'react';
 import Typography from '../typography';
 

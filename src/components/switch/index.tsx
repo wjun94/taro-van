@@ -1,5 +1,5 @@
 import { Switch as TaroSwitch } from '@tarojs/components';
-import clsx from 'clsx';
+import clsx from 'classnames';
 
 export type SwitchProps = {
   color?: string;

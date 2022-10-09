@@ -11,7 +11,7 @@ import {
 } from 'react';
 import { Form as TaroForm } from '@tarojs/components';
 import { FormProps as TaroFormProps } from '@tarojs/components/types/Form';
-import clsx from 'clsx';
+import clsx from 'classnames';
 import Item, { Rule } from './item';
 
 export type FormProps = {

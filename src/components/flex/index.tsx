@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
-import clsx from 'clsx';
+import clsx from 'classnames';
 
 export type FlexProps = {
   children?: ReactNode;

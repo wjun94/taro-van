@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { ViewProps } from '@tarojs/components/types/View';
-import clsx from 'clsx';
+import clsx from 'classnames';
 import Typography from '../typography';
 import Icon from '../icon';
 import Flex from '../flex';

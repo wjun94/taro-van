@@ -1,4 +1,4 @@
-import cls from 'clsx';
+import clsx from 'classnames';
 import { cloneElement, useEffect, useState } from 'react';
 import type { ViewProps } from '@tarojs/components/types/View';
 import Flex from '../flex';
@@ -28,8 +28,8 @@ export default ({
       setVis(visible);
     }
   }, [visible]);
-  const classes = cls(prefixCls, className);
-  const childClasses = cls(`${prefixCls}-alert`, {
+  const classes = clsx(prefixCls, className);
+  const childClasses = clsx(`${prefixCls}-alert`, {
     [`${prefixCls}-alert__${placement}`]: placement,
   });
   return (

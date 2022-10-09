@@ -6,7 +6,7 @@ group:
   order: 1
 nav:
   title: 更新日志
-  order: 2
+  order: 1
 ---
 
 # 更新日志

@@ -1,6 +1,6 @@
 import { Text, View } from '@tarojs/components';
 import { TextProps } from '@tarojs/components/types/Text';
-import clsx from 'clsx';
+import clsx from 'classnames';
 
 export type IconProps = {
   icon: string;

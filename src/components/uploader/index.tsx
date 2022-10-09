@@ -1,6 +1,6 @@
 import { chooseImage, previewImage, showToast } from '@tarojs/taro';
 import { View, Image } from '@tarojs/components';
-import clsx from 'clsx';
+import clsx from 'classnames';
 import { ReactNode, useMemo } from 'react';
 import Icon from '../icon';
 import Typography from '../typography';

@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
-import clsx from 'clsx';
+import clsx from 'classnames';
 import { ReactNode } from 'react';
 
 export type OverlayProps = {

@@ -1,7 +1,7 @@
 import { Text } from '@tarojs/components';
 import type { TextProps as TaroTextProps } from '@tarojs/components/types/Text';
 import { ReactNode } from 'react';
-import clsx from 'clsx';
+import clsx from 'classnames';
 import { navigateTo } from '@tarojs/taro';
 
 export type LinkProps = {

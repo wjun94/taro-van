@@ -4,7 +4,7 @@ import {
   PickerView,
   PickerViewProps,
 } from '@tarojs/components';
-import clsx from 'clsx';
+import clsx from 'classnames';
 import {
   useEffect,
   useState,
