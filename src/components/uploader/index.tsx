@@ -137,14 +137,14 @@ const Uploader = ({
               </Flex>
             )}
             {deletable && item.status !== 'uploading' && (
-              <>
+              <View className='tv-uploader-close'>
                 <Icon
                   onClick={() => onRemove(i)}
                   size='lg'
-                  className='tv-uploader__icon'
-                  icon='icon-shut'
+                  className='tv-uploader-close__icon'
+                  icon='icon-cross'
                 />
-              </>
+              </View>
             )}
           </View>
         ))}
