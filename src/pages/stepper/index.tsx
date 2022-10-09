@@ -16,6 +16,11 @@ const Index = () => {
           不可点击
         </Typography.Text>
         <Stepper disabled min={1} max={9} />
+
+        <Typography.Text type='secondary' block className='my-title'>
+          2位小数
+        </Typography.Text>
+        <Stepper digits={2} />
       </View>
     </View>
   );
