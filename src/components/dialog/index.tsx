@@ -144,14 +144,14 @@ const Dialog: FC<DialogProps & Omit<ViewProps, 'onClick'>> & {
           <Flex className={`${prefixCls}-footer--radio`} justify='center'>
             <Button
               {...cancelProps}
-              round
+              shape='rounded'
               className={`${prefixCls}-footer--radio__btn`}
             >
               取消
             </Button>
             <Button
               {...confirmProps}
-              round
+              shape='rounded'
               className={`${prefixCls}-footer--radio__btn`}
             >
               确定

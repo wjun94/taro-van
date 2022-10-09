@@ -25,7 +25,7 @@
     &--radio {
       width: 100%;
       padding-bottom: @space-y;
-      &__btn {
+      &__btn[size='mini'] {
         width: 200px;
         &:first-child {
           margin-right: @space-y;
@@ -33,25 +33,21 @@
       }
     }
     &--btn {
-      &--more {
+      border-radius: 0;
+      &::after {
+        border-radius: 0;
+      }
+      &--more[size='mini'] {
         margin-left: -1px;
         width: calc(50% + 1px);
-        button {
-          height: 70rpx;
-          line-height: 70rpx;
-        }
+        height: 70px;
+        line-height: 70px;
       }
-      .tv-button {
-        &::after {
-          border-radius: 0;
-        }
-        &--primary__plain[plain] {
-          border-color: #d1d5db;
-          &:active {
-            border-color: #d1d5db;
-          }
-        }
-        border-radius: 0;
+    }
+    .tv-button--primary__plain {
+      border-color: #d1d5db;
+      &:active {
+        border-color: #d1d5db;
       }
     }
   }
