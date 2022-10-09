@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## v1.1.20
+
+**Performance**
+
+- 优化`Button`，修改圆角属性，添加`shape`按钮的形状
+
 ## v1.1.12
 
 **Features**

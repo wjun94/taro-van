@@ -38,10 +38,6 @@
 
 .@{tv-prefix}-button {
   cursor: pointer;
-  &-view {
-    display: inline-block;
-    line-height: 1;
-  }
   &:active {
     opacity: 0.8;
   }
@@ -53,22 +49,15 @@
     }
   }
 
-  &-block {
-    display: block;
-    width: 100%;
-  }
-
   &-nostyle {
     padding: 0;
     margin: 0;
-    line-height: 1;
     &:active {
       background-color: transparent !important;
     }
     &[size='mini'] {
       padding: 0;
       margin: 0;
-      line-height: 1;
     }
     &::after {
       display: none;
@@ -80,6 +69,12 @@
       border-radius: 60px;
     }
   }
+  &-rectangular {
+    border-radius: 0;
+    &::after {
+      border-radius: 0;
+    }
+  }
   &-mini[size='mini'] {
     font-size: @font-size-xs;
   }
@@ -88,9 +83,17 @@
   }
   &-normal {
     font-size: @font-size-base;
+    padding: 0 1.35em;
+    &[size='mini'] {
+      font-size: @font-size-base;
+      padding: 0 1.35em;
+    }
   }
   &-large {
     font-size: @font-size-lg;
+    &[size='mini'] {
+      font-size: @font-size-lg;
+    }
     &::after {
       // transform: scale(0.49);
     }
@@ -124,6 +127,12 @@
       border-radius: 60px;
       &::after {
         display: none;
+      }
+    }
+    &__rectangular {
+      border-radius: 0;
+      &::after {
+        border-radius: 0;
       }
     }
     &:not([disabled]):active {

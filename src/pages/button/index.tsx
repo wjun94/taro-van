@@ -33,7 +33,12 @@ const Index = () => {
       </Typography.Text>
       <View>
         {items.map((item) => (
-          <Button className='mr-32' key={item.type} type={item.type as any}>
+          <Button
+            shape='rectangular'
+            className='mr-32'
+            key={item.type}
+            type={item.type as any}
+          >
             {item.label}
           </Button>
         ))}
@@ -62,7 +67,7 @@ const Index = () => {
         {items.map((item) => (
           <Button
             className='mr-32'
-            round
+            shape='rounded'
             key={item.type}
             type={item.type as any}
           >
@@ -78,7 +83,7 @@ const Index = () => {
         {items.map((item) => (
           <Button
             className='mr-32'
-            round
+            shape='rounded'
             disabled
             key={item.type}
             type={item.type as any}
