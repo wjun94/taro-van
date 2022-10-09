@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-minus:before {
+  content: "\e63d";
+}
+
 .icon-shut:before {
   content: "\e634";
 }
@@ -44,4 +48,3 @@
 .icon-arrow:before {
   content: "\e629";
 }
-

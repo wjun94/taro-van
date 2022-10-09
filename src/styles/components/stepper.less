@@ -1,0 +1,37 @@
+.@{tv-prefix}-stepper {
+  height: 50px;
+  width: max-content;
+  border-radius: 50px;
+  border: 1px solid @color-gray;
+  overflow: hidden;
+  &-disabled {
+    pointer-events: none;
+  }
+  &-btn {
+    background-color: #fff;
+    height: 100%;
+    width: 60px;
+    &-disabled {
+      background-color: #fbfbfb;
+    }
+    .tv-icon {
+      line-height: 0;
+      color: #888;
+      .iconfont {
+        line-height: 1.8;
+      }
+    }
+  }
+  &-input {
+    width: 60px;
+    padding: 0 6px;
+    font-size: 28px;
+    height: 100%;
+    text-align: center;
+    background-color: #f2f2f2;
+    input,
+    .weui-input {
+      height: 100%;
+    }
+  }
+}

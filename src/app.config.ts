@@ -13,6 +13,7 @@ export default {
     'pages/uploader/index',
     'pages/icon/index',
     'pages/loading/index',
+    'pages/stepper/index',
     'pages/card/index',
     'pages/empty/index',
     'pages/tabs/index',

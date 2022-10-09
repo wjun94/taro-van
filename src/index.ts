@@ -19,3 +19,4 @@ export { default as Tooltip } from './components/tooltip';
 export { default as Spin } from './components/spin';
 export { default as Switch } from './components/switch';
 export { default as Cascader } from './components/cascader';
+export { default as Stepper } from './components/stepper';

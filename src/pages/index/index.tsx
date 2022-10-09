@@ -19,6 +19,10 @@ const Index = () => {
       url: '/pages/card/index',
     },
     {
+      label: 'Stepper 步进器',
+      url: '/pages/stepper/index',
+    },
+    {
       label: 'Typography排版',
       url: '/pages/typography/index',
     },
