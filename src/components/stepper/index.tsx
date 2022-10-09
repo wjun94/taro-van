@@ -64,6 +64,7 @@ const Stepper = ({
       <Input
         type={digits === 0 ? 'number' : ('digits' as any)}
         onInput={(e) => {
+          if (e.detail.value === '') return;
           let result = e.detail.value ? +e.detail.value : 0;
           setTarget(result);
           onChange && onChange(+result);
