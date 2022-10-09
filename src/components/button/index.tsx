@@ -1,4 +1,4 @@
-import { Button as TaroButton, View } from '@tarojs/components';
+import { Button as TaroButton } from '@tarojs/components';
 import { ButtonProps as TaroButtonProps } from '@tarojs/components/types/Button';
 import { ReactNode } from 'react';
 import clsx from 'classnames';
