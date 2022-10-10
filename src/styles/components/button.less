@@ -20,7 +20,6 @@
       &:active {
         background-color: @color-gray-5;
       }
-      padding: 0 1.39em;
       color: @color;
       border: 0;
       &::after {
@@ -40,6 +39,7 @@
 .@{tv-prefix}-button {
   margin: 0;
   cursor: pointer;
+  overflow: visible;
   &:active {
     opacity: 0.8;
   }
@@ -90,10 +90,8 @@
   }
   &-normal {
     font-size: @font-size-base;
-    padding: 0 1.35em;
     &[size='mini'] {
       font-size: @font-size-base;
-      padding: 0 1.35em;
     }
   }
   &-large {
