@@ -37,7 +37,7 @@ export type DialogInstance = {
 };
 
 const Dialog: FC<DialogProps & Omit<ViewProps, 'onClick'>> & {
-  Alert: any;
+  Alert: FC<DialogProps & Omit<ViewProps, 'onClick'>>;
 } = ({
   children,
   visible,
