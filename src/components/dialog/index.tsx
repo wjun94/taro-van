@@ -224,8 +224,13 @@ const Alert = forwardRef<
     <>
       {children &&
         cloneElement(children as any, {
-          onClick: () => {
+          onClick: (e) => {
             setVisible(true);
+            if (children.props.onClick) {
+              // 设置显示内容
+              children.props.onClick(e);
+            }
+            e.stopPropagation();
           },
         })}
       <Dialog
