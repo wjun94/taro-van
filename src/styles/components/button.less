@@ -20,10 +20,11 @@
       &:active {
         background-color: @color-gray-5;
       }
+      padding: 0 1.39em;
       color: @color;
-      border: 1px solid;
+      border: 0;
       &::after {
-        display: none;
+        border-width: 1px;
       }
     }
     &__plain[plain][disabled] {
@@ -112,7 +113,6 @@
     color: @color-base;
   }
   &--default[plain] {
-    border: 1px solid #d1d5db;
     &::after {
       border-color: #d1d5db;
     }
@@ -129,10 +129,9 @@
       border-color: #d1d5db;
     }
     &__round {
-      border: 1px solid #d1d5db;
       border-radius: 60px;
       &::after {
-        display: none;
+        border-radius: 100px;
       }
     }
     &__rectangular {
@@ -147,9 +146,8 @@
         border-color: #d1d5db;
       }
       &__round {
-        border: 1px solid #d1d5db;
         &::after {
-          display: none;
+          border-radius: 100px;
         }
       }
     }
@@ -159,9 +157,6 @@
     color: #fff;
     border-color: #fff;
     background-color: transparent;
-    &::after {
-      display: none;
-    }
   }
 
   .button-theme(primary, @color-primary);

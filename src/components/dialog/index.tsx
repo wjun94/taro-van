@@ -129,7 +129,7 @@ const Dialog: FC<DialogProps & Omit<ViewProps, 'onClick'>> & {
             plain
             className={`${prefixCls}-footer--btn`}
           >
-            确定
+            {confirmButtonText}
           </Button>
         )}
       </>
@@ -147,14 +147,14 @@ const Dialog: FC<DialogProps & Omit<ViewProps, 'onClick'>> & {
               shape='rounded'
               className={`${prefixCls}-footer--radio__btn`}
             >
-              取消
+              {cancelButtonText}
             </Button>
             <Button
               {...confirmProps}
               shape='rounded'
               className={`${prefixCls}-footer--radio__btn`}
             >
-              确定
+              {confirmButtonText}
             </Button>
           </Flex>
         ) : (
@@ -164,7 +164,7 @@ const Dialog: FC<DialogProps & Omit<ViewProps, 'onClick'>> & {
             plain
             className={`${prefixCls}-footer--btn`}
           >
-            确定
+            {confirmButtonText}
           </Button>
         )}
       </>
