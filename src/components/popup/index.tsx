@@ -63,7 +63,11 @@ const Popup = ({
             </Flex>
           )}
           {closeIcon && (
-            <Icon onClick={() => onClose && onClose()} icon='icon-cross' />
+            <Icon
+              onClick={() => onClose && onClose()}
+              className={`${prefixCls}--icon`}
+              icon='icon-cross'
+            />
           )}
           {children}
         </View>
