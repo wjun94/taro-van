@@ -1,7 +1,7 @@
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
 import clsx from 'classnames';
-import { FC } from 'react';
+import { FC, ReactElement } from 'react';
 import Typography from '../typography';
 import Icon from '../icon';
 import Flex from '../flex';
@@ -9,6 +9,7 @@ import Flex from '../flex';
 export type CellProps = {
   title?: string;
   value?: string;
+  content?: ReactElement;
   intro?: string;
   isLink?: boolean;
 };
@@ -17,6 +18,7 @@ const Cell: FC<CellProps & ViewProps> = ({
   title,
   value,
   isLink,
+  content,
   className,
   intro,
   ...props
@@ -38,8 +40,12 @@ const Cell: FC<CellProps & ViewProps> = ({
       {...props}
     >
       <View className={`${prefixCls}-title`}>
-        <Typography.Text>{title}</Typography.Text>
-        <Typography.Text type='secondary'>{intro}</Typography.Text>
+        {content || (
+          <>
+            <Typography.Text>{title}</Typography.Text>
+            <Typography.Text type='secondary'>{intro}</Typography.Text>
+          </>
+        )}
       </View>
       <Flex align='center' className={`${prefixCls}-right`}>
         <Typography.Text type='secondary'>{value}</Typography.Text>
