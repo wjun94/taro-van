@@ -1,4 +1,4 @@
-import { View } from '@tarojs/components';
+import { View, Image } from '@tarojs/components';
 import { useState } from 'react';
 import Uploader, { UploaderFile } from '../../components/uploader';
 import Typography from '../../components/typography';
@@ -23,6 +23,7 @@ const Index = () => {
     },
   ]);
   const [value6, setValue6] = useState<UploaderFile[]>([]);
+  const [value7, setValue7] = useState<UploaderFile[]>([]);
   const afterRead = (file, idx) => {
     console.log(file);
     setStatusValue((v) => {
@@ -73,6 +74,37 @@ const Index = () => {
         value={value4}
         maxSize={56 * 1024}
       />
+
+      <Typography.Text type='secondary' block className='my-title'>
+        自定义
+      </Typography.Text>
+      <Uploader
+        onChange={setValue7}
+        value={value7}
+        itemRender={(node) => {
+          return (
+            <Image
+              style={{
+                width: '600px',
+                height: '80px',
+                border: '1px solid gray',
+              }}
+              mode='aspectFill'
+              src={node.url}
+            />
+          );
+        }}
+        maxCount={1}
+        listType='picture-card'
+      >
+        <Flex
+          align='center'
+          justify='center'
+          style={{ width: '600px', height: '80px', border: '1px solid gray' }}
+        >
+          <Typography.Text>111</Typography.Text>
+        </Flex>
+      </Uploader>
 
       <Typography.Text type='secondary' block className='my-title'>
         无删除按钮

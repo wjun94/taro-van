@@ -1,7 +1,7 @@
 import { chooseImage, previewImage, showToast } from '@tarojs/taro';
 import { View, Image } from '@tarojs/components';
 import clsx from 'classnames';
-import { ReactNode, useMemo } from 'react';
+import { ReactElement, useMemo, cloneElement, Fragment } from 'react';
 import Icon from '../icon';
 import Typography from '../typography';
 import Loading from '../loading';
@@ -15,18 +15,32 @@ export type UploaderFile = {
 };
 
 export type UploadProps = {
-  children?: ReactNode;
-  value?: UploaderFile[]; // 默认值
-  maxCount?: number; // 最大上传数
-  deletable?: boolean; // 是否有删除按钮
-  preview?: boolean; // 是否支持预览
-  maxSize?: number; // 限制上传大小
-  multiple?: boolean; // 是否允许上传多张
-  disabled?: boolean; // 是否禁用文件上传
+  children?: ReactElement;
+  /** 默认值 */
+  value?: UploaderFile[];
+  /** 最大上传数 */
+  maxCount?: number;
+  /** 是否有删除按钮 */
+  deletable?: boolean;
+  /** 是否支持预览 */
+  preview?: boolean;
+  /** 自定义上传列表项 */
+  itemRender?: (node: UploaderFile, index: number) => ReactElement;
+  /** 上传列表的内建样式 */
+  listType?: 'text' | 'picture-card';
+  /** 限制上传大小 */
+  maxSize?: number;
+  /** 是否允许上传多张 */
+  multiple?: boolean;
+  /** 是否禁用文件上传 */
+  disabled?: boolean;
   onChange?: (files: UploaderFile[]) => void;
-  onDelete?: (file: UploaderFile, index) => void; // 删除图片事件
-  onOversize?: () => void; // 文件大小超过限制时触发
-  afterRead?: (file: any, index: number) => void; // 文件读取完成后的回调函数
+  /** 删除图片事件 */
+  onDelete?: (file: UploaderFile, index) => void;
+  /** 文件大小超过限制时触发 */
+  onOversize?: () => void;
+  /** 文件读取完成后的回调函数 */
+  afterRead?: (file: any, index: number) => void;
   className?: string;
 };
 
@@ -35,6 +49,8 @@ const Uploader = ({
   multiple,
   className,
   deletable = true,
+  listType = 'text',
+  itemRender,
   maxCount,
   disabled,
   onChange,
@@ -59,7 +75,7 @@ const Uploader = ({
       sourceType: ['album', 'camera'],
       success: async (res) => {
         const target = [
-          ...list,
+          ...(listType === 'text' ? list : []),
           ...res.tempFiles.map((item) => {
             if (maxSize && item.size > maxSize) {
               onOversize
@@ -95,66 +111,99 @@ const Uploader = ({
     onChange && onChange([...target]);
     onDelete && onDelete([...list][idx], idx);
   };
+  console.log(list);
   return (
     <View className={classes}>
       <View className='tv-uploader__wrapper'>
-        {list.map((item, i: number) => (
-          <View key={item.url + i} className='tv-uploader__preview'>
-            <Image
-              className='tv-uploader__img'
-              onClick={() =>
-                preview &&
-                previewImage({
-                  current: item.url,
-                  urls: list.map((file) => file.url),
-                })
-              }
-              mode='aspectFill'
-              src={item.url}
-            />
-            {item.status && item.status !== 'done' && (
-              <Flex
-                justify='center'
-                align='center'
-                className='tv-uploader__mask'
-              >
-                <Flex align='center' direction='column'>
-                  {item.status === 'uploading' ? (
-                    <Loading color='#fff' className='tv-uploader__mask__icon' />
-                  ) : (
-                    <Icon
-                      size='xl'
-                      icon='icon-close'
-                      className='tv-uploader__mask__icon'
-                    />
-                  )}
-                  <Typography.Text type='white' size='sm'>
-                    {item.message || item.status === 'uploading'
-                      ? '正在上传'
-                      : '上传失败'}
-                  </Typography.Text>
+        {list.map((item, i: number) =>
+          itemRender ? (
+            <Fragment key={item.url + i}>
+              {cloneElement(itemRender(item, i), {
+                onClick: (event) => {
+                  if ((children as React.ReactElement).props.onClick) {
+                    // 设置显示内容
+                    (children as React.ReactElement).props.onClick(event);
+                  }
+                  onUpload();
+                },
+              })}
+            </Fragment>
+          ) : (
+            <View key={item.url + i} className='tv-uploader__preview'>
+              <Image
+                className='tv-uploader__img'
+                onClick={() =>
+                  preview &&
+                  previewImage({
+                    current: item.url,
+                    urls: list.map((file) => file.url),
+                  })
+                }
+                mode='aspectFill'
+                src={item.url}
+              />
+              {item.status && item.status !== 'done' && (
+                <Flex
+                  justify='center'
+                  align='center'
+                  className='tv-uploader__mask'
+                >
+                  <Flex align='center' direction='column'>
+                    {item.status === 'uploading' ? (
+                      <Loading
+                        color='#fff'
+                        className='tv-uploader__mask__icon'
+                      />
+                    ) : (
+                      <Icon
+                        size='xl'
+                        icon='icon-close'
+                        className='tv-uploader__mask__icon'
+                      />
+                    )}
+                    <Typography.Text type='white' size='sm'>
+                      {item.message || item.status === 'uploading'
+                        ? '正在上传'
+                        : '上传失败'}
+                    </Typography.Text>
+                  </Flex>
                 </Flex>
-              </Flex>
-            )}
-            {deletable && item.status !== 'uploading' && (
-              <View className='tv-uploader-close'>
-                <Icon
-                  onClick={() => onRemove(i)}
-                  size='lg'
-                  className='tv-uploader-close__icon'
-                  icon='icon-cross'
-                />
-              </View>
-            )}
-          </View>
-        ))}
-        {((maxCount && list.length < maxCount) || !maxCount) && (
-          <View onClick={onUpload} className='tv-uploader__upload'>
-            {children || (
-              <Icon size='xxl' icon='icon-plus' className='tv-uploader__add' />
-            )}
-          </View>
+              )}
+              {deletable && item.status !== 'uploading' && (
+                <View className='tv-uploader-close'>
+                  <Icon
+                    onClick={() => onRemove(i)}
+                    size='lg'
+                    className='tv-uploader-close__icon'
+                    icon='icon-cross'
+                  />
+                </View>
+              )}
+            </View>
+          ),
         )}
+        {((maxCount && list.length < maxCount) || !maxCount) &&
+          (listType === 'text' ? (
+            <View onClick={onUpload} className='tv-uploader__upload'>
+              {children || (
+                <Icon
+                  size='xxl'
+                  icon='icon-plus'
+                  className='tv-uploader__add'
+                />
+              )}
+            </View>
+          ) : (
+            cloneElement(children as ReactElement, {
+              onClick: (event) => {
+                if ((children as React.ReactElement).props.onClick) {
+                  // 设置显示内容
+                  (children as React.ReactElement).props.onClick(event);
+                }
+                onUpload();
+              },
+            })
+          ))}
       </View>
     </View>
   );
