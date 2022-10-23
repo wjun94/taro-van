@@ -111,7 +111,6 @@ const Uploader = ({
     onChange && onChange([...target]);
     onDelete && onDelete([...list][idx], idx);
   };
-  console.log(list);
   return (
     <View className={classes}>
       <View className='tv-uploader__wrapper'>
