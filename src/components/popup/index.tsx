@@ -1,14 +1,25 @@
 import { View } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
 import clsx from 'classnames';
-import { ReactNode } from 'react';
+import {
+  cloneElement,
+  ReactElement,
+  forwardRef,
+  useState,
+  useImperativeHandle,
+} from 'react';
 import Flex from '../flex';
 import Icon from '../icon';
 import Overlay from '../overlay';
 import Typography from '../typography';
 
+export type DialogInstance = {
+  show: () => void;
+  hide: () => void;
+};
+
 export type PopupProps = {
-  children?: ReactNode;
+  children?: ReactElement;
   visible?: boolean;
   closeOnMaskClick?: boolean;
   round?: boolean; // 圆角
@@ -75,5 +86,44 @@ const Popup = ({
     </Overlay>
   );
 };
+
+const Alert = forwardRef<
+  DialogInstance,
+  Omit<PopupProps & { content?: ReactElement }, 'visible'> &
+    Omit<ViewProps, 'onClick'>
+>(({ children, content, onClose, ...props }, ref) => {
+  const [visible, setVisible] = useState(false);
+  useImperativeHandle(ref, () => ({
+    show: () => setVisible(true),
+    hide: () => setVisible(false),
+  }));
+  return (
+    <>
+      {children &&
+        cloneElement(children as any, {
+          onClick: (e) => {
+            setVisible(true);
+            if (children.props.onClick) {
+              // 设置显示内容
+              children.props.onClick(e);
+            }
+            e.stopPropagation();
+          },
+        })}
+      <Popup
+        onClose={() => {
+          setVisible(false);
+          onClose && onClose();
+        }}
+        visible={visible}
+        {...props}
+      >
+        {content}
+      </Popup>
+    </>
+  );
+});
+
+Popup.Alert = Alert;
 
 export default Popup;
