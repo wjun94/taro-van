@@ -212,11 +212,11 @@ const Alert = forwardRef<
     show: () => setVisible(true),
     hide: () => setVisible(false),
   }));
-  const onAlterCancel = () => {
+  const onAlertCancel = () => {
     setVisible(false);
     onCancel && onCancel();
   };
-  const onAlterConfirm = () => {
+  const onAlertConfirm = () => {
     setVisible(false);
     onConfirm && onConfirm();
   };
@@ -234,8 +234,8 @@ const Alert = forwardRef<
           },
         })}
       <Dialog
-        onCancel={onAlterCancel}
-        onConfirm={onAlterConfirm}
+        onCancel={onAlertCancel}
+        onConfirm={onAlertConfirm}
         visible={visible}
         {...props}
       />
