@@ -147,8 +147,16 @@ const Form = forwardRef(
                 }
               },
             };
-            if (child.props.rules && name) {
-              validate[name] = child.props.rules;
+            if (name) {
+              let obj = {};
+              if (child.props.rules) {
+                validate[name] = child.props.rules;
+                obj = {
+                  name,
+                  error: !!errors[name],
+                  errorMsg: errors[name],
+                };
+              }
               return cloneElement(child, {
                 ...config,
                 onInput: (e) => {
@@ -162,9 +170,7 @@ const Form = forwardRef(
                     });
                   }
                 },
-                name,
-                error: !!errors[name],
-                errorMsg: errors[name],
+                ...obj,
               });
             }
             return cloneElement(child, {

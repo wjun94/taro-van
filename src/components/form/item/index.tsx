@@ -61,7 +61,11 @@ const Item = forwardRef(
           });
           if (label) {
             return (
-              <Label label={label} align={align} {...config}>
+              <Label
+                label={label}
+                align={child.props.type === 'textarea' ? 'start' : align}
+                {...config}
+              >
                 {cloneElement(child, { ...config, errorMsg: '', error: false })}
               </Label>
             );
