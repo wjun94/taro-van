@@ -17,7 +17,7 @@ const Icon = ({
   const prefixCls = 'tv-icon';
   const classes = clsx(
     prefixCls,
-    'iconfont',
+    'iconfont1',
     {
       [`${icon}`]: icon,
       [`${prefixCls}-${size}`]: size,

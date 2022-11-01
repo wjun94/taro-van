@@ -1,12 +1,12 @@
 @font-face {
-  font-family: "iconfont"; /* Project id 3193910 */
-  src: url('//at.alicdn.com/t/c/font_3193910_x1425owigtr.woff2?t=1667303773223') format('woff2'),
-       url('//at.alicdn.com/t/c/font_3193910_x1425owigtr.woff?t=1667303773223') format('woff'),
-       url('//at.alicdn.com/t/c/font_3193910_x1425owigtr.ttf?t=1667303773223') format('truetype');
+  font-family: 'iconfont1';
+  src: url('./iconfont.woff2?t=1667314416587') format('woff2'),
+    url('./iconfont.woff?t=1667314416587') format('woff'),
+    url('./iconfont.ttf?t=1667314416587') format('truetype');
 }
 
-.iconfont {
-  font-family: "iconfont" !important;
+.iconfont1 {
+  font-family: 'iconfont1' !important;
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -14,37 +14,37 @@
 }
 
 .icon-star:before {
-  content: "\e63f";
+  content: '\e63f';
 }
 
 .icon-minus:before {
-  content: "\e63d";
+  content: '\e63d';
 }
 
 .icon-empty:before {
-  content: "\e632";
+  content: '\e632';
 }
 
 .icon-planet:before {
-  content: "\e631";
+  content: '\e631';
 }
 
 .icon-cross:before {
-  content: "\e630";
+  content: '\e630';
 }
 
 .icon-plus:before {
-  content: "\e62f";
+  content: '\e62f';
 }
 
 .icon-close:before {
-  content: "\e62e";
+  content: '\e62e';
 }
 
 .icon-camera:before {
-  content: "\e62b";
+  content: '\e62b';
 }
 
 .icon-arrow:before {
-  content: "\e629";
+  content: '\e629';
 }
