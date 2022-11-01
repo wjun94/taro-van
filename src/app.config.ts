@@ -23,6 +23,7 @@ export default {
     'pages/spin/index',
     'pages/switch/index',
     'pages/cascader/index',
+    'pages/rate/index',
   ],
   window: {
     backgroundTextStyle: 'light',

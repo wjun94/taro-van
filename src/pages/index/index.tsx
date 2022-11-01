@@ -11,6 +11,10 @@ const Index = () => {
       url: '/pages/button/index',
     },
     {
+      label: 'Rate 评分',
+      url: '/pages/rate/index',
+    },
+    {
       label: 'Flex 布局',
       url: '/pages/flex/index',
     },

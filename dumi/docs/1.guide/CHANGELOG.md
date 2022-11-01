@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## v1.1.37
+
+**Features**
+
+- 新增`Rate`评分组件
+
 ## v1.1.20
 
 **Performance**
