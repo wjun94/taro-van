@@ -44,7 +44,7 @@ const Rate = ({
 
   return (
     <Flex className='tv-rate'>
-      {new Array(5).fill(1).map((item, idx) => (
+      {new Array(5).fill(1).map((_, idx) => (
         <Icon
           {...props}
           className={`${classes} ${
