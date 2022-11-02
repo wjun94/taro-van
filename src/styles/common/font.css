@@ -1,12 +1,12 @@
 @font-face {
-  font-family: 'iconfont1';
+  font-family: 'iconfont';
   src: url('./iconfont.woff2?t=1667314416587') format('woff2'),
     url('./iconfont.woff?t=1667314416587') format('woff'),
     url('./iconfont.ttf?t=1667314416587') format('truetype');
 }
 
-.iconfont1 {
-  font-family: 'iconfont1' !important;
+.iconfont {
+  font-family: 'iconfont' !important;
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
