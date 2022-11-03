@@ -19,6 +19,10 @@ const Index = () => {
       url: '/pages/flex/index',
     },
     {
+      label: 'Timeline 时间轴',
+      url: '/pages/timeline/index',
+    },
+    {
       label: 'Card 卡片',
       url: '/pages/card/index',
     },

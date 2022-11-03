@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## v1.1.42
+
+**Features**
+
+- 新增`Timeline`时间轴组件
+
 ## v1.1.37
 
 **Features**

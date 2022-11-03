@@ -1,0 +1,49 @@
+.tv-timeline {
+  position: relative;
+  &-item {
+    position: relative;
+    &:last-child {
+      .tv-timeline-item_tail {
+        display: none;
+      }
+    }
+    &_head {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #fff;
+      border: 2px solid transparent;
+      border-color: @color-primary;
+      color: @color-primary;
+      border-radius: 100px;
+    }
+    &_content {
+      position: relative;
+      word-break: break-word;
+      margin: 0 0 0 26px;
+      top: -14px;
+    }
+    &_custom {
+      position: absolute;
+      top: 10px;
+      width: auto;
+      height: auto;
+      margin-top: 0;
+      padding: 3px 1px;
+      line-height: 1;
+      text-align: center;
+      border: 0;
+      border-radius: 0;
+      transform: translate(-50%, -50%);
+      left: 5px;
+      z-index: 1;
+    }
+    &_tail {
+      position: absolute;
+      border: 2px solid rgba(0, 0, 0, 0.06);
+      height: calc(100% - 12px);
+      left: 5px;
+      top: 12px;
+    }
+  }
+}
