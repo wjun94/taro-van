@@ -75,9 +75,15 @@ const Tabs = ({
     }, 120);
   };
   useEffect(() => {
-    if (active) {
-      setValue(active);
-    }
+    setTimeout(() => {
+      if (active) {
+        setValue(active);
+        const idx = children
+          ? (children as any).findIndex((item) => item.props.value === active)
+          : 0;
+        getQuery(idx);
+      }
+    });
   }, [active]);
   useEffect(() => {
     setTimeout(() => {
