@@ -2,7 +2,7 @@
   "miniprogramRoot": "./",
   "projectname": "taro-van",
   "description": "taro ui库",
-  "appid": "touristappid",
+  "appid": "wx316000f5aaa54627",
   "setting": {
     "urlCheck": true,
     "es6": false,

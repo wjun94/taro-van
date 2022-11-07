@@ -22,3 +22,4 @@ export { default as Switch } from './components/switch';
 export { default as Cascader } from './components/cascader';
 export { default as Stepper } from './components/stepper';
 export { default as Timeline } from './components/timeline';
+export { default as IndexBar } from './components/indexBar';

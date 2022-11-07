@@ -19,6 +19,10 @@ const Index = () => {
       url: '/pages/flex/index',
     },
     {
+      label: 'IndexBar 序列',
+      url: '/pages/indexBar/index',
+    },
+    {
       label: 'Timeline 时间轴',
       url: '/pages/timeline/index',
     },

@@ -7,6 +7,7 @@ export default {
     'pages/overlay/index',
     'pages/dialog/index',
     'pages/field/index',
+    'pages/indexBar/index',
     'pages/cell/index',
     'pages/form/index',
     'pages/radio/index',
