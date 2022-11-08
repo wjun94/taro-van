@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## v1.1.45
+
+**Features**
+
+- 新增`IndexBar`序列组件
+
 ## v1.1.42
 
 **Features**

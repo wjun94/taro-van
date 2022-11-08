@@ -1,9 +1,24 @@
-@import '../variables/index.less';
+.tv-index-bar {
+  width: 100%;
+  &-sidebar {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 910;
+    overflow: visible;
+    user-select: none;
+    touch-action: none;
+  }
+}
 
-.panel {
+.tv-panel {
   &-title {
     background-color: @color-bg-gray;
     width: 100%;
-    padding: 12px;
+    padding: @space-sm @space-y;
+  }
+  &-container {
+    width: 100%;
   }
 }

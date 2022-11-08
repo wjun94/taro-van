@@ -1,5 +1,5 @@
 import { View } from '@tarojs/components';
-import { Typography, IndexBar } from '../../index';
+import { Typography, IndexBar, Cell } from '../../index';
 import './index.less';
 
 const Index = () => {
@@ -9,9 +9,15 @@ const Index = () => {
         基本用法
       </Typography.Text>
       <IndexBar>
-        <IndexBar.Panel title='123213'>
-          <Typography.Text>123123123</Typography.Text>
-        </IndexBar.Panel>
+        {['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'].map((item) => (
+          <IndexBar.Panel key={item} index={item} title={item}>
+            <>
+              <Cell title='标题' />
+              <Cell title='标题' />
+              <Cell title='标题' />
+            </>
+          </IndexBar.Panel>
+        ))}
       </IndexBar>
     </View>
   );
