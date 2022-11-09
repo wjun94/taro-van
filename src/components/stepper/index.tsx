@@ -35,9 +35,9 @@ const Stepper = ({
     },
     className,
   );
-  const [target, setTarget] = useState(0);
+  const [target, setTarget] = useState('0');
   useEffect(() => {
-    setTarget(+value.toFixed(digits));
+    setTarget(value.toFixed(digits));
   }, [value]);
   return (
     <Flex className={classes}>
@@ -49,12 +49,12 @@ const Stepper = ({
               sub += 1;
             }
             sub = +sub.toFixed(digits);
-            onChange && onChange(sub);
-            return sub;
+            onChange && onChange(+sub);
+            return String(sub);
           })
         }
         className={`tv-stepper-btn ${
-          ((min && target <= min) || disabled) && 'tv-stepper-btn-disabled'
+          ((min && +target <= min) || disabled) && 'tv-stepper-btn-disabled'
         }`}
         align='center'
         justify='center'
@@ -65,22 +65,23 @@ const Stepper = ({
         type={digits === 0 ? 'number' : ('digits' as any)}
         onInput={(e) => {
           if (e.detail.value === '') return;
-          let result = e.detail.value ? +e.detail.value : 0;
+          let result = e.detail.value;
           setTarget(result);
           onChange && onChange(+result);
         }}
         onBlur={(e) => {
           onBlur && onBlur(e);
-          if (max !== undefined && target > max) {
-            setTarget(+max.toFixed(digits));
+          if (max !== undefined && Number(target) > max) {
+            setTarget(max.toFixed(digits));
           }
-          if (min !== undefined && target < min) {
-            setTarget(+min.toFixed(digits));
+          if (min !== undefined && Number(target) < min) {
+            setTarget(min.toFixed(digits));
           }
-          setTarget((v) => +Number(v).toFixed(digits));
+          // eslint-disable-next-line no-restricted-globals
+          setTarget((v) => (isNaN(+v) ? '0' : Number(v).toFixed(digits)));
         }}
         onFocus={onFocus}
-        value={target.toFixed(digits)}
+        value={String(target)}
         className='tv-stepper-input'
       />
       <Flex
@@ -91,12 +92,12 @@ const Stepper = ({
               add -= 1;
             }
             add = +add.toFixed(digits);
-            onChange && onChange(add);
-            return add;
+            onChange && onChange(+add);
+            return String(add);
           })
         }
         className={`tv-stepper-btn ${
-          ((max && target >= max) || disabled) && 'tv-stepper-btn-disabled'
+          ((max && +target >= max) || disabled) && 'tv-stepper-btn-disabled'
         }`}
         align='center'
         justify='center'
