@@ -102,7 +102,7 @@ const Form = forwardRef(
       setFieldsValue: (values) => {
         setErrors({});
         if (Object.prototype.toString.call(values) === '[object Object]') {
-          setFormValues(values);
+          setFormValues((v) => ({ ...v, ...values }));
         }
       },
       // 清空表单值
