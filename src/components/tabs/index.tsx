@@ -105,7 +105,7 @@ const Tabs = ({
       children &&
       Object.prototype.toString.call(children) === '[object Array]' &&
       (children as any).find((item) => item.props.value === value);
-    return child.props.children ? <>{child.props.children}</> : <></>;
+    return child && child.props.children ? <>{child.props.children}</> : <></>;
   };
   return (
     <tabsContext.Provider value={value as any}>
