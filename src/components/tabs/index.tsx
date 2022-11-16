@@ -58,18 +58,19 @@ const Tabs = ({
         .boundingClientRect();
       titleWidth.exec((res) => {
         setRect((v) => {
+          const target = res[0] || {};
           let left = 14;
           for (let i = 0; i < idx; i++) {
             left += (v.all[i] as any).width;
           }
           setTimeout(() => {
-            if (res[0].left > 160) {
+            if (target.left > 160) {
               setScroll(50 * Math.ceil(left / 160));
-            } else if (res[0].left < 100) {
+            } else if (target.left < 100) {
               setScroll(-30 * Math.ceil(left / 160));
             }
           }, 30);
-          return { ...v, width: res[0].width, left: left };
+          return { ...v, width: target.width, left: left };
         });
       });
     }, 120);
