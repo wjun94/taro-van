@@ -109,7 +109,7 @@ const Cascader = ({
       setText([...result.map((item) => item.node[fieldNames.text])].join());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [JSON.stringify(value)]);
+  }, [JSON.stringify(value), JSON.stringify(options)]);
 
   // 市数据
   let citys: Item[] = [];
