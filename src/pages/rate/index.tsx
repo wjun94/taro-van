@@ -9,7 +9,7 @@ const Index = () => {
       <Typography.Text type='secondary' block className='my-title'>
         基本用法
       </Typography.Text>
-      <Rate defaultValue={3} />
+      <Rate size='xs' defaultValue={3} />
     </View>
   );
 };

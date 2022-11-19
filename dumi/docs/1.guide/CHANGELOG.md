@@ -11,6 +11,13 @@ nav:
 
 # 更新日志
 
+## v2.0.2
+
+**Performance**
+
+- `Field`添加`onChange`事件
+- `Rate`添加`size`属性
+
 ## v1.1.45
 
 **Features**

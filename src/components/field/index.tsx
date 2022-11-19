@@ -14,6 +14,7 @@ export type FieldProps = {
   inputAlign?: 'center' | 'right';
   required?: boolean;
   type?: 'text' | 'number' | 'idcard' | 'digit' | 'password' | 'textarea';
+  onChange: (value: string | number) => void;
 };
 
 const Field: FC<FieldProps & Omit<InputProps, 'type'> & TextareaProps> = ({
@@ -26,6 +27,8 @@ const Field: FC<FieldProps & Omit<InputProps, 'type'> & TextareaProps> = ({
   required,
   type,
   inputAlign,
+  onChange,
+  onInput,
   ...props
 }) => {
   const prefixCls = 'tv-field';
@@ -68,6 +71,10 @@ const Field: FC<FieldProps & Omit<InputProps, 'type'> & TextareaProps> = ({
                 <Input
                   placeholderClass={phClasses}
                   type={type as any}
+                  onInput={(e) => {
+                    onChange && onChange(e.detail.value);
+                    onInput && onInput(e);
+                  }}
                   {...props}
                 />
               )}

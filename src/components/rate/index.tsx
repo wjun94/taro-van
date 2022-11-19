@@ -11,6 +11,8 @@ export type SpinProps = {
   value?: number;
   /** star 总数 */
   count?: number;
+  /** 图标大小 */
+  size?: 'xs' | 'sm' | 'base' | 'lg';
   /** 只读，无法进行交互 */
   disabled?: boolean;
   /** 选择时的回调 */
@@ -24,6 +26,7 @@ const Rate = ({
   onChange,
   className,
   disabled,
+  size = 'base',
   count = 5,
   ...props
 }: SpinProps) => {
@@ -40,7 +43,14 @@ const Rate = ({
   }, [value]);
 
   const prefixCls = 'tv-rate_icon';
-  const classes = clsx(prefixCls, { 'tv-rate_icon_none': disabled }, className);
+  const classes = clsx(
+    prefixCls,
+    {
+      'tv-rate_icon_none': disabled,
+      [`${prefixCls}-${size}`]: size,
+    },
+    className,
+  );
 
   return (
     <Flex className='tv-rate'>

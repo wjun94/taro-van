@@ -159,17 +159,6 @@ const Form = forwardRef(
               }
               return cloneElement(child, {
                 ...config,
-                onInput: (e) => {
-                  if (e.type === 'input') {
-                    setFormValues((v: any) => {
-                      if (v) {
-                        v[name] = e.detail.value;
-                        validateFields(v, name);
-                      }
-                      return { ...v };
-                    });
-                  }
-                },
                 ...obj,
               });
             }
