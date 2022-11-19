@@ -14,7 +14,7 @@ export type FieldProps = {
   inputAlign?: 'center' | 'right';
   required?: boolean;
   type?: 'text' | 'number' | 'idcard' | 'digit' | 'password' | 'textarea';
-  onChange: (value: string | number) => void;
+  onChange?: (value: string | number) => void;
 };
 
 const Field: FC<FieldProps & Omit<InputProps, 'type'> & TextareaProps> = ({
