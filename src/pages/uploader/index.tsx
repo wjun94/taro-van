@@ -7,11 +7,11 @@ import Flex from '../../components/flex';
 import './index.less';
 
 const Index = () => {
-  const [value1, setValue1] = useState<UploaderFile[]>([]);
-  const [value2, setValue2] = useState<UploaderFile[]>([]);
-  const [value3, setValue3] = useState<UploaderFile[]>([]);
-  const [value4, setValue4] = useState<UploaderFile[]>([]);
-  const [value5, setValue5] = useState<UploaderFile[]>([]);
+  const [value1, setValue1] = useState<string[]>([]);
+  const [value2, setValue2] = useState<string[]>([]);
+  const [value3, setValue3] = useState<string[]>([]);
+  const [value4, setValue4] = useState<string[]>([]);
+  const [value5, setValue5] = useState<string[]>([]);
   const [statusValue, setStatusValue] = useState<UploaderFile[]>([
     {
       url: 'https://img.jinse.cn/jinse_1646357741626951478_small.png',
@@ -22,8 +22,8 @@ const Index = () => {
       status: 'uploading',
     },
   ]);
-  const [value6, setValue6] = useState<UploaderFile[]>([]);
-  const [value7, setValue7] = useState<UploaderFile[]>([]);
+  const [value6, setValue6] = useState<string[]>([]);
+  const [value7, setValue7] = useState<string[]>([]);
   const afterRead = (file, idx) => {
     console.log(file);
     setStatusValue((v) => {
@@ -56,7 +56,9 @@ const Index = () => {
       <Uploader
         afterRead={afterRead}
         multiple
-        onChange={setStatusValue}
+        onChange={(values) =>
+          setStatusValue(values.map((item) => ({ url: item })))
+        }
         value={statusValue}
       />
 
@@ -102,7 +104,7 @@ const Index = () => {
           justify='center'
           style={{ width: '600px', height: '80px', border: '1px solid gray' }}
         >
-          <Typography.Text>111</Typography.Text>
+          <Typography.Text>自定义</Typography.Text>
         </Flex>
       </Uploader>
 

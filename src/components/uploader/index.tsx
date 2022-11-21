@@ -17,7 +17,7 @@ export type UploaderFile = {
 export type UploadProps = {
   children?: ReactElement;
   /** 默认值 */
-  value?: UploaderFile[];
+  value?: UploaderFile[] | string[];
   /** 最大上传数 */
   maxCount?: number;
   /** 是否有删除按钮 */
@@ -34,9 +34,9 @@ export type UploadProps = {
   multiple?: boolean;
   /** 是否禁用文件上传 */
   disabled?: boolean;
-  onChange?: (files: UploaderFile[]) => void;
+  onChange?: (files: string[] | string | any) => void;
   /** 删除图片事件 */
-  onDelete?: (file: UploaderFile, index) => void;
+  onDelete?: (file: string, index) => void;
   /** 文件大小超过限制时触发 */
   onOversize?: () => void;
   /** 文件读取完成后的回调函数 */
@@ -63,7 +63,11 @@ const Uploader = ({
 }: UploadProps) => {
   const prefixCls = 'tv-uploader';
   const list = useMemo(() => {
-    return [...value];
+    return value && typeof value[0] !== 'object'
+      ? (typeof value === 'string' ? [value] : [...value]).map((item) => ({
+          url: item,
+        }))
+      : [...value];
   }, [value]);
   const classes = clsx(prefixCls, {}, className);
   /** 上传图片 */
@@ -92,7 +96,10 @@ const Uploader = ({
             } as UploaderFile;
           }),
         ];
-        onChange && (await onChange([...target].filter((item) => item)));
+        const fileList = [...target]
+          .filter((item) => item)
+          .map((item) => item.url);
+        onChange && (await onChange(maxCount === 1 ? fileList[0] : fileList));
         for (let i = 0; i < res.tempFiles.length; i++) {
           if (afterRead) {
             await afterRead(res.tempFiles[i], [...list].length + i);
@@ -108,8 +115,9 @@ const Uploader = ({
   const onRemove = (idx: number) => {
     const target = [...list];
     target.splice(idx, 1);
-    onChange && onChange([...target]);
-    onDelete && onDelete([...list][idx], idx);
+    const filesList = [...target].map((item: UploaderFile) => item.url);
+    onChange && onChange(maxCount === 1 ? filesList[0] : filesList);
+    onDelete && onDelete(([...list][idx] as UploaderFile).url, idx);
   };
   return (
     <View className={classes}>

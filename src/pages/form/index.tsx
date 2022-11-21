@@ -203,7 +203,7 @@ const Index = () => {
           rules={[{ required: true, message: '图片不能为空' }]}
           name='imgs'
         >
-          <Uploader />
+          <Uploader maxCount={1} />
         </Form.Item>
         <Form.Item noBorder label='默认设置' name='isDefault'>
           <Switch />

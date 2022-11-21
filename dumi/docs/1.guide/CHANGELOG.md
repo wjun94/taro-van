@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## v2.0.5
+
+**Performance**
+
+- 优化`Uploader`在`Form`中使用
+
 ## v2.0.2
 
 **Performance**
