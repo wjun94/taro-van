@@ -43,7 +43,12 @@ const Index = () => {
       <Typography.Text type='secondary' block className='my-title'>
         基本使用
       </Typography.Text>
-      <Uploader onChange={setValue1} value={value1} maxCount={1} />
+      <Uploader
+        theme='normal'
+        onChange={setValue1}
+        value={value1}
+        maxCount={1}
+      />
 
       <Typography.Text type='secondary' block className='my-title'>
         多张上传

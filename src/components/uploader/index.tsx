@@ -34,6 +34,7 @@ export type UploadProps = {
   multiple?: boolean;
   /** 是否禁用文件上传 */
   disabled?: boolean;
+  theme?: 'default' | 'normal';
   onChange?: (files: string[] | string | any) => void;
   /** 删除图片事件 */
   onDelete?: (file: string, index) => void;
@@ -53,6 +54,7 @@ const Uploader = ({
   itemRender,
   maxCount,
   disabled,
+  theme = 'default',
   onChange,
   maxSize,
   onDelete,
@@ -69,7 +71,13 @@ const Uploader = ({
         }))
       : [...value];
   }, [value]);
-  const classes = clsx(prefixCls, {}, className);
+  const classes = clsx(
+    prefixCls,
+    {
+      [`${prefixCls}__${theme}`]: theme,
+    },
+    className,
+  );
   /** 上传图片 */
   const onUpload = () => {
     if (disabled) return;
