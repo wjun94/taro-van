@@ -65,6 +65,10 @@ const Field: FC<FieldProps & Omit<InputProps, 'type'> & TextareaProps> = ({
                 <Textarea
                   className={`${prefixCls}-container__input--body__textarea`}
                   placeholderClass={phClasses}
+                  onInput={(e) => {
+                    onChange && onChange(e.detail.value);
+                    onInput && onInput(e);
+                  }}
                   {...props}
                 />
               ) : (
