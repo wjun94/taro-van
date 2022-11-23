@@ -1,25 +1,19 @@
-import { Typography, Flex, Button, Icon } from '../../index';
+import { Typography, Flex, Icon } from '../../index';
 
 type P = {
-  /** 主按钮文案 */
-  confirmButtonText?: string;
-  /** 主按钮点击事件 */
-  onConfirm?: () => void;
-  /** 取消按钮文案 */
-  cancelButtonText?: string;
-  /** 取消按钮点击事件 */
-  onCancel?: () => void;
-  /** 提示 */
-  info?: string;
+  /** 结果的状态，决定图标和颜色 */
+  status?: 'success';
+  /** title 文字 */
+  title?: string;
+  /** subTitle 文字 */
+  subTitle?: string;
+  /** 操作区 */
+  extra?: JSX.Element[];
+  /** 自定义 icon */
+  icon?: JSX.Element;
 };
 
-const Result = ({
-  info,
-  confirmButtonText = '返回首页',
-  cancelButtonText,
-  onConfirm,
-  onCancel,
-}: P) => {
+const Result = ({ status = 'success', title, subTitle, extra }: P) => {
   return (
     <>
       <Flex
@@ -32,24 +26,10 @@ const Result = ({
           icon='icon-a-btn_gouxuanpng'
         />
         <Typography.Text className='mt-30px mb-50px !text-34px'>
-          {info}
+          {title}
         </Typography.Text>
-        <Flex>
-          <Button
-            shape='rounded'
-            className='!mr-40px'
-            onClick={() => onCancel && onCancel()}
-          >
-            {cancelButtonText}
-          </Button>
-          <Button
-            shape='rounded'
-            type='primary'
-            onClick={() => onConfirm && onConfirm()}
-          >
-            {confirmButtonText}
-          </Button>
-        </Flex>
+        <Typography.Text type='secondary'>{subTitle}</Typography.Text>
+        <Flex>{extra && extra.map((item) => item)}</Flex>
       </Flex>
     </>
   );

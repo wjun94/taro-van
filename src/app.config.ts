@@ -13,6 +13,7 @@ export default {
     'pages/radio/index',
     'pages/timeline/index',
     'pages/uploader/index',
+    'pages/result/index',
     'pages/icon/index',
     'pages/loading/index',
     'pages/stepper/index',

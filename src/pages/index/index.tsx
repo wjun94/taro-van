@@ -27,6 +27,10 @@ const Index = () => {
       url: '/pages/timeline/index',
     },
     {
+      label: 'Result 结果',
+      url: '/pages/result/index',
+    },
+    {
       label: 'Card 卡片',
       url: '/pages/card/index',
     },
