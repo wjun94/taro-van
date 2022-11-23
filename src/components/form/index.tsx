@@ -131,7 +131,10 @@ const Form = forwardRef(
         <TaroForm className={classes} onSubmit={onSubmit} {...props}>
           {Children.map(children, (child: ReactElement) => {
             // <Form.Item name="name"> ... </Form.Item>
-            const { name } = child.props;
+            if (!child) {
+              return;
+            }
+            const { name } = child.props || {};
             const config = {
               onChange: (values) => {
                 if (!values.detail) {

@@ -61,7 +61,7 @@ const Tabs = ({
           const target = res[0] || {};
           let left = 14;
           for (let i = 0; i < idx; i++) {
-            left += (v.all[i] as any).width;
+            left += (v.all[i] as any) ? (v.all[i] as any).width : 0;
           }
           setTimeout(() => {
             if (target.left > 160) {

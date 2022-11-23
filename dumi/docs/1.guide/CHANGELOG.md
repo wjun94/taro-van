@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## 2.1.2
+
+**Performance**
+
+- 解决`Form`报错
+
 ## v2.0.5
 
 **Performance**
