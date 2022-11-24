@@ -1,4 +1,4 @@
 export default {
-  navigationBarTitleText: 'Rate 评分',
+  navigationBarTitleText: 'Result 结果',
   enableShareAppMessage: true,
 };

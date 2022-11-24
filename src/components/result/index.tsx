@@ -1,3 +1,5 @@
+import clsx from 'classnames';
+import { cloneElement } from 'react';
 import { Typography, Flex, Icon } from '../../index';
 
 type P = {
@@ -11,27 +13,38 @@ type P = {
   extra?: JSX.Element[];
   /** 自定义 icon */
   icon?: JSX.Element;
+  className?: string;
 };
 
-const Result = ({ status = 'success', title, subTitle, extra }: P) => {
+const Result = ({
+  status = 'success',
+  title,
+  icon,
+  className,
+  subTitle,
+  extra,
+}: P) => {
+  const prefixCls = 'tv-result';
+  const classes = clsx(prefixCls, className);
   return (
     <>
-      <Flex
-        className='bg-white pt-70px pb-30px mb-80px'
-        direction='column'
-        align='center'
-      >
-        {status === 'success' && (
-          <Icon
-            className='!text-140px !text-primary-400'
-            icon='icon-a-btn_gouxuanpng'
-          />
-        )}
-        <Typography.Text className='mt-30px mb-50px !text-34px'>
-          {title}
+      <Flex className={classes} direction='column' align='center'>
+        {icon ||
+          (status === 'success' && (
+            <Icon className='tv-result-icon' icon='icon-success' />
+          ))}
+        <Typography.Text className='tv-result-title'>{title}</Typography.Text>
+        <Typography.Text type='secondary' className='tv-result-sub-title'>
+          {subTitle}
         </Typography.Text>
-        <Typography.Text type='secondary'>{subTitle}</Typography.Text>
-        <Flex>{extra && extra.map((item) => item)}</Flex>
+        <Flex className='tv-result-footer'>
+          {extra &&
+            extra.map((item) =>
+              cloneElement(item, {
+                className: clsx(item.props.className, 'tv-result-footer-btn'),
+              }),
+            )}
+        </Flex>
       </Flex>
     </>
   );
