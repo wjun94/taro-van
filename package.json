@@ -1,6 +1,6 @@
 {
 	"name": "taro-van",
-	"version": "2.1.6",
+	"version": "2.1.7",
 	"email": "994037715@qq.com",
 	"url": "https://wjun94.github.io/taro-van",
 	"private": false,
@@ -104,8 +104,8 @@
 		"babel-preset-taro": "3.5.4",
 		"classnames": "^2.3.2",
 		"cross-env": "^7.0.3",
-		"dumi": "^1.1.38",
-		"dumi-theme-mobile": "^1.1.21",
+		"dumi": "^1.1.47",
+		"dumi-theme-mobile": "^1.1.24",
 		"eslint": "^6.8.0",
 		"eslint-config-taro": "3.5.4",
 		"eslint-plugin-import": "^2.12.0",

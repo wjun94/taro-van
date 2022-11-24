@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## 2.1.7
+
+**Features**
+
+- 新增`Result`结果组件
+
 ## 2.1.6
 
 **Performance**
