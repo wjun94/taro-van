@@ -21,10 +21,12 @@ const Result = ({ status = 'success', title, subTitle, extra }: P) => {
         direction='column'
         align='center'
       >
-        <Icon
-          className='!text-140px !text-primary-400'
-          icon='icon-a-btn_gouxuanpng'
-        />
+        {status === 'success' && (
+          <Icon
+            className='!text-140px !text-primary-400'
+            icon='icon-a-btn_gouxuanpng'
+          />
+        )}
         <Typography.Text className='mt-30px mb-50px !text-34px'>
           {title}
         </Typography.Text>

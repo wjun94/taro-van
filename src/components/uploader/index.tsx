@@ -22,6 +22,8 @@ export type UploadProps = {
   maxCount?: number;
   /** 是否有删除按钮 */
   deletable?: boolean;
+  /** 显示的图片链接(前缀) */
+  beforeUrl?: string;
   /** 是否支持预览 */
   preview?: boolean;
   /** 自定义上传列表项 */
@@ -49,6 +51,7 @@ const Uploader = ({
   value = [],
   multiple,
   className,
+  beforeUrl = '',
   deletable = true,
   listType = 'text',
   itemRender,
@@ -150,12 +153,12 @@ const Uploader = ({
                 onClick={() =>
                   preview &&
                   previewImage({
-                    current: item.url,
-                    urls: list.map((file) => file.url),
+                    current: beforeUrl + item.url,
+                    urls: list.map((file) => beforeUrl + file.url),
                   })
                 }
                 mode='aspectFill'
-                src={item.url}
+                src={beforeUrl + item.url}
               />
               {item.status && item.status !== 'done' && (
                 <Flex

@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## 2.1.6
+
+**Performance**
+
+- `Uploader`组件添加`beforeUrl`属性
+
 ## 2.1.2
 
 **Performance**
