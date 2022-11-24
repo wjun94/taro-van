@@ -4,7 +4,7 @@ import { Typography, Flex, Icon } from '../../index';
 
 type P = {
   /** 结果的状态，决定图标和颜色 */
-  status?: 'success';
+  status?: 'success' | 'warning' | 'error';
   /** title 文字 */
   title?: string;
   /** subTitle 文字 */
@@ -30,8 +30,11 @@ const Result = ({
     <>
       <Flex className={classes} direction='column' align='center'>
         {icon ||
-          (status === 'success' && (
-            <Icon className='tv-result-icon' icon='icon-success' />
+          (status && (
+            <Icon
+              className={`tv-result-icon tv-result-icon_${status}`}
+              icon={`icon-${status === 'success' ? 'success' : 'warning'}`}
+            />
           ))}
         <Typography.Text className='tv-result-title'>{title}</Typography.Text>
         <Typography.Text type='secondary' className='tv-result-sub-title'>
