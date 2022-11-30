@@ -27,12 +27,19 @@ const IndexBar = ({ children, onIndexChange, hideIndex }: IndexBarProps) => {
 
       {Object.prototype.toString.call(children) === '[object Array]' &&
       !hideIndex ? (
-        <Flex className='tv-index-bar-sidebar' direction='column'>
+        <Flex
+          onClick={(e) => e.stopPropagation()}
+          className='tv-index-bar-sidebar'
+          direction='column'
+        >
           {(children as JSX.Element[])?.map((item, i) => (
             <Typography.Text
-              onClick={() => onIndex(item.props.index, i)}
+              className='tv-index-bar-sidebar_txt'
+              onClick={(e) => {
+                onIndex(item.props.index, i);
+                e.stopPropagation();
+              }}
               size='xs'
-              align='center'
               key={item.props.index}
             >
               {item.props.title}
