@@ -20,7 +20,7 @@ export type DialogProps = {
   visible?: boolean;
   title?: string;
   showCancelButton?: boolean;
-  theme?: 'radio';
+  theme?: 'rounded';
   closeOnMaskClick?: boolean;
   content?: ReactNode;
   message?: string;
@@ -141,18 +141,18 @@ const Dialog: FC<DialogProps & Omit<ViewProps, 'onClick'>> & {
     return (
       <>
         {showCancelButton ? (
-          <Flex className={`${prefixCls}-footer--radio`} justify='center'>
+          <Flex className={`${prefixCls}-footer--rounded`} justify='center'>
             <Button
               {...cancelProps}
               shape='rounded'
-              className={`${prefixCls}-footer--radio__btn`}
+              className={`${prefixCls}-footer--rounded__btn`}
             >
               {cancelButtonText}
             </Button>
             <Button
               {...confirmProps}
               shape='rounded'
-              className={`${prefixCls}-footer--radio__btn`}
+              className={`${prefixCls}-footer--rounded__btn`}
             >
               {confirmButtonText}
             </Button>
@@ -194,7 +194,7 @@ const Dialog: FC<DialogProps & Omit<ViewProps, 'onClick'>> & {
           )}
           {footer || (
             <Flex className={`${prefixCls}-footer`} wrap='nowrap'>
-              {theme === 'radio' ? <FooterRadioItem /> : <FooterBaseItem />}
+              {theme === 'rounded' ? <FooterRadioItem /> : <FooterBaseItem />}
             </Flex>
           )}
         </View>

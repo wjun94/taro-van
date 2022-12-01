@@ -83,7 +83,7 @@ const Index = () => {
           <Dialog
             visible={visible3}
             title='标题'
-            theme='radio'
+            theme='rounded'
             showCancelButton
             closeOnMaskClick
             onCancel={() => setVisible3(false)}
@@ -102,7 +102,7 @@ const Index = () => {
           <Dialog
             visible={visible4}
             title='标题'
-            theme='radio'
+            theme='rounded'
             content={
               <View style={{ margin: '14px' }}>
                 <Typography.Text>逆水行舟，不进则退。</Typography.Text>
@@ -120,7 +120,7 @@ const Index = () => {
         <View>
           <Dialog.Alert
             title='标题'
-            theme='radio'
+            theme='rounded'
             content={
               <View style={{ margin: '14px' }}>
                 <Typography.Text>逆水行舟，不进则退。</Typography.Text>
@@ -144,7 +144,7 @@ const Index = () => {
           <Dialog.Alert
             title='标题'
             ref={dialogRef}
-            theme='radio'
+            theme='rounded'
             content={
               <View style={{ margin: '14px' }}>
                 <Typography.Text>逆水行舟，不进则退。</Typography.Text>
