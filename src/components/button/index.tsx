@@ -33,7 +33,8 @@ const Button = ({
   const classes = clsx(
     prefixCls,
     {
-      [`${prefixCls}-hide`]: shape && shape === 'rounded' && !plain,
+      [`${prefixCls}-hide`]:
+        shape && shape === 'rounded' && !plain && type !== 'default',
       [`${prefixCls}-${size}`]: size,
       [`${prefixCls}-block`]: block,
       [`${prefixCls}--${type}`]: type,

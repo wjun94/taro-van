@@ -57,7 +57,7 @@ const Uploader = ({
   itemRender,
   maxCount,
   disabled,
-  theme = 'default',
+  theme = 'normal',
   onChange,
   maxSize,
   onDelete,

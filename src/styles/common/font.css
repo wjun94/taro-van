@@ -1,8 +1,8 @@
 @font-face {
-  font-family: 'iconfont';
-  src: url('iconfont.woff2?t=1669294273839') format('woff2'),
-       url('iconfont.woff?t=1669294273839') format('woff'),
-       url('iconfont.ttf?t=1669294273839') format('truetype');
+  font-family: "iconfont"; /* Project id 3193910 */
+  src: url('iconfont.woff2?t=1670218964793') format('woff2'),
+       url('iconfont.woff?t=1670218964793') format('woff'),
+       url('iconfont.ttf?t=1670218964793') format('truetype');
 }
 
 .iconfont {
@@ -13,46 +13,51 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-warning:before {
-  content: "\e643";
-}
-
-.icon-success:before {
-  content: "\e642";
-}
-
-.icon-star:before {
-  content: "\e63f";
-}
-
-.icon-minus:before {
-  content: "\e63d";
-}
-
-.icon-empty:before {
-  content: "\e632";
-}
-
-.icon-planet:before {
-  content: "\e631";
-}
-
-.icon-cross:before {
-  content: "\e630";
-}
-
-.icon-plus:before {
-  content: "\e62f";
-}
-
-.icon-close:before {
-  content: "\e62e";
+.icon-close_fill:before {
+  content: "\ec48";
 }
 
 .icon-camera:before {
-  content: "\e62b";
+  content: "\ec44";
+}
+
+.icon-warning:before {
+  content: "\ea43";
+}
+
+.icon-success:before {
+  content: "\ea42";
+}
+
+.icon-star:before {
+  content: "\ea3f";
+}
+
+.icon-minus:before {
+  content: "\ea3d";
+}
+
+.icon-empty:before {
+  content: "\ea32";
+}
+
+.icon-planet:before {
+  content: "\ea31";
+}
+
+.icon-cross:before {
+  content: "\ea3c";
+}
+
+.icon-plus:before {
+  content: "\ea2f";
+}
+
+.icon-close:before {
+  content: "\ea2e";
 }
 
 .icon-arrow:before {
-  content: "\e629";
+  content: "\ea2b";
 }
+

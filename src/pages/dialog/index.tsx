@@ -21,7 +21,6 @@ const Index = () => {
           </Button>
           <Dialog
             visible={visible1}
-            title='标题'
             showCancelButton
             message='逆水行舟，不进则退'
             onCancel={() => setVisible1(false)}

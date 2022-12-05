@@ -127,8 +127,8 @@ const Index = () => {
         自定义上传样式
       </Typography.Text>
       <Uploader onChange={setValue5} value={value5}>
-        <Flex justify='center'>
-          <Icon size='xxl' icon='icon-camera' className='tv-uploader__add' />
+        <Flex align='center' direction='column' justify='center'>
+          <Icon size='lg' icon='icon-camera' className='tv-uploader__add' />
           <Typography.Text type='secondary' size='sm'>
             上传图片
           </Typography.Text>
