@@ -70,7 +70,7 @@ const Item = forwardRef(
               </Label>
             );
           } else if (name) {
-            return cloneElement(child, config);
+            return <Label {...config}>{cloneElement(child, config)}</Label>;
           }
           return cloneElement(child, {});
         })}

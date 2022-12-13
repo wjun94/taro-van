@@ -42,9 +42,11 @@ const Label: FC<LabelProps & Omit<InputProps, 'type'>> = ({
   return (
     <View className={classes}>
       <View className={`${containerClasses}`}>
-        <View className={labelClasses}>
-          <Typography.Text>{label}</Typography.Text>
-        </View>
+        {label && (
+          <View className={labelClasses}>
+            <Typography.Text>{label}</Typography.Text>
+          </View>
+        )}
         <View className={contentClasses}>
           {children}
           {intro && (

@@ -75,7 +75,7 @@ const Popup = ({
           )}
           {closeIcon && (
             <Icon
-              size='lg'
+              size='xl'
               onClick={() => onClose && onClose()}
               className={`${prefixCls}--icon`}
               icon='icon-close_fill'
