@@ -8,6 +8,7 @@ import {
   useState,
   Children,
   ReactElement,
+  Fragment,
 } from 'react';
 import { Form as TaroForm } from '@tarojs/components';
 import { FormProps as TaroFormProps } from '@tarojs/components/types/Form';
@@ -126,49 +127,57 @@ const Form = forwardRef(
         onFinish && onFinish(result);
       }
     };
+
+    // 子节点
+    const childElement = (child: ReactElement) => {
+      // <Form.Item name="name"> ... </Form.Item>
+      if (!child) {
+        return;
+      }
+      if (child.type === Fragment) {
+        return Children.map(child.props.children, (c: ReactElement) => {
+          return childElement(c);
+        });
+      }
+      const { name } = child.props || {};
+      const config = {
+        onChange: (values) => {
+          if (!values.detail) {
+            // field和radio onChange带detail不执行以下方法
+            // Uploader执行以下代码
+            setFormValues((v: any) => {
+              if (v) {
+                v[name] = values;
+              }
+              validateFields(v, name);
+              return { ...v };
+            });
+          }
+        },
+      };
+      if (name) {
+        let obj = {};
+        if (child.props.rules) {
+          validate[name] = child.props.rules;
+          obj = {
+            name,
+            error: !!errors[name],
+            errorMsg: errors[name],
+          };
+        }
+        return cloneElement(child, {
+          ...config,
+          ...obj,
+        });
+      }
+      return cloneElement(child, {
+        ...config,
+      });
+    };
     return (
       <formContext.Provider value={formValues}>
         <TaroForm className={classes} onSubmit={onSubmit} {...props}>
-          {Children.map(children, (child: ReactElement) => {
-            // <Form.Item name="name"> ... </Form.Item>
-            if (!child) {
-              return;
-            }
-            const { name } = child.props || {};
-            const config = {
-              onChange: (values) => {
-                if (!values.detail) {
-                  // field和radio onChange带detail不执行以下方法
-                  // Uploader执行以下代码
-                  setFormValues((v: any) => {
-                    if (v) {
-                      v[name] = values;
-                    }
-                    validateFields(v, name);
-                    return { ...v };
-                  });
-                }
-              },
-            };
-            if (name) {
-              let obj = {};
-              if (child.props.rules) {
-                validate[name] = child.props.rules;
-                obj = {
-                  name,
-                  error: !!errors[name],
-                  errorMsg: errors[name],
-                };
-              }
-              return cloneElement(child, {
-                ...config,
-                ...obj,
-              });
-            }
-            return cloneElement(child, {
-              ...config,
-            });
-          })}
+          {Children.map(children, childElement)}
         </TaroForm>
       </formContext.Provider>
     );
