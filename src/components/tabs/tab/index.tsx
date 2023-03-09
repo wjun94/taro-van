@@ -48,7 +48,7 @@ const Tab = ({
           </Typography.Title>
         ) : (
           cloneElement(title, {
-            className: titleClasses,
+            className: `${titleClasses} ${title.props.className}`,
           })
         )}
       </View>
