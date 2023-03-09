@@ -10,6 +10,12 @@ page {
   --tv-color-secondary: #969799;
   --tv-color-base: #323232;
   --tv-color-border: rgba(0, 0, 0, 0.14);
+  --text-xs: 20px;
+  --text-sm: 24px;
+  --text-base: 28px;
+  --text-lg: 32px;
+  --text-xl: 36px;
+  --text-xxl: 40px;
 }
 
 @tv-prefix: tv;
@@ -58,12 +64,12 @@ page {
 @color-border-gray: #ccc;
 
 /* Font */
-@font-size-xs: 10px * @hd; // 非常用字号，用于标签
-@font-size-sm: 12px * @hd; // 用于辅助信息
-@font-size-base: 14px * @hd; // 常用字号
-@font-size-lg: 16px * @hd; // 常规标题
-@font-size-xl: 18px * @hd; // 大标题
-@font-size-xxl: 20px * @hd; // 用于大号的数字
+@font-size-xs: var(--text-xs); // 非常用字号，用于标签
+@font-size-sm: var(--text-sm); // 用于辅助信息
+@font-size-base: var(--text-base); // 常用字号
+@font-size-lg: var(--text-lg); // 常规标题
+@font-size-xl: var(--text-xl); // 大标题
+@font-size-xxl: var(--text-xxl); // 用于大号的数字
 
 /* Border Radius */
 @border-radius-sm: 2px * @hd;

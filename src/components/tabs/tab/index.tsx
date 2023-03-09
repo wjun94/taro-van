@@ -6,7 +6,7 @@ import { tabsContext } from '../index';
 import Typography from '../../typography';
 
 export type TabProps = {
-  title: string;
+  title: string | ReactNode;
   value: string;
   children?: ReactNode;
   className?: string;
@@ -42,9 +42,13 @@ const Tab = ({
         }}
         className={`${prefixCls}__head`}
       >
-        <Typography.Title level={2} className={titleClasses}>
-          {title}
-        </Typography.Title>
+        {typeof title === 'string' ? (
+          <Typography.Title level={2} className={titleClasses}>
+            {title}
+          </Typography.Title>
+        ) : (
+          title
+        )}
       </View>
     </View>
   );

@@ -21,6 +21,14 @@ nav:
 --tv-color-secondary: #969799; // 次文本色
 --tv-color-base: #323232; // 主字号
 --tv-color-border: rgba(0, 0, 0, 0.14); // border 颜色
+
+// 字体大小
+--text-xs: 20px;
+--text-sm: 24px;
+--text-base: 28px; // 默认大小
+--text-lg: 32px;
+--text-xl: 36px;
+--text-xxl: 40px;
 ```
 
 ## 定制方式

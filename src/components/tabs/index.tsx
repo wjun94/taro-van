@@ -19,6 +19,7 @@ export type TabsProps = {
   className?: string;
   active?: string;
   name?: string;
+  border?: boolean;
   onChange?: (value: string, index: number) => void;
 };
 
@@ -30,6 +31,7 @@ const Tabs = ({
   className,
   active,
   onChange,
+  border = true,
   ...props
 }: TabsProps & Omit<ViewProps, 'className'>) => {
   const prefixCls = 'tv-tabs';
@@ -37,6 +39,7 @@ const Tabs = ({
     prefixCls,
     {
       [`tv-tabs-${name}`]: true,
+      [`tv-tabs-border`]: border,
     },
     className,
   );

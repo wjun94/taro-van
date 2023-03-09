@@ -16,6 +16,7 @@ export type TextProps = {
     | 'success'
     | 'white';
   align?: 'left' | 'center' | 'right';
+  // xs: 20px sm: 24px default: 28px lg: 32px xl 36px
   size?: 'xs' | 'sm' | 'lg' | 'xl';
   weight?: 'normal' | 'medium' | 'bold' | 'extrabold';
   copyable?: { text: string; info?: string }; // 拷贝
