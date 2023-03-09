@@ -1,12 +1,12 @@
 import { View } from '@tarojs/components';
-import { ReactNode, useContext } from 'react';
+import { ReactNode, ReactElement, useContext, cloneElement } from 'react';
 import clsx from 'classnames';
 import { ViewProps } from '@tarojs/components/types/View';
 import { tabsContext } from '../index';
 import Typography from '../../typography';
 
 export type TabProps = {
-  title: string | ReactNode;
+  title: string | ReactElement;
   value: string;
   children?: ReactNode;
   className?: string;
@@ -47,7 +47,9 @@ const Tab = ({
             {title}
           </Typography.Title>
         ) : (
-          title
+          cloneElement(title, {
+            className: titleClasses,
+          })
         )}
       </View>
     </View>
