@@ -1,11 +1,11 @@
 {
 	"name": "taro-van",
-	"version": "2.3.6",
+	"version": "2.4.0",
 	"email": "994037715@qq.com",
 	"url": "https://wjun94.github.io/taro-van",
 	"private": false,
 	"main": "lib/src/index.js",
-	"description": "taro ui库",
+	"description": "taro ui库，好用的Form表单",
 	"homepage": "https://wjun94.github.io/taro-van",
 	"bugs": {
 		"url": "https://github.com/wjun94/taro-van/issues"
