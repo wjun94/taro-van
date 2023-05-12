@@ -17,7 +17,7 @@ const Index = () => {
           默认值
         </Typography.Text>
       </View>
-      <Switch defaultChecked />
+      <Switch />
     </View>
   );
 };
