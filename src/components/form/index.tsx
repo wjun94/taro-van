@@ -4,36 +4,45 @@ import {
   forwardRef,
   useImperativeHandle,
   cloneElement,
-  Ref,
   useState,
   Children,
   ReactElement,
   Fragment,
+  ForwardRefExoticComponent,
+  PropsWithoutRef,
+  RefAttributes,
 } from 'react';
 import { Form as TaroForm } from '@tarojs/components';
 import { FormProps as TaroFormProps } from '@tarojs/components/types/Form';
 import clsx from 'classnames';
-import Item, { Rule } from './item';
+import Item, { Rule, P } from './item';
 
 export type FormProps = {
   children?: ReactNode;
+  /** 初始默认值 */
   initialValues?: { [key: string]: string | number };
-  onFinish?: (values?: any) => void;
+  /** 提交表单且数据验证成功后回调事件 */
+  onFinish?: (values?: { [key: string]: any }) => void;
 };
+
+export type FormRef = {
+  /** 清空表单 */
+  resetFields: () => void;
+  /** 获取表单值 */
+  getFieldsValue: () => { [key: string]: any };
+  /** 动态改变表单值 */
+  setFieldsValue: (values: { [key: string]: any }) => void;
+};
+
+/** Form组建类型 */
+export type ForwardComponent = ForwardRefExoticComponent<
+  PropsWithoutRef<FormProps & TaroFormProps> & RefAttributes<FormRef>
+> & { Item: ForwardRefExoticComponent<PropsWithoutRef<P>> };
 
 export const formContext = createContext({});
 
-const Form = forwardRef(
-  (
-    {
-      children,
-      className,
-      initialValues = {},
-      onFinish,
-      ...props
-    }: FormProps & TaroFormProps,
-    ref: Ref<any>,
-  ) => {
+const Form = forwardRef<FormRef, FormProps & TaroFormProps>(
+  ({ children, className, initialValues = {}, onFinish, ...props }, ref) => {
     const prefixCls = 'tv-form';
     // 保存name rules
     const validate: { [key: string]: Rule[] } = {};
@@ -184,6 +193,6 @@ const Form = forwardRef(
   },
 );
 
-(Form as any).Item = Item;
+(Form as ForwardComponent).Item = Item;
 
-export default Form as any;
+export default Form as ForwardComponent;

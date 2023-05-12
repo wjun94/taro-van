@@ -25,7 +25,7 @@ export type P = {
   error?: boolean;
   errorMsg?: string;
   label?: string;
-  name: string;
+  name?: string;
   noBorder?: boolean;
   align?: 'start' | 'center';
 };
@@ -54,11 +54,13 @@ const Item = forwardRef(
     return (
       <View className={classes}>
         {Children.map(children, (child: ReactElement | any) => {
-          Object.assign(config, {
-            defaultValue: initValue[name],
-            value: initValue[name],
-            ...props,
-          });
+          if (name) {
+            Object.assign(config, {
+              defaultValue: initValue[name],
+              value: initValue[name],
+              ...props,
+            });
+          }
           if (label) {
             return (
               <Label
