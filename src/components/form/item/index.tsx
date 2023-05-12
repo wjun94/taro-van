@@ -47,7 +47,6 @@ const Item = forwardRef(
     const initValue = useContext(formContext);
     useImperativeHandle(myRef, () => ({}));
     const config = {
-      // onChange: () => { setValue('1') },
       required: !!(rules && rules.find((item) => item.required)),
       name,
     };

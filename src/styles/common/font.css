@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3193910 */
-  src: url('iconfont.woff2?t=1670218964793') format('woff2'),
-       url('iconfont.woff?t=1670218964793') format('woff'),
-       url('iconfont.ttf?t=1670218964793') format('truetype');
+  src: url('iconfont.woff2?t=1683875742131') format('woff2'),
+       url('iconfont.woff?t=1683875742131') format('woff'),
+       url('iconfont.ttf?t=1683875742131') format('truetype');
 }
 
 .iconfont {
@@ -13,8 +13,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-radio:before {
+  content: "\ec96";
+}
+
+.icon-radio-selected:before {
+  content: "\eeb7";
+}
+
 .icon-close_fill:before {
-  content: "\ec48";
+  content: "\eff8";
 }
 
 .icon-camera:before {
@@ -22,7 +30,7 @@
 }
 
 .icon-warning:before {
-  content: "\ea43";
+  content: "\eac3";
 }
 
 .icon-success:before {
@@ -38,11 +46,11 @@
 }
 
 .icon-empty:before {
-  content: "\ea32";
+  content: "\eaf9";
 }
 
 .icon-planet:before {
-  content: "\ea31";
+  content: "\ea3";
 }
 
 .icon-cross:before {
@@ -58,6 +66,6 @@
 }
 
 .icon-arrow:before {
-  content: "\ea2b";
+  content: "\ecfb";
 }
 

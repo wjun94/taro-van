@@ -151,7 +151,7 @@ const Form = forwardRef<FormRef, FormProps & TaroFormProps>(
       const { name } = child.props || {};
       const config = {
         onChange: (values) => {
-          if (!values.detail) {
+          if (typeof values !== 'object') {
             // field和radio onChange带detail不执行以下方法
             // Uploader执行以下代码
             setFormValues((v: any) => {
@@ -164,6 +164,7 @@ const Form = forwardRef<FormRef, FormProps & TaroFormProps>(
           }
         },
       };
+     
       if (name) {
         let obj = {};
         if (child.props.rules) {
