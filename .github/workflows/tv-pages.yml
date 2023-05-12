@@ -13,11 +13,11 @@ jobs:
       - name: Use Node
         uses: actions/setup-node@v2
         with:
-              node-version: 16 # node版本
-              cache: "yarn"
+          node-version: 16 # node版本
       - name: Install dependencies
-      - run: yarn install --no-frozen-lockfile
-      - run: yarn build:doc
+      - run: npm install -g pnpm
+      - run: pnpm install --no-frozen-lockfile
+      - run: pnpm run build:doc
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
