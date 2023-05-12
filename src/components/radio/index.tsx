@@ -1,35 +1,54 @@
-import { Radio as TaroRadio, View } from '@tarojs/components';
-import { RadioProps as TaroRadioProps } from '@tarojs/components/types/Radio';
-import { ReactNode } from 'react';
 import clsx from 'classnames';
+import { useEffect, useState } from 'react';
 import RadioGroup from './group';
+import { Icon, Flex, Typography } from '../../index';
 
 export type RadioProps = {
-  children?: ReactNode;
-  size?: 'sm' | 'lg';
+  className?: string;
+  children?: string;
+  disabled?: boolean;
+  checked?: boolean;
+  value?: string;
+  onChange?: () => void;
 };
 
 const Radio = ({
-  children,
   className,
-  size,
+  disabled,
+  checked,
+  children,
+  value,
+  onChange,
   ...props
-}: RadioProps & TaroRadioProps) => {
+}: RadioProps) => {
+  const [selected, setSelected] = useState(false);
   const prefixCls = 'tv-radio';
-  const classes = clsx(
-    prefixCls,
-    {
-      [`${prefixCls}-app`]: process.env.TARO_ENV !== 'h5',
-      [`${prefixCls}-app--${size}`]: process.env.TARO_ENV !== 'h5' && size,
-      [`${prefixCls}-web`]: process.env.TARO_ENV === 'h5',
-      [`${prefixCls}-web--${size}`]: process.env.TARO_ENV === 'h5' && size,
-    },
-    className,
-  );
+  const classes = clsx(prefixCls, className, {
+    'tv-radio__disabled': disabled,
+  });
+  useEffect(() => {
+    if (checked !== undefined) {
+      setSelected(checked);
+    }
+  }, [checked]);
   return (
-    <View className={classes}>
-      <TaroRadio {...props}>{children}</TaroRadio>
-    </View>
+    <Flex
+      onClick={() => onChange && onChange()}
+      align='center'
+      className={classes}
+      {...props}
+    >
+      <Icon
+        className={clsx({ 'tv-radio__primary': checked })}
+        icon={selected ? 'icon-radio-selected' : 'icon-radio'}
+      />
+      <Typography.Text
+        type={disabled ? 'secondary' : 'default'}
+        className='tv-radio-text'
+      >
+        {children}
+      </Typography.Text>
+    </Flex>
   );
 };
 

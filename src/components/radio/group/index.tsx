@@ -1,5 +1,5 @@
-import { RadioGroup as TaroRadioGroup } from '@tarojs/components';
-import { RadioGroupProps as TaroRadioGroupProps } from '@tarojs/components/types/RadioGroup';
+import { View } from '@tarojs/components';
+import { ViewProps } from '@tarojs/components/types/View';
 import {
   ReactNode,
   Children,
@@ -26,7 +26,7 @@ const RadioGroup = ({
   className,
   direction,
   onChange,
-}: RadioGroupProps & TaroRadioGroupProps) => {
+}: RadioGroupProps & ViewProps) => {
   const [checked, setChecked] = useState<string>();
   const prefixCls = 'tv-radio-group';
   const classes = clsx(
@@ -47,18 +47,21 @@ const RadioGroup = ({
     }
   }, [value]);
   return (
-    <TaroRadioGroup
-      className={classes}
-      onChange={(e) => {
-        onChange && onChange(e.detail.value)
-      }}
-    >
+    <View className={classes}>
       {Children.map(children, (child: ReactElement) => {
         return cloneElement(child, {
-          checked: Object.is(child.props.value, checked),
+          className: clsx(child.props.className),
+          checked: child.props.value === checked,
+          onClick: () => {
+            if (child.props.disabled) {
+              return
+            }
+            setChecked(child.props.value)
+            onChange && onChange(child.props.value)
+          }
         });
       })}
-    </TaroRadioGroup>
+    </View>
   );
 };
 
