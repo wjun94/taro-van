@@ -1,5 +1,5 @@
 import clsx from 'classnames';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, ReactElement } from 'react';
 import RadioGroup from './group';
 import { Icon, Flex, Typography } from '../../index';
 
@@ -9,6 +9,7 @@ export type RadioProps = {
   disabled?: boolean;
   checked?: boolean;
   value?: string;
+  icon?: ReactElement;
   onChange?: () => void;
 };
 
@@ -19,6 +20,7 @@ const Radio = ({
   children,
   value,
   onChange,
+  icon,
   ...props
 }: RadioProps) => {
   const [selected, setSelected] = useState(false);
@@ -38,10 +40,14 @@ const Radio = ({
       className={classes}
       {...props}
     >
-      <Icon
-        className={clsx({ 'tv-radio__primary': checked })}
-        icon={selected ? 'icon-radio-selected' : 'icon-radio'}
-      />
+      {icon && selected ? (
+        icon
+      ) : (
+        <Icon
+          className={clsx({ 'tv-radio__primary': checked })}
+          icon={selected ? 'icon-radio-selected' : 'icon-radio'}
+        />
+      )}
       <Typography.Text
         type={disabled ? 'secondary' : 'default'}
         className='tv-radio-text'

@@ -11,6 +11,19 @@ nav:
 
 # 更新日志
 
+## 2.4.1
+
+**Performance**
+
+- `Radio`组件添加`icon`选中属性
+
+## 2.4.0
+
+**Performance**
+
+- 优化`Form`组件
+- 优化`Radio`组件
+
 ## 2.3.3
 
 - `Tabs`组件添加`border`属性，`title`可自定义
