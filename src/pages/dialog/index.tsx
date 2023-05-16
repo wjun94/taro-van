@@ -125,7 +125,6 @@ const Index = () => {
                 <Typography.Text>逆水行舟，不进则退。</Typography.Text>
               </View>
             }
-            showCancelButton
             closeOnMaskClick
             onCancel={() => console.log('onCancel')}
             onConfirm={() => console.log('onConfirm')}

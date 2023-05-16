@@ -11,6 +11,13 @@ nav:
 
 # 更新日志
 
+## 2.4.3
+
+**Performance**
+
+- 解决`Form`报错显示多个问题
+- 解决`Dialog`单个按钮`rounded`失效问题
+
 ## 2.4.1
 
 **Performance**

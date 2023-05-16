@@ -137,37 +137,26 @@ const Dialog: FC<DialogProps & Omit<ViewProps, 'onClick'>> & {
   };
 
   /** 按钮底部圆形按钮 */
-  const FooterRadioItem = () => {
+  const FooterRoundedItem = () => {
     return (
-      <>
+      <Flex className={`${prefixCls}-footer--rounded`} justify='center'>
         {showCancelButton ? (
-          <Flex className={`${prefixCls}-footer--rounded`} justify='center'>
-            <Button
-              {...cancelProps}
-              shape='rounded'
-              className={`${prefixCls}-footer--rounded__btn`}
-            >
-              {cancelButtonText}
-            </Button>
-            <Button
-              {...confirmProps}
-              shape='rounded'
-              className={`${prefixCls}-footer--rounded__btn`}
-            >
-              {confirmButtonText}
-            </Button>
-          </Flex>
-        ) : (
           <Button
-            {...confirmProps}
-            block
-            plain
-            className={`${prefixCls}-footer--btn`}
+            {...cancelProps}
+            shape='rounded'
+            className={`${prefixCls}-footer--rounded__btn`}
           >
-            {confirmButtonText}
+            {cancelButtonText}
           </Button>
-        )}
-      </>
+        ) : null}
+        <Button
+          {...confirmProps}
+          shape='rounded'
+          className={`${prefixCls}-footer--rounded__btn ${!showCancelButton && `${prefixCls}-footer--rounded__btn__min`}`}
+        >
+          {confirmButtonText}
+        </Button>
+      </Flex>
     );
   };
   return (
@@ -194,7 +183,7 @@ const Dialog: FC<DialogProps & Omit<ViewProps, 'onClick'>> & {
           )}
           {footer || (
             <Flex className={`${prefixCls}-footer`} wrap='nowrap'>
-              {theme === 'rounded' ? <FooterRadioItem /> : <FooterBaseItem />}
+              {theme === 'rounded' ? <FooterRoundedItem /> : <FooterBaseItem />}
             </Flex>
           )}
         </View>

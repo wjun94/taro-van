@@ -60,7 +60,7 @@ const Item = forwardRef(
               ...props,
             });
           }
-          if (label) {
+          if (label || name) {
             return (
               <Label
                 label={label}
@@ -70,8 +70,6 @@ const Item = forwardRef(
                 {cloneElement(child, { ...config, errorMsg: '', error: false })}
               </Label>
             );
-          } else if (name) {
-            return <Label {...config}>{cloneElement(child, config)}</Label>;
           }
           return cloneElement(child, {});
         })}
