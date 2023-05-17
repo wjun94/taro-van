@@ -152,6 +152,10 @@ const Form = forwardRef<FormRef, FormProps & TaroFormProps>(
       const config = {
         onChange: (values) => {
           // Uploader执行以下代码
+          if (child?.props?.children?.props?.onChange) {
+            // 调用子节点onChange方法
+            child.props.children.props.onChange(values)
+          }
           try {
             setFormValues((v: any) => {
               if (v) {

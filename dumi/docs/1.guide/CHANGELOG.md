@@ -11,6 +11,12 @@ nav:
 
 # 更新日志
 
+## 2.4.4
+
+**Performance**
+
+- 解决`Form.Item`子节点onChange事件不触发
+
 ## 2.4.3
 
 **Performance**
