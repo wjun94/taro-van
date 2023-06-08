@@ -23,6 +23,7 @@ export const useBackgroundAudioManager = () => {
     });
     manager.current.onPlay(() => setPlaying(true));
     manager.current.onPause(() => setPlaying(false));
+    manager.current.onStop(() => setPlaying(false));
     manager.current.onEnded(() => {
       setPlaying(false);
     });
