@@ -11,6 +11,16 @@ nav:
 
 # 更新日志
 
+## 2.4.5
+
+**Performance**
+
+- 优化`Dialog`组件
+
+**Features**
+
+- 添加`useBackgroundAudioManager`播放音乐hooks
+
 ## 2.4.4
 
 **Performance**

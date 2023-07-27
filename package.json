@@ -1,6 +1,6 @@
 {
 	"name": "taro-van",
-	"version": "2.4.4",
+	"version": "2.4.5",
 	"email": "994037715@qq.com",
 	"url": "https://wjun94.github.io/taro-van",
 	"private": false,
@@ -28,8 +28,7 @@
 	"files": [
 		"dist",
 		"lib",
-		"es",
-		"styles"
+		"es"
 	],
 	"license": "MIT",
 	"scripts": {

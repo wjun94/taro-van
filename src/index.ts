@@ -25,3 +25,6 @@ export { default as Timeline } from './components/timeline';
 export { default as IndexBar } from './components/indexBar';
 export { default as Label } from './components/label';
 export { default as Result } from './components/result';
+
+export { useBackgroundAudioManager } from './hooks/useBackgroundAudioManager';
+

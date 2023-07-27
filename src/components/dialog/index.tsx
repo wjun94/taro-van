@@ -18,7 +18,7 @@ import Overlay from '../overlay';
 export type DialogProps = {
   children?: ReactElement;
   visible?: boolean;
-  title?: string;
+  title?: ReactNode;
   showCancelButton?: boolean;
   theme?: 'rounded';
   closeOnMaskClick?: boolean;
@@ -174,18 +174,18 @@ const Dialog: FC<DialogProps & Omit<ViewProps, 'onClick'>> & {
           )}
           {content || (
             <Flex className={`${prefixCls}-content`} justify='center'>
-              {message ? (
+              {typeof message === "string" ? (
                 <Typography.Text>{message}</Typography.Text>
               ) : (
                 children
               )}
             </Flex>
           )}
-          {footer || (
+          {footer === undefined ?  (
             <Flex className={`${prefixCls}-footer`} wrap='nowrap'>
               {theme === 'rounded' ? <FooterRoundedItem /> : <FooterBaseItem />}
             </Flex>
-          )}
+          ) : footer}
         </View>
       </View>
     </Overlay>
