@@ -27,6 +27,10 @@ const Index = () => {
       url: '/pages/timeline/index',
     },
     {
+      label: 'NoticeBar 通知栏',
+      url: '/pages/noticeBar/index',
+    },
+    {
       label: 'Result 结果',
       url: '/pages/result/index',
     },
