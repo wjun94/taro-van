@@ -40,7 +40,7 @@ const NoticeBar = ({
     if (domWidht > 0) {
       (NoticeBar as any).timer = setInterval(() => {
         setMove((v) => {
-          if (width + domWidht - v < -(domWidht / 2)) {
+          if (width + domWidht - v < -(domWidht / 10)) {
             return 0;
           }
           return v + 2;
@@ -70,7 +70,7 @@ const NoticeBar = ({
           <Typography.Text
             style={{
               color,
-              transform: `translateX(${(width + domWidht) / 2 - move}px)`,
+              transform: `translateX(${(width + domWidht / 10) / 2 - move}px)`,
             }}
             className='tv-noticeBar-text'
           >
