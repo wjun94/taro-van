@@ -47,6 +47,10 @@ const Index = () => {
       url: '/pages/typography/index',
     },
     {
+      label: 'Search搜索',
+      url: '/pages/search/index',
+    },
+    {
       label: 'Switch开关',
       url: '/pages/switch/index',
     },

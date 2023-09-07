@@ -27,6 +27,7 @@ export default {
     'pages/switch/index',
     'pages/cascader/index',
     'pages/rate/index',
+    'pages/search/index',
     'pages/noticeBar/index',
   ],
   window: {

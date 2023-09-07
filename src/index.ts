@@ -26,6 +26,7 @@ export { default as IndexBar } from './components/indexBar';
 export { default as Label } from './components/label';
 export { default as Result } from './components/result';
 export { default as NoticeBar } from './components/noticeBar'
+export { default as Search } from './components/search'
 
 export { useBackgroundAudioManager } from './hooks/useBackgroundAudioManager';
 
