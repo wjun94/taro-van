@@ -13,6 +13,10 @@ export type IconProps = {
   color?: string;
   mode?: 'closeable' | 'link';
   leftIcon?: ReactNode;
+  scrollable?: boolean;
+  speed?: number;
+  onClose?: () => void;
+  onReplay?: () => void;
 };
 
 const NoticeBar = ({
@@ -22,6 +26,10 @@ const NoticeBar = ({
   background = '#fffbe8',
   mode,
   leftIcon,
+  scrollable,
+  speed = 60,
+  onClose,
+  onReplay,
   ...props
 }: IconProps & Omit<ViewProps, 'className'>) => {
   const width = 700;
@@ -37,15 +45,16 @@ const NoticeBar = ({
     };
   }, []);
   useEffect(() => {
-    if (domWidht > 0) {
+    if (domWidht > 0 && scrollable) {
       (NoticeBar as any).timer = setInterval(() => {
         setMove((v) => {
           if (width + domWidht - v < -(domWidht / 10)) {
+            onReplay && onReplay();
             return 0;
           }
           return v + 2;
         });
-      }, 30);
+      }, speed);
     }
   }, [domWidht]);
   return visible ? (
@@ -70,9 +79,13 @@ const NoticeBar = ({
           <Typography.Text
             style={{
               color,
-              transform: `translateX(${(width + domWidht / 10) / 2 - move}px)`,
+              transform: `translateX(${
+                scrollable ? (width + domWidht / 10) / 2 - move : 0
+              }px)`,
             }}
-            className='tv-noticeBar-text'
+            className={`tv-noticeBar-justify ${
+              scrollable ? 'tv-noticeBar-text' : ''
+            }`}
           >
             {text}
           </Typography.Text>
@@ -86,6 +99,7 @@ const NoticeBar = ({
             if (mode === 'closeable') {
               setVisible(false);
               clearInterval((NoticeBar as any).timer);
+              onClose && onClose();
             }
           }}
           style={{ color }}
