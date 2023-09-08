@@ -16,6 +16,7 @@ nav:
 **Features**
 
 - 添加`NoticeBar`通知栏组件
+- 添加`Search`搜索组件
 
 ## 2.4.5
 

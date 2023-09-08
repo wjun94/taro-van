@@ -1,7 +1,7 @@
 import { Input } from '@tarojs/components';
 import { ViewProps } from '@tarojs/components/types/View';
 import clsx from 'classnames';
-import { useState, ReactNode } from 'react';
+import { useState, ReactNode, useEffect } from 'react';
 import Icon from '../icon';
 import Flex from '../flex';
 
@@ -9,11 +9,14 @@ export type SearchProps = {
   className?: string;
   placeholder?: string;
   rounded?: boolean;
-  leftIcon?: ReactNode;
-  rightIcon?: ReactNode;
   maxlength?: number;
   children?: ReactNode;
   background?: string;
+  clearable?: boolean;
+  value?: string;
+  label?: ReactNode;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
   onChange?: (value: string) => void;
   onSearch?: (value: string) => void;
 };
@@ -27,13 +30,19 @@ const Search = ({
   maxlength,
   children,
   background,
+  label,
+  clearable = true,
+  value = '',
   onSearch,
   onChange,
   ...props
 }: SearchProps & ViewProps) => {
   const prefixCls = 'tv-search';
   const classes = clsx(prefixCls, className);
-  const [value, setValue] = useState('');
+  const [text, setText] = useState('');
+  useEffect(() => {
+    setText(value);
+  }, [value]);
   return (
     <Flex
       align='center'
@@ -42,6 +51,7 @@ const Search = ({
       className={classes}
       {...props}
     >
+      {label}
       <Flex
         align='center'
         wrap='nowrap'
@@ -55,22 +65,24 @@ const Search = ({
             if (onChange) {
               onChange(e.detail.value);
             }
-            setValue(e.detail.value);
+            setText(e.detail.value);
           }}
-          onConfirm={() => onSearch && onSearch(value)}
-          value={value}
+          onConfirm={() => onSearch && onSearch(text)}
+          value={text}
           className='tv-search-input'
           maxlength={maxlength}
           placeholder={placeholder}
         />
-        {rightIcon || (
-          <Icon
-            onClick={() => setValue('')}
-            className='tv-search-close'
-            size='lg'
-            icon='icon-close_fill'
-          />
-        )}
+        {text &&
+          (rightIcon ||
+            (clearable && (
+              <Icon
+                onClick={() => setText('')}
+                className='tv-search-close'
+                size='lg'
+                icon='icon-close_fill'
+              />
+            )))}
       </Flex>
       {children}
     </Flex>
