@@ -11,6 +11,11 @@ nav:
 
 # 更新日志
 
+## 2.5.2
+
+**Features**
+
+- 添加`useRect`元素信息
 ## 2.5.1
 
 **Features**
