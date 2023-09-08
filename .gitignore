@@ -19,4 +19,3 @@ package-lock.json
 yarn.lock
 project.config.json
 project.private.config.json
-hooks
