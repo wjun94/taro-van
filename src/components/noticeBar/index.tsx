@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { ViewProps } from '@tarojs/components/types/View';
 import clsx from 'classnames';
-import { useRect } from '../../hooks/useRect';
+import { useRect } from '../../index';
 import Typography from '../typography';
 import Flex from '../flex';
 import Icon from '../icon';
