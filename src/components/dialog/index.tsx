@@ -152,7 +152,9 @@ const Dialog: FC<DialogProps & Omit<ViewProps, 'onClick'>> & {
         <Button
           {...confirmProps}
           shape='rounded'
-          className={`${prefixCls}-footer--rounded__btn ${!showCancelButton && `${prefixCls}-footer--rounded__btn__min`}`}
+          className={`${prefixCls}-footer--rounded__btn ${
+            !showCancelButton && `${prefixCls}-footer--rounded__btn__min`
+          }`}
         >
           {confirmButtonText}
         </Button>
@@ -167,25 +169,33 @@ const Dialog: FC<DialogProps & Omit<ViewProps, 'onClick'>> & {
     >
       <View className={`${prefixCls}-body`}>
         <View className={classes} onClick={(e) => e.stopPropagation()}>
-          {title && (
-            <Typography.Title className={`${prefixCls}-head`} align='center'>
+          {title && typeof title === 'string' ? (
+            <Typography.Title
+              level={2}
+              className={`${prefixCls}-head`}
+              align='center'
+            >
               {title}
             </Typography.Title>
+          ) : (
+            title
           )}
           {content || (
             <Flex className={`${prefixCls}-content`} justify='center'>
-              {typeof message === "string" ? (
+              {typeof message === 'string' ? (
                 <Typography.Text>{message}</Typography.Text>
               ) : (
                 children
               )}
             </Flex>
           )}
-          {footer === undefined ?  (
+          {footer === undefined ? (
             <Flex className={`${prefixCls}-footer`} wrap='nowrap'>
               {theme === 'rounded' ? <FooterRoundedItem /> : <FooterBaseItem />}
             </Flex>
-          ) : footer}
+          ) : (
+            footer
+          )}
         </View>
       </View>
     </Overlay>

@@ -11,6 +11,13 @@ nav:
 
 # 更新日志
 
+## 2.5.1
+
+**Features**
+
+- 添加`NoticeBar`通知栏组件
+- 添加`Search`搜索组件
+
 ## 2.4.5
 
 **Performance**
@@ -19,13 +26,13 @@ nav:
 
 **Features**
 
-- 添加`useBackgroundAudioManager`播放音乐hooks
+- 添加`useBackgroundAudioManager`播放音乐 hooks
 
 ## 2.4.4
 
 **Performance**
 
-- 解决`Form.Item`子节点onChange事件不触发
+- 解决`Form.Item`子节点 onChange 事件不触发
 
 ## 2.4.3
 

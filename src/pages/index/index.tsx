@@ -27,6 +27,10 @@ const Index = () => {
       url: '/pages/timeline/index',
     },
     {
+      label: 'NoticeBar 通知栏',
+      url: '/pages/noticeBar/index',
+    },
+    {
       label: 'Result 结果',
       url: '/pages/result/index',
     },
@@ -41,6 +45,10 @@ const Index = () => {
     {
       label: 'Typography排版',
       url: '/pages/typography/index',
+    },
+    {
+      label: 'Search搜索',
+      url: '/pages/search/index',
     },
     {
       label: 'Switch开关',

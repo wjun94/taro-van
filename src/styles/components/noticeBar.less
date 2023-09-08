@@ -1,0 +1,26 @@
+@import '../variables/index.less';
+
+.@{tv-prefix}-noticeBar {
+  position: fixed;
+  overflow: hidden;
+  padding: 20px 24px;
+  background-color: #fffbe8;
+  width: calc(100% - 48px);
+  &-container {
+    width: 100%;
+    overflow: hidden;
+  }
+  &-justify {
+    text-align: justify;
+  }
+  &-text {
+    color: #ed6a0c;
+    white-space: nowrap;
+  }
+  .icon-trumpet {
+    margin-right: 12px;
+  }
+  .icon-cross {
+    margin-left: 12px;
+  }
+}
