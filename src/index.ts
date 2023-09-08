@@ -29,4 +29,5 @@ export { default as NoticeBar } from './components/noticeBar'
 export { default as Search } from './components/search'
 
 export { useBackgroundAudioManager } from './hooks/useBackgroundAudioManager';
+export { useRect } from './hooks/useRect';
 
